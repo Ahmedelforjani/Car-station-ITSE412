@@ -28,7 +28,7 @@
 					<div class="m-subheader ">
 						<div class="d-flex align-items-center">
 							<div class="mr-auto">
-								<h3 class="m-subheader__title m-subheader__title--separator">Car Inventory</h3>
+								<h3 class="m-subheader__title m-subheader__title--separator">Add New Car</h3>
 								<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
 									<li class="m-nav__item m-nav__item--home">
 										<a href="index.php" class="m-nav__link m-nav__link--icon">
@@ -37,11 +37,16 @@
 									</li>
 									<li class="m-nav__separator">-</li>
 									<li class="m-nav__item">
-										<a href="" class="m-nav__link">
+										<a href="car_inventory.php" class="m-nav__link">
 											<span class="m-nav__link-text">Car Inventory</span>
 										</a>
 									</li>
-									
+									<li class="m-nav__separator">-</li>
+									<li class="m-nav__item">
+										<a href="addnewcar.php" class="m-nav__link">
+											<span class="m-nav__link-text">Add New Car</span>
+										</a>
+									</li>
 								</ul>
 							</div>
 							<div>
@@ -100,7 +105,7 @@
 
 					<!-- END: Subheader -->
 					<div class="m-content">
-						<?php include "car_inventory_content.php" ?>
+						<?php include "addnewcar_content.php" ?>
 					</div>
 				</div>
 			</div>
@@ -118,7 +123,16 @@
 		<?php include "layout/tail.php" ?> 
 
 		<!--begin::Page Scripts -->
-		<script src="assets/app/js/html-table.js" type="text/javascript"></script>
+		<script src="assets/app/js/bootstrap-select.js" type="text/javascript"></script>
+		<script src="assets/app/js/bootstrap-markdown.js" type="text/javascript"></script>
+		<script src="assets/app/js/dropzone.js" type="text/javascript"></script>
+
+		<script>
+			$(document).ready(function(){
+				$('.m-menu__item a[href="car_inventory.php"]').parent().addClass('m-menu__item--active');
+			});
+		</script>
+		
 		<!--end::Page Scripts -->
 	</body>
 

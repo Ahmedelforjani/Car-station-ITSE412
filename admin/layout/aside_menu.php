@@ -30,6 +30,20 @@
               </li>
 
               <li class="m-menu__item
+                <?php if(basename($_SERVER['PHP_SELF']) == 'categories.php') echo 'm-menu__item--active' ?>" aria-haspopup="true">
+                <a href="categories.php" class="m-menu__link ">
+                  <span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-text">Categories</span>
+                </a>
+              </li>
+
+              <li class="m-menu__item
+                <?php if(basename($_SERVER['PHP_SELF']) == 'employees.php') echo 'm-menu__item--active' ?>" aria-haspopup="true">
+                <a href="employees.php" class="m-menu__link ">
+                  <span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-text">Employees</span>
+                </a>
+              </li>
+
+              <li class="m-menu__item
                 <?php if(basename($_SERVER['PHP_SELF']) == 'working-time-page.php') echo 'm-menu__item--active' ?>" aria-haspopup="true">
                 <a href="working-time-page.php" class="m-menu__link ">
                   <span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-text">Working Time</span>
