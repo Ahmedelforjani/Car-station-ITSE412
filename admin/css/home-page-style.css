@@ -1,0 +1,46 @@
+.car-image {
+  width: 100px;
+  height: 100px;
+}
+
+#images {
+  list-style: none;
+  padding-left: 0
+}
+
+#images li {
+  display: inline-block;
+  margin: 5px;
+  position: relative;
+}
+
+#images img {
+  width: 150px;
+  height: 150px;
+}
+
+.delete-image {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background: #FF0000;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  line-height: 30px;
+  top: 10px;
+  right: 10px;
+  color: white;
+}
+
+.delete-image i {
+  font-size: 15px
+}
+
+.submit-btn {
+  margin-top: 10px;
+}
