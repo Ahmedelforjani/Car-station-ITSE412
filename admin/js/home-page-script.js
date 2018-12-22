@@ -13,7 +13,7 @@ $(document).ready(function() {
 
   //upload images object
   var uploadObj = $("#fileuploader").uploadFile({
-    url:"images-uploader.php",
+    url:"slide-images-uploader.php",
     fileName:"images",
     autoSubmit: false,
     onSuccess:function(files,data,xhr,pd)

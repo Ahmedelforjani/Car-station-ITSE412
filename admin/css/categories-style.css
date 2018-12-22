@@ -1,13 +1,13 @@
-.avatar-upload .avatar-edit {
+.avatar-upload label {
   position: absolute;
   right: 12px;
   z-index: 1;
   top: 10px;
 }
-.avatar-upload .avatar-edit input {
+.avatar-upload input {
   display: none;
 }
-.avatar-upload .avatar-edit input + label {
+.avatar-upload input + label {
   display: inline-block;
   width: 34px;
   height: 34px;
@@ -22,11 +22,11 @@
   text-align: center;
   line-height: 34px;
 }
-.avatar-upload .avatar-edit input + label:hover {
+.avatar-upload input + label:hover {
   background: #f1f1f1;
   border-color: #d6d6d6;
 }
-.avatar-upload .avatar-edit input + label:after {
+.avatar-upload input + label:after {
   color: #757575;
   position: absolute;
   top: 10px;
@@ -50,4 +50,26 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.table th, .table tr {
+  cursor: pointer;
+
+}
+
+.table th, .table tr.active {
+  background-color: #f4f5f8;
+}
+
+.image {
+  position: relative;
+}
+
+#add_new_cat_form .cat_img {
+  position: relative;
+}
+
+.avatar-upload .cat-img-preview {
+  width: 100%;
+  height: 250px;
 }

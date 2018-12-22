@@ -1,3 +1,9 @@
+<?php
+
+	include "Classes/Category.php";
+	
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -14,7 +20,7 @@
 		<!-- begin:: Page -->
 		<div class="m-grid m-grid--hor m-grid--root m-page">
 
-			<?php include "layout/header.php" ?> 
+			<?php include "layout/header.php" ?>
 
 			<!-- begin::Body -->
 			<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
@@ -42,7 +48,7 @@
 											<span class="m-nav__link-text">Car Cateogries</span>
 										</a>
 									</li>
-									
+
 								</ul>
 							</div>
 							<div>
@@ -116,7 +122,7 @@
 
 		<!-- end:: Page -->
 
-		<?php include "layout/tail.php" ?> 
+		<?php include "layout/tail.php" ?>
 
 		<!--begin::Page Scripts -->
         <script src="assets/app/js/dropzone.js" type="text/javascript"></script>

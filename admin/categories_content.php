@@ -23,12 +23,12 @@
                 <div class="m-scrollable m-scroller ps ps--active-y" data-scrollable="true" style="height: 450px; overflow: hidden;">
                     <table class="table table-hover">
                         <tbody>
-                            <?php 
-                                for($i=1;$i<=20;$i++){
-                                    echo '<tr data-id="'.$i.'">
-                                            <td>Category '.$i.'</td>
-                                            </tr>';
-                                }
+                            <?php
+
+                              $category_manager = new CategoriesManager();
+                              $category_manager->loadAllCategories();
+                              echo $category_manager->getCategoriesHTMLTable();
+
                             ?>
                         </tbody>
                     </table>
@@ -54,43 +54,46 @@
             </div>
 
             <!--begin::Form-->
-            <form class="m-form m-form--fit">
+            <form id="update_cat_form" action="" method="post" enctype="multipart/form-data" class="m-form m-form--fit">
                 <div class="m-portlet__body">
                     <div class="form-group m-form__group row">
-                        <label class="col-lg-2 col-form-label">Name</label>
-                        <div class="col-lg-9">
-                            <input class="form-control m-input">
+                        <label class="col-md-3 col-form-label">Name</label>
+                        <div class="col-md-9">
+                            <input name="category_name" class="form-control m-input">
                         </div>
-                        
+
                     </div>
                     <div class="form-group m-form__group row">
-                        <label class="col-lg-2 col-form-label">Description</label>
-                        <div class="col-lg-9">
-                            <textarea class="form-control md-input" rows="8" style="resize: none;"></textarea>
+                        <label class="col-md-3 col-form-label">Description</label>
+                        <div class="col-md-9">
+                            <textarea name="category_description" class="form-control md-input" rows="8" style="resize: none;"></textarea>
                         </div>
                     </div>
                     <div class="form-group m-form__group row">
-                        <label class="col-lg-3 col-form-label">Category Image</label>
-                        <div class="col-lg-6">
-                            <div class="avatar-upload">
-                                <div class="avatar-edit">
-                                    <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
-                                    <label for="imageUpload"><i class="flaticon-edit"></i></label>
-                                </div>
-                                <div class="avatar-preview">
-                                    <div id="imagePreview" style="background-image: url(images/DuFG605VAAACfJz.jpg);">
+                        <label class="col-md-3 col-form-label">Category Image</label>
+                        <div class="col-md-9">
+                          <div class="image">
+                              <div class="avatar-upload">
+
+                                  <div class="avatar-preview">
+                                      <input name="category_image" type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                      <label for="imageUpload"><i class="flaticon-edit"></i></label>
+                                    <div id="imagePreview">
                                     </div>
-                                </div>
-                            </div>
+                                  </div>
+                              </div>
+                          </div>
                         </div>
+
                     </div>
+
+                    <input id="cat_id" type="hidden" value="" name="cat_id" />
                 </div>
                 <div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
                     <div class="m-form__actions m-form__actions--solid">
                         <div class="row">
                             <div class="col-lg-6">
-                                <button type="reset" class="btn btn-primary">Save</button>
-                                <button type="reset" class="btn btn-secondary">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                             <div class="col-lg-6 m--align-right">
                                 <button type="reset" class="btn btn-danger">Delete</button>
@@ -101,30 +104,6 @@
             </form>
 
             <!--end::Form-->
-        </div>
-        <div class="modal fade" id="add_cat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Categories</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="recipient-name" class="form-control-label">Category</label>
-                                <input type="text" class="form-control" id="recipient-name">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

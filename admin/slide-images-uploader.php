@@ -2,8 +2,6 @@
 
   // print_r($_FILES['images']);
 
-
-
   if(isset($_FILES['images'])) {
     $image = $_FILES['images'];
 
