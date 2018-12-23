@@ -132,7 +132,8 @@
       $stmt->bindParam(':id', $cat_id);
 
       try{
-        if($stmt->execute()) {
+        $stmt->execute();
+        if($stmt->rowCount() > 0) {
           return "success";
         } else {
           return "failed";

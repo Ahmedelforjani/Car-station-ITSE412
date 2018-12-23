@@ -93,10 +93,10 @@
                     <div class="m-form__actions m-form__actions--solid">
                         <div class="row">
                             <div class="col-lg-6">
-                                <button id="saveBtn" disabled type="submit" class="btn btn-primary">Save</button>
+                                <button id="saveBtn" disabled type="submit" class="btn btn-primary ld-ext-left"><div class="ld ld-ring ld-spin"></div>Save</button>
                             </div>
                             <div class="col-lg-6 m--align-right">
-                                <button id="deleteBtn" disabled type="reset" class="btn btn-danger">Delete</button>
+                                <button id="deleteBtn" disabled type="button" class="btn btn-danger ld-ext-left"><div class="ld ld-ring ld-spin"></div>Delete</button>
                             </div>
                         </div>
                     </div>

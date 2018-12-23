@@ -1,7 +1,7 @@
 <?php
 
 	include "Classes/Category.php";
-	
+
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,13 @@
 	<!-- begin::Head -->
 	<?php include "layout/head.php" ?>
     <link href="css/viewbox.css" rel="stylesheet" type="text/css"/>
+
+		<!-- Loading Buttons plugin for making buttons spin -->
+		<link rel="stylesheet" type="text/css" href="css/loading.css"/>
+		<link rel="stylesheet" type="text/css" href="css/loading-btn.css"/>
+
     <link href="css/categories-style.css" rel="stylesheet" type="text/css"/>
+
 	<!-- end::Head -->
 
 	<!-- begin::Body -->

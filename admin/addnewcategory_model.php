@@ -37,7 +37,10 @@
     </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <input class="btn btn-primary" id="testBtn" type="submit" form="add_new_cat_form" value="Add" />
+        <button class="btn btn-primary ld-ext-left" id="addBtn" type="submit" form="add_new_cat_form">
+          <div class="ld ld-ring ld-spin"></div>
+          Add
+        </button>
       </div>
     </div>
   </div>
