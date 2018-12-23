@@ -45,15 +45,8 @@
     public function getCategoriesHTMLTable() {
 
       $table = "";
-      $i = 1;
-      $isActive = "";
       foreach($this->_categories as $category){
-        $isActive = "";
-        if($i == 1) {
-          $isActive = "active";
-          $i++;
-        }
-        $table .= '<tr class=" ' . $isActive . '" data-id="'.$category->getCategoryId().'">
+        $table .= '<tr data-id="'.$category->getCategoryId().'">
                 <td>'.$category->getCategoryName().'</td>
                 </tr>';
       }
@@ -128,6 +121,26 @@
       } catch(Exception $ex) {
         return "failed";
       }
+
+    }
+
+    public function deleteCategory($cat_id) {
+      global $con;
+
+      $query = "DELETE FROM categories WHERE id = :id";
+      $stmt = $con->prepare($query);
+      $stmt->bindParam(':id', $cat_id);
+
+      try{
+        if($stmt->execute()) {
+          return "success";
+        } else {
+          return "failed";
+        }
+      } catch(Exception $ex) {
+        return "failed";
+      }
+
 
     }
 

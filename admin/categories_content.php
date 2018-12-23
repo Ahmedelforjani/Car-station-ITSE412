@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="m-portlet__body">
-                <div class="m-scrollable m-scroller ps ps--active-y" data-scrollable="true" style="height: 450px; overflow: hidden;">
+                <div class="m-scrollable m-scroller ps ps--active-y" data-scrollable="true" style="max-height: 485px; overflow: hidden;">
                     <table class="table table-hover">
                         <tbody>
                             <?php
@@ -59,14 +59,14 @@
                     <div class="form-group m-form__group row">
                         <label class="col-md-3 col-form-label">Name</label>
                         <div class="col-md-9">
-                            <input name="category_name" class="form-control m-input">
+                            <input disabled="true" name="category_name" class="form-control m-input">
                         </div>
 
                     </div>
                     <div class="form-group m-form__group row">
                         <label class="col-md-3 col-form-label">Description</label>
                         <div class="col-md-9">
-                            <textarea name="category_description" class="form-control md-input" rows="8" style="resize: none;"></textarea>
+                            <textarea disabled="true" name="category_description" class="form-control md-input" rows="8" style="resize: none;"></textarea>
                         </div>
                     </div>
                     <div class="form-group m-form__group row">
@@ -76,9 +76,9 @@
                               <div class="avatar-upload">
 
                                   <div class="avatar-preview">
-                                      <input name="category_image" type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                      <input disabled="true" name="category_image" type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
                                       <label for="imageUpload"><i class="flaticon-edit"></i></label>
-                                    <div id="imagePreview">
+                                    <div id="imagePreview" style="background-image: url(images/default.png)">
                                     </div>
                                   </div>
                               </div>
@@ -93,10 +93,10 @@
                     <div class="m-form__actions m-form__actions--solid">
                         <div class="row">
                             <div class="col-lg-6">
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button id="saveBtn" disabled type="submit" class="btn btn-primary">Save</button>
                             </div>
                             <div class="col-lg-6 m--align-right">
-                                <button type="reset" class="btn btn-danger">Delete</button>
+                                <button id="deleteBtn" disabled type="reset" class="btn btn-danger">Delete</button>
                             </div>
                         </div>
                     </div>
