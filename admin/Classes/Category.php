@@ -146,7 +146,7 @@
     }
 
     public function getAllCategories() {
-      return $categories;
+      return $this->_categories;
     }
   }
 

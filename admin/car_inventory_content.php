@@ -74,42 +74,16 @@
             </th>
           </tr>
         </thead>
-      <tbody>
+        <tbody>
 
-        <?php 
-          for($i=0; $i<99; $i++){
-            echo '<tr>
-                      <td>Funk You</td>
-                      <td>Funk You</td>
-                      <td>Funk You</td>
-                      <td>Funk You</td>
-                      <td>Funk You</td>
-                      <td>Funk You</td>
-                      <td>Funk You</td>
-                      <td>Funk You</td>
-                  </tr>';
-          } 
-        ?>
         <?php
 
-        //   $studentmanager = new studentmanager($DB_con,$entity);
-        //   $table = '';
-        //   $student = $studentmanager->getStaffList();
-        //   for ($i=0; $i<count($student); $i++)
-        //   {
-        //     $table .= '<tr data-userid="'.$student[$i]->getID().'">';
-        //     $programentity = $entities->getEntityById($student[$i]->getEntityID());
-        //     $table .="<td>".$student[$i]->getFullname()."</td>";
-        //     $table .="<td>".$programentity->getArabicName()."</td>";
-        //     $table .="<td>".$programentity->getArabicName()."</td>";
-        //     $table .='<td><a href="editstudent.php?userid='.$student[$i]->getId().'" class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" title="تعديل">
-        //               <i class="la la-edit"></i>
-        //               </a></td>';
-        //     $table .="</tr>\n";
-        //   } 
-        //   echo $table;
+          $car_manager = new CarsManager();
+          $car_manager->loadAllCars();
+          echo $car_manager->getCarsHTMLTable();
 
-          ?>
+        ?>
+
         </tbody>
       </table>
       <!--end: Datatable -->

@@ -1,3 +1,7 @@
+<?php
+	include "Classes/Car.php";
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
