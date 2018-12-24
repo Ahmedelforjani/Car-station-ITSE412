@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 21, 2018 at 03:58 PM
+-- Generation Time: Dec 24, 2018 at 11:27 AM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -78,7 +78,16 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `img` varchar(250) NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `img`, `description`) VALUES
+(44, 'fgbf', '46976_gfgh.png', 'gftfb'),
+(45, 'bfgb', '68964_bfgb.png', ''),
+(46, 'gfbfg', '20334_gfbfg.png', 'fdgdg');
 
 -- --------------------------------------------------------
 
