@@ -40,27 +40,20 @@
 										</div>
 										<div class="col-lg-4 form-group m-form__group ">
 											<label>Categories</label>
-											<div class="input-group">
-												<div class="dropdown bootstrap-select show-tick form-control m-bootstrap-select">
-													<select name="category_id" class="form-control m-bootstrap-select m_selectpicker" tabindex="-98" title="Select Category">
-													<?php
+											<div class="dropdown bootstrap-select show-tick form-control m-bootstrap-select">
+												<select name="category_id" class="form-control m-bootstrap-select m_selectpicker" tabindex="-98" title="Select Category">
+												<?php
 
-														$category_manager = new CategoriesManager();
-														$category_manager->loadAllCategories();
-														$categories = $category_manager->getAllCategories();
-														foreach($categories as $category){
-                                                            $selected = $category->getCategoryId() == $car->getCategoryId() ? 'selected' : ''; 
-															echo '<option value="'.$category->getCategoryId().'" '.$selected.'>'.$category->getCategoryName().'</option>';
-														}
+													$category_manager = new CategoriesManager();
+													$category_manager->loadAllCategories();
+													$categories = $category_manager->getAllCategories();
+													foreach($categories as $category){
+														$selected = $category->getCategoryId() == $car->getCategoryId() ? 'selected' : ''; 
+														echo '<option value="'.$category->getCategoryId().'" '.$selected.'>'.$category->getCategoryName().'</option>';
+													}
 
-													?>
-													</select>
-												</div>
-												<div class="input-group-append">
-													<button class="btn btn-success" data-toggle="modal" data-target="#addnewcategory" type="button">
-														<i class="fa fa-plus"></i>
-													</button>
-												</div>
+												?>
+												</select>
 											</div>
 										</div>
 									</div>
@@ -103,7 +96,7 @@
 									<div class="form-group m-form__group row">
 										<div class="col-lg-12">
 											<label>Overview</label>
-											<textarea name="overview" class="form-control md-input" rows="8" style="resize: none;" value="<?php echo $car->getOverview() ?>"></textarea>
+											<textarea name="overview" class="form-control md-input" rows="8" style="resize: none;"><?php echo $car->getOverview() ?></textarea>
 										</div>
 									</div>
 									<!-- <div class="form-group m-form__group row">

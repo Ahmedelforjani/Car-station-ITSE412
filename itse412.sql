@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Dec 24, 2018 at 11:27 AM
--- Server version: 5.7.19
--- PHP Version: 5.6.31
+-- Host: 127.0.0.1
+-- Generation Time: Dec 24, 2018 at 01:01 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,10 +28,9 @@ SET time_zone = "+00:00";
 -- Table structure for table `car`
 --
 
-DROP TABLE IF EXISTS `car`;
-CREATE TABLE IF NOT EXISTS `car` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(250) NOT NULL,
+CREATE TABLE `car` (
+  `car_id` int(11) NOT NULL,
+  `car_name` varchar(250) NOT NULL,
   `model` int(4) NOT NULL,
   `color` varchar(50) NOT NULL,
   `milage` int(11) NOT NULL,
@@ -41,14 +40,18 @@ CREATE TABLE IF NOT EXISTS `car` (
   `condition` varchar(20) NOT NULL,
   `passengers` int(50) NOT NULL,
   `price` int(11) NOT NULL,
-  `duss` varchar(250) NOT NULL,
+  `transmission` varchar(250) NOT NULL,
   `overview` text NOT NULL,
-  `options` varchar(55) NOT NULL,
-  `is_visible` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `category_id` (`category_id`),
-  KEY `category_id_2` (`category_id`)
+  `options` text NOT NULL,
+  `is_visible` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `car`
+--
+
+INSERT INTO `car` (`car_id`, `car_name`, `model`, `color`, `milage`, `engine`, `doors`, `category_id`, `condition`, `passengers`, `price`, `transmission`, `overview`, `options`, `is_visible`) VALUES
+(1, 'Sonata', 2007, 'Black', 69000, 20, 4, 44, 'Good', 5, 8500, 'Automatic', 'Blah Blah', '<ul><li>Blah Blah</li><li>Blah Blah</li><li>Blah Blah</li><li>Blah Blah</li><li>Blah Blah</li><li>Blah Blah</li><li>Blah Blah</li><li>Blah Blah<br></li></ul>', 0);
 
 -- --------------------------------------------------------
 
@@ -56,13 +59,10 @@ CREATE TABLE IF NOT EXISTS `car` (
 -- Table structure for table `cars_image`
 --
 
-DROP TABLE IF EXISTS `cars_image`;
-CREATE TABLE IF NOT EXISTS `cars_image` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cars_image` (
+  `id` int(11) NOT NULL,
   `car_id` int(11) NOT NULL,
-  `img` varchar(250) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id` (`car_id`)
+  `img` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -71,14 +71,12 @@ CREATE TABLE IF NOT EXISTS `cars_image` (
 -- Table structure for table `categories`
 --
 
-DROP TABLE IF EXISTS `categories`;
-CREATE TABLE IF NOT EXISTS `categories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL,
   `name` varchar(250) NOT NULL,
   `img` varchar(250) NOT NULL,
-  `description` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+  `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `categories`
@@ -95,15 +93,13 @@ INSERT INTO `categories` (`id`, `name`, `img`, `description`) VALUES
 -- Table structure for table `employee`
 --
 
-DROP TABLE IF EXISTS `employee`;
-CREATE TABLE IF NOT EXISTS `employee` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `employee` (
+  `id` int(11) NOT NULL,
   `name` varchar(250) NOT NULL,
   `img` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `phone` varchar(50) NOT NULL,
-  `job_title` varchar(250) NOT NULL,
-  PRIMARY KEY (`id`)
+  `job_title` varchar(250) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -112,11 +108,9 @@ CREATE TABLE IF NOT EXISTS `employee` (
 -- Table structure for table `slide`
 --
 
-DROP TABLE IF EXISTS `slide`;
-CREATE TABLE IF NOT EXISTS `slide` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `img` varchar(250) NOT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `slide` (
+  `id` int(11) NOT NULL,
+  `img` varchar(250) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -125,12 +119,10 @@ CREATE TABLE IF NOT EXISTS `slide` (
 -- Table structure for table `statistics`
 --
 
-DROP TABLE IF EXISTS `statistics`;
-CREATE TABLE IF NOT EXISTS `statistics` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `statistics` (
+  `id` int(11) NOT NULL,
   `name` varchar(250) NOT NULL,
-  `num` int(50) NOT NULL,
-  PRIMARY KEY (`id`)
+  `num` int(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -139,14 +131,12 @@ CREATE TABLE IF NOT EXISTS `statistics` (
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
   `name` varchar(250) NOT NULL,
   `password` varchar(250) NOT NULL,
   `img` varchar(250) NOT NULL,
-  `user_type` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `user_type` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -155,16 +145,14 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Table structure for table `webside_info`
 --
 
-DROP TABLE IF EXISTS `webside_info`;
-CREATE TABLE IF NOT EXISTS `webside_info` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `webside_info` (
+  `id` int(11) NOT NULL,
   `welcome_dec` text NOT NULL,
   `about_us` text NOT NULL,
   `email` varchar(250) NOT NULL,
   `phone` varchar(50) NOT NULL,
   `address` varchar(250) NOT NULL,
-  `map_loc` varchar(250) NOT NULL,
-  PRIMARY KEY (`id`)
+  `map_loc` varchar(250) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -173,14 +161,131 @@ CREATE TABLE IF NOT EXISTS `webside_info` (
 -- Table structure for table `work_time`
 --
 
-DROP TABLE IF EXISTS `work_time`;
-CREATE TABLE IF NOT EXISTS `work_time` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `work_time` (
+  `id` int(11) NOT NULL,
   `day` varchar(20) NOT NULL,
   `start_h` varchar(50) NOT NULL,
-  `close_h` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
+  `close_h` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `car`
+--
+ALTER TABLE `car`
+  ADD PRIMARY KEY (`car_id`),
+  ADD KEY `category_id` (`category_id`),
+  ADD KEY `category_id_2` (`category_id`);
+
+--
+-- Indexes for table `cars_image`
+--
+ALTER TABLE `cars_image`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`car_id`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `slide`
+--
+ALTER TABLE `slide`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `statistics`
+--
+ALTER TABLE `statistics`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `webside_info`
+--
+ALTER TABLE `webside_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `work_time`
+--
+ALTER TABLE `work_time`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `car`
+--
+ALTER TABLE `car`
+  MODIFY `car_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `cars_image`
+--
+ALTER TABLE `cars_image`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `slide`
+--
+ALTER TABLE `slide`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `statistics`
+--
+ALTER TABLE `statistics`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `webside_info`
+--
+ALTER TABLE `webside_info`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `work_time`
+--
+ALTER TABLE `work_time`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -196,7 +301,7 @@ ALTER TABLE `car`
 -- Constraints for table `cars_image`
 --
 ALTER TABLE `cars_image`
-  ADD CONSTRAINT `cars_image_ibfk_1` FOREIGN KEY (`car_id`) REFERENCES `car` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cars_image_ibfk_1` FOREIGN KEY (`car_id`) REFERENCES `car` (`car_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

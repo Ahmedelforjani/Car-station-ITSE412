@@ -197,7 +197,7 @@ $(document).ready(function(){
     
                 })
                 .fail(function(jqXHR, textStatus, errorThrown){
-                    swal('Oops...', 'Something went wrong with ajax !' + jqXHR.responseText, 'error');
+                    swal('Oops...', 'Something went wrong with ajax !', 'error');
                 });
             }
         });
