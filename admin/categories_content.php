@@ -59,14 +59,14 @@
                     <div class="form-group m-form__group row">
                         <label class="col-md-3 col-form-label">Name</label>
                         <div class="col-md-9">
-                            <input disabled="true" name="category_name" class="form-control m-input">
+                            <input required disabled="true" name="category_name" class="form-control m-input">
                         </div>
 
                     </div>
                     <div class="form-group m-form__group row">
                         <label class="col-md-3 col-form-label">Description</label>
                         <div class="col-md-9">
-                            <textarea disabled="true" name="category_description" class="form-control md-input" rows="8" style="resize: none;"></textarea>
+                            <textarea required disabled="true" name="category_description" class="form-control md-input" rows="8" style="resize: none;"></textarea>
                         </div>
                     </div>
                     <div class="form-group m-form__group row">
