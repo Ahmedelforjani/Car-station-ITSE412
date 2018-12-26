@@ -11,11 +11,11 @@
         <form id="add_new_cat_form" action="" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label class="form-control-label">Name</label>
-                <input type="text" class="form-control" name="name">
+                <input required type="text" class="form-control" name="name">
             </div>
             <div class="form-group">
                 <label class="form-control-label">Description</label>
-                <textarea class="form-control" name="description"></textarea>
+                <textarea required class="form-control" name="description"></textarea>
             </div>
             <div class="form-group m-form__group">
                 <label class="form-control-label">Category Image</label>
