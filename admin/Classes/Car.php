@@ -113,6 +113,10 @@
     public function getOptions(){
       return $this->_options;
     }
+
+    public function getImages(){
+      return $this->_images;
+    }
   }
 
 
@@ -136,6 +140,9 @@
                   <a href="editcar.php?carid='.$Car->getId().'" class="btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" title="Edit">
                         <i class="la la-edit"></i>
                   </a>
+                  <Button id=imagerViewer data-toggle="modal" data-target="#viewImages" data-id='.$Car->getId().'" class="btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill viewer" title="View Car\'s Images">
+                        <i class="la la-photo"></i>
+                  </Button> 
                 </td>
                 </tr>';
       }
@@ -246,6 +253,47 @@
       } catch(Exception $ex) {
         return "Error ".$ex;
       }
+    }
+
+    public function addImage($id, $image) {
+      global $con;
+
+      $query = "INSERT INTO cars_image (car_id, img) VALUES (:id, :img)";
+      $stmt = $con->prepare($query);
+      $stmt->bindParam(':id', $id);
+      $stmt->bindParam(':img', $image);
+
+      try{
+        $stmt->execute();
+        if($stmt->rowCount() > 0) {
+          return "success";
+        } else {
+          return "failed";
+        }
+      } catch(Exception $ex) {
+        return "Error ".$ex;
+      }
+
+    }
+
+    public function deleteImage($id, $image) {
+      global $con;
+      $query = "DELETE FROM cars_image WHERE car_id = :id AND img = :img";
+      $stmt = $con->prepare($query);
+      $stmt->bindParam(':id', $id);
+      $stmt->bindParam(':img', $image);
+
+      try{
+        $stmt->execute();
+        if($stmt->rowCount() > 0) {
+          return "success";
+        } else {
+          return "failed";
+        }
+      } catch(Exception $ex) {
+        return "Error ".$ex;
+      }
+
     }
 
     public function getAllCars() {

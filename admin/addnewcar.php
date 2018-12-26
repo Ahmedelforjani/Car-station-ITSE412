@@ -8,6 +8,8 @@
 
 	<!-- begin::Head -->
 	<?php include "layout/head.php" ?>
+	
+	<link rel="stylesheet" type="text/css" href="css/imagesview-sytle.css"/>
 
 	<!-- end::Head -->
 
@@ -128,7 +130,7 @@
 
 		<!--begin::Page Scripts -->
 		<script src="assets/app/js/bootstrap-markdown.js" type="text/javascript"></script>
-		<script src="assets/app/js/dropzone.js" type="text/javascript"></script>
+		<script src="js/jquery.viewbox.min.js" type="text/javascript"></script>
 		<script src="js/addnewcar.js" type="text/javascript"></script>
 
 		<script>

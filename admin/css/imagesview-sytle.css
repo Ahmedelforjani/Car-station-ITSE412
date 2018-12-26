@@ -1,0 +1,59 @@
+.images {
+    margin-top: 20px;
+}
+.images .img, .images .addImg {
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+.images .img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.images .img span {
+    display: block;
+    position: absolute;
+    color: #fff;
+    text-transform: capitalize;
+    z-index: 2;
+    transition: .1s ease-in;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.images .img span:hover i{
+    border: 10px solid #c62d29;
+    background-color: #c62d29;
+    transition: .1s ease-in;
+}
+
+.images .img span i {
+    border: 10px solid #e6332e;
+    border-radius: 50%;
+    background-color: #e6332e;
+}
+
+.images .addImg {
+    height: 200px;
+    line-height: 200px;
+    background-color: #FFF;
+    align-self: center;
+    text-align: center;
+    border: 4px dashed #1FB264;
+    text-transform: uppercase;
+    color: #1FB264;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.images .addImg:hover {
+    background-color: #1FB264;
+    border: 4px solid #1FB264;
+    color: #fff;
+
+}

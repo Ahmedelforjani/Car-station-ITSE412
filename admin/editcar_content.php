@@ -82,11 +82,11 @@
 										<div class="col-lg-4 form-group m-form__group ">
 											<label for="transmission">Transmission</label>
 											<div class="m-radio-inline">
-												<label class="m-radio">
+												<label class="m-radio m-radio--solid m-radio--brand">
 												<input type="radio" name="transmission" value="Manual" <?php if($car->getTransmission() == "Manual") echo "checked"; ?>> Manual
 												<span></span>
 												</label>
-												<label class="m-radio">
+												<label class="m-radio m-radio--solid m-radio--brand">
 												<input type="radio" name="transmission" value="Automatic" <?php if($car->getTransmission() == "Automatic") echo "checked"; ?>> Automatic
 												<span></span>
 												</label>
