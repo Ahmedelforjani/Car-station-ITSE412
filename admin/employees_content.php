@@ -70,20 +70,8 @@
         </thead>
       <tbody>
 
-        <?php 
-          for($i=0; $i<99; $i++){
-            echo '<tr>
-                      <td>Funk You</td>
-                      <td>Funk You</td>
-                      <td>Funk You</td>
-                      <td>Funk You</td>
-                      <td>Funk You</td>
-                      <td>Funk You</td>
-                  </tr>';
-          } 
-        ?>
-        <?php
-
+        
+<?php
         //   $studentmanager = new studentmanager($DB_con,$entity);
         //   $table = '';
         //   $student = $studentmanager->getStaffList();
