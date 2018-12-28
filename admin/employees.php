@@ -1,5 +1,9 @@
 <!DOCTYPE html>
+<?php
 
+	include "Classes/employee.php";
+
+?>
 <html lang="en">
 
 	<!-- begin::Head -->
@@ -120,7 +124,9 @@
 		<!--begin::Page Scripts -->
 		<script src="assets/app/js/html-table.js" type="text/javascript"></script>
 		<script src="assets/app/js/dropzone.js" type="text/javascript"></script>
+		<script src="js\employee.js" type="text/javascript"></script>
 		<!--end::Page Scripts -->
+
 	</body>
 
 	<!-- end::Body -->

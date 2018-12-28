@@ -51,10 +51,10 @@
 
           case 'update_info' :
             echo 'update_info';
-            $phone =  $_POST['phone'];
-            $email =  $_POST['email'];
-            $address =  $_POST['address'];
-            $map_loc =  $_POST['map_loc'];
+                $phone =  $_POST['phone'];
+                $email =    $_POST['email'];
+                $address =  $_POST['address'];
+                $map_loc =  $_POST['map_loc'];
 
             //execute code to update the values
             /*
