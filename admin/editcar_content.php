@@ -42,17 +42,7 @@
 											<label>Categories</label>
 											<div class="dropdown bootstrap-select show-tick form-control m-bootstrap-select">
 												<select name="category_id" class="form-control m-bootstrap-select m_selectpicker" tabindex="-98" title="Select Category">
-												<?php
-
-													$category_manager = new CategoriesManager();
-													$category_manager->loadAllCategories();
-													$categories = $category_manager->getAllCategories();
-													foreach($categories as $category){
-														$selected = $category->getCategoryId() == $car->getCategoryId() ? 'selected' : ''; 
-														echo '<option value="'.$category->getCategoryId().'" '.$selected.'>'.$category->getCategoryName().'</option>';
-													}
-
-												?>
+												
 												</select>
 											</div>
 										</div>
