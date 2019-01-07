@@ -45,7 +45,7 @@
       </div>
       <!--end: Search Form -->
       <!--begin: Datatable -->
-      <table class="m-datatable table" id="html_table" width="100%">
+      <table class="m-datatable" id="html_table" width="100%">
         <thead>
           <tr>
             <th data-field="f1">
@@ -60,25 +60,36 @@
             <th data-field="f4">
             Job Title
             </th>
-            
+            <th data-field="f5">
+            Image
+            </th>
             <th data-field="f6">
             Actions
             </th>
           </tr>
         </thead>
-        
       <tbody>
-      <?php 
-          
 
-          $employeemanager = new employeeManager();
-          $employeemanager->loadEmployees();
-          echo $employeemanager->getEmployeeInTable();
-
-        ?>
         
-        
+<?php
+        //   $studentmanager = new studentmanager($DB_con,$entity);
+        //   $table = '';
+        //   $student = $studentmanager->getStaffList();
+        //   for ($i=0; $i<count($student); $i++)
+        //   {
+        //     $table .= '<tr data-userid="'.$student[$i]->getID().'">';
+        //     $programentity = $entities->getEntityById($student[$i]->getEntityID());
+        //     $table .="<td>".$student[$i]->getFullname()."</td>";
+        //     $table .="<td>".$programentity->getArabicName()."</td>";
+        //     $table .="<td>".$programentity->getArabicName()."</td>";
+        //     $table .='<td><a href="editstudent.php?userid='.$student[$i]->getId().'" class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" title="تعديل">
+        //               <i class="la la-edit"></i>
+        //               </a></td>';
+        //     $table .="</tr>\n";
+        //   } 
+        //   echo $table;
 
+          ?>
         </tbody>
       </table>
       <!--end: Datatable -->
@@ -86,4 +97,3 @@
 </div>
 
 <?php include "addnewemployee_model.php" ?>
-<?php include "edit-employee_model.php" ?>
