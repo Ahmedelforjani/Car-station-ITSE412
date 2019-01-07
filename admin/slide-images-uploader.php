@@ -7,7 +7,7 @@
 
     if( !empty($image['name']) ) {
       $imageName = rand(0, 100000) . "_" . $image['name'];
-      move_uploaded_file($image['tmp_name'], "images/" . $imageName);
+      move_uploaded_file($image['tmp_name'], "images/Slider/" . $imageName);
     } else {
       $imageName = "default.png";
     }
