@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="shortcut icon" href="images/favicon.ico">
-<title>Automotive Car Dealership &amp; Business HTML Template</title>
+<title>My Car Station &amp; It's All About Cars</title>
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -45,8 +45,8 @@
         <div class="row">
             <div class="col-md-4 col-xs-12 logo-footer margin-bottom-20 md-margin-bottom-20 sm-margin-bottom-10 xs-margin-bottom-20">
                 <a href="#" style="text-decoration: none">
-                <h1>Automotive</h1>
-                <span>template</span></a>
+                <h1>My Car</h1>
+                <span>Station</span></a>
             </div>
             <div class="col-md-4 col-xs-12">
                 <h4>Contact us</h4>

@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="shortcut icon" href="images/favicon.ico">
-<title>Automotive Car Dealership &amp; Business HTML Template</title>
+<title>My Car Station &amp; It's All About Cars</title>
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -68,7 +68,7 @@
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                        <a class="navbar-brand" href="index.html"><span class="logo"><span class="primary_text">Automotive</span> <span class="secondary_text">Template</span></span></a> </div>
+                        <a class="navbar-brand" href="index.html"><span class="logo"><span class="primary_text">My Car</span> <span class="secondary_text">Station</span></span></a> </div>
                     
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
