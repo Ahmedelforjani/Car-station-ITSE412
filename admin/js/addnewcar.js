@@ -1,5 +1,34 @@
 $(document).ready(function(){
     
+    // ----------- IMAGES HANDLING SCRIPT ----------- 
+    var button = $('.images .addImg');
+    var uploader = $('<input type="file" accept=".png, .jpg, .jpeg" multiple />');
+    var images = $('.images');
+    var imageFiles = [];
+
+    button.on('click', function () {
+      uploader.click();
+    });
+
+    uploader.on('change', function (e) {
+        for(var i = 0; i < $(this).get(0).files.length; i++){
+            var file = e.target.files[i];
+            var imageData = URL.createObjectURL(file);
+            images.prepend('<div class="col-lg-3"><div class="img" style="background-image: url(\'' + imageData + '\');" rel="'+ file.name +'"><span><i class="la la-close"></i></span></div></div>');
+            imageFiles.push(file);
+        }
+    });
+    images.on('click', '.img span', function () {
+        $(this).parent().parent().remove();
+        var removeImg = $(this).parent().attr('rel');
+
+        for(var i = 0; i < imageFiles.length; i++)
+            if(removeImg == imageFiles[i].name)
+                imageFiles.splice(i,1);
+    });
+    // ----------- END IMAGES SCRIPT ----------- 
+
+
     $(".m-form .m-form__group:first-child").css("padding-top","15px");
     
     $('.m_selectpicker').selectpicker();
@@ -129,13 +158,21 @@ $(document).ready(function(){
             event.preventDefault();
         },
         submitHandler: function(form) {
+            var formData = new FormData($('#addnewcar_form')[0]);
+            imageFiles.forEach(function(image, i){
+                formData.append('image[]', image);
+            });
             $('#options').summernote('destroy');
             var options = $('#options').html();
+            formData.append('options', options);
             $.ajax({
                 url: 'addnewcar_data.php',
                 type: 'POST',
                 dataType: 'json',
-                data: $('#addnewcar_form').serialize() + "&options=" + options
+                data: formData,
+                contentType: false,
+                processData: false
+                
             }).done(function(response) {
                 if (response.status == 'success') {
                     swal({
@@ -153,8 +190,8 @@ $(document).ready(function(){
                 } else {
                     swal('Oops...', 'There\'s something worng, please try again !\n'+ response.status, 'error');
                 }
-            }).fail(function() {
-                swal('Sorry :(', 'There\'s something worng with server, please try again !', 'error');
+            }).fail(function(jqXHR, textStatus, errorThrown) {
+                swal('Sorry :(', 'There\'s something worng with Ajax, please try again ! Error \n' + jqXHR.responseText, 'error');
             });
         }
     });

@@ -13,7 +13,7 @@
 							</div>
 
 							<!--begin::Form-->
-							<form class="m-form m-form--fit m-form--label-align-right" id="addnewcar_form" method="POST" novalidate="novalidate" >
+							<form class="m-form m-form--fit m-form--label-align-right" id="addnewcar_form" enctype="multipart/form-data"  method="POST" novalidate="novalidate" >
 								<div class="m-portlet__body">
 									<div class="form-group m-form__group row">
 										<div class="col-lg-4 form-group m-form__group ">
@@ -40,26 +40,19 @@
 										</div>
 										<div class="col-lg-4 form-group m-form__group ">
 											<label>Categories</label>
-											<div class="input-group">
-												<div class="dropdown bootstrap-select show-tick form-control m-bootstrap-select">
-													<select name="category_id" class="form-control m-bootstrap-select m_selectpicker" tabindex="-98" title="Select Category">
-													<?php
+											<div class="dropdown bootstrap-select show-tick form-control m-bootstrap-select">
+												<select name="category_id" class="form-control m-bootstrap-select m_selectpicker" tabindex="-98" title="Select Category">
+												<?php
 
-														$category_manager = new CategoriesManager();
-														$category_manager->loadAllCategories();
-														$categories = $category_manager->getAllCategories();
-														foreach($categories as $category){
-															echo '<option value="'.$category->getCategoryId().'" >'.$category->getCategoryName().'</option>';
-														}
+													$category_manager = new CategoriesManager();
+													$category_manager->loadAllCategories();
+													$categories = $category_manager->getAllCategories();
+													foreach($categories as $category){
+														echo '<option value="'.$category->getCategoryId().'" >'.$category->getCategoryName().'</option>';
+													}
 
-													?>
-													</select>
-												</div>
-												<div class="input-group-append">
-													<button class="btn btn-success" data-toggle="modal" data-target="#addnewcategory" type="button">
-														<i class="fa fa-plus"></i>
-													</button>
-												</div>
+												?>
+												</select>
 											</div>
 										</div>
 									</div>
@@ -88,11 +81,11 @@
 										<div class="col-lg-4 form-group m-form__group ">
 											<label for="transmission">Transmission</label>
 											<div class="m-radio-inline">
-												<label class="m-radio">
+												<label class="m-radio m-radio--solid m-radio--brand">
 												<input type="radio" name="transmission" value="Manual" checked> Manual
 												<span></span>
 												</label>
-												<label class="m-radio">
+												<label class="m-radio m-radio--solid m-radio--brand">
 												<input type="radio" name="transmission" value="Automatic"> Automatic
 												<span></span>
 												</label>
@@ -105,22 +98,20 @@
 											<textarea name="overview" class="form-control md-input" rows="8" style="resize: none;"></textarea>
 										</div>
 									</div>
-									<!-- <div class="form-group m-form__group row">
-										<div class="col-lg-4 form-group m-form__group  col-md-9 col-sm-12">
-											<label>Upload car images</label>
-											<div class="m-dropzone dropzone m-dropzone--success dz-clickable" action="upload.php" id="m-dropzone-three">
-												<div class="m-dropzone__msg dz-message needsclick">
-													<h3 class="m-dropzone__msg-title">Drop files here or click to upload.</h3>
-													<span class="m-dropzone__msg-desc">Only image are allowed for upload</span>
-												</div>
-											</div>
-										</div>
-									</div> -->
 									<hr >
 									<div class="form-group m-form__group row">
 										<div class="col-lg-12">
 											<label>Car's Features & Options</label>
 											<div id="options" style="display: none;"></div>
+										</div>
+									</div>
+									<hr >
+									<div class="form-group m-form__group">
+										<label>Car's images</label>
+										<div class="row images">
+											<div class="col-lg-3">
+												<div class="addImg">ADD IMAGE <i class="la la-plus"></i></div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -146,4 +137,3 @@
 
 							<!--end::Form-->
 						</div>
-					<?php include "addnewcategory_model.php" ?>

@@ -9,6 +9,8 @@
 	<!-- begin::Head -->
 	<?php include "layout/head.php" ?>
 
+	<link rel="stylesheet" type="text/css" href="css/imagesview-sytle.css"/>
+
 	<!-- end::Head -->
 
 	<!-- begin::Body -->
@@ -123,6 +125,8 @@
 
 		<!--begin::Page Scripts -->
 		<script src="assets/app/js/html-table.js" type="text/javascript"></script>
+		<script src="js/car-inventory.js" type="text/javascript"></script>
+
 		<!--end::Page Scripts -->
 	</body>
 
