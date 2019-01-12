@@ -1,6 +1,6 @@
 <?php
 
-  include "../DB_Connect.php";
+  include "DB_Connect.php";
 
   class Car {
 
@@ -50,7 +50,7 @@
         $this->_transmission = $result['transmission'];
         $this->_overview = $result['overview'];
         $this->_options = $result['options'];
-
+        
       }
     }
 
@@ -114,9 +114,26 @@
       return $this->_options;
     }
 
-    public function getImages(){
-      return $this->_images;
+    public function getImages() {
+      global $con;
+      $images = array();
+
+      $query = "SELECT * FROM cars_image WHERE car_id = :car_id";
+      $stmt = $con->prepare($query);
+  
+      $stmt->bindParam(":car_id", $this->_id);
+
+      $stmt->execute();
+      if( $stmt->rowCount() > 0 ) {
+          $result = $stmt->fetchAll();
+          foreach ($result as $row) {
+            $images[] = $row['img'];
+          }
+      }
+
+      return $images;
     }
+
   }
 
 
@@ -140,7 +157,7 @@
                   <a href="editcar.php?carid='.$Car->getId().'" class="btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" title="Edit">
                         <i class="la la-edit"></i>
                   </a>
-                  <Button id=imagerViewer data-toggle="modal" data-target="#viewImages" data-id='.$Car->getId().'" class="btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill viewer" title="View Car\'s Images">
+                  <Button id=imagerViewer data-toggle="modal" data-target="#viewImages" data-id='.$Car->getId().' class="btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill viewer" title="View Car\'s Images">
                         <i class="la la-photo"></i>
                   </Button> 
                 </td>
@@ -293,7 +310,6 @@
       } catch(Exception $ex) {
         return "Error ".$ex;
       }
-
     }
 
     public function getAllCars() {

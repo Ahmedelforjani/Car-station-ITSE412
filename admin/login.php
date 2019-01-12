@@ -1,3 +1,11 @@
+<?php 
+	session_start();
+	
+    if(isset($_SESSION['user'])){
+        header('Location: index.php');
+    }
+?>
+
 <!DOCTYPE html>
 
 <!-- 
@@ -70,23 +78,23 @@ License: You must have a valid license purchased only from themeforest(the above
 							<div class="m-login__head">
 								<h3 class="m-login__title">Login In To Admin</h3>
 							</div>
-							<form class="m-login__form m-form" action="">
+							<form class="m-login__form m-form" method="POST" action="" id="loginForm">
 								<div class="form-group m-form__group">
-									<input class="form-control m-input" type="text" placeholder="Email" name="email" autocomplete="off">
+									<input class="form-control m-input" type="text" placeholder="Username" name="username" autocomplete="off">
 								</div>
 								<div class="form-group m-form__group">
 									<input class="form-control m-input m-login__form-input--last" type="password" placeholder="Password" name="password">
 								</div>
-								<div class="row m-login__form-sub">
+								<!-- <div class="row m-login__form-sub">
 									<div class="col m--align-left m-login__form-left">
 										<label class="m-checkbox  m-checkbox--focus">
 											<input type="checkbox" name="remember"> Remember me
 											<span></span>
 										</label>
 									</div>
-								</div>
+								</div> -->
 								<div class="m-login__form-action">
-									<button id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary">Login In</button>
+									<input type="submit" id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary" value="Login"/>
 								</div>
 							</form>
 						</div>
@@ -104,8 +112,8 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--end::Global Theme Bundle -->
 
 		<!--begin::Page Scripts -->
-		<script src="assets/snippets/custom/pages/user/login.js" type="text/javascript"></script>
-
+		<!-- <script src="assets/snippets/custom/pages/user/login.js" type="text/javascript"></script> -->
+		<script src="js/login.js" type="text/javascript"></script>
 		<!--end::Page Scripts -->
 	</body>
 
