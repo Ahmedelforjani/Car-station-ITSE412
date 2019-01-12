@@ -4,7 +4,7 @@ $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 $form   = $_POST['form'];
 $errors = array();
 
-$to = "ahmedelforjani50@gmail.com";
+$to = "";
 		
 // email headers
 $headers  = "From: " . $_POST['email'] . "\r\n";

@@ -1,6 +1,6 @@
 <?php
 
-  include "DB_Connect.php";
+  include "../DB_Connect.php";
 
   class Category {
 
