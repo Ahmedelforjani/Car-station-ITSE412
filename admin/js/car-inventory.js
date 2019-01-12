@@ -50,27 +50,24 @@ $(document).ready(function(){
     });
     // ----------- END IMAGES SCRIPT ----------- 
 
-    $car_id = -1;
+    var car_id = -1;
     $('.viewer').on('click', function(){
         insertImage = [];
         deleteImage = [];
         $(".images .img").parent().remove();
-        $car_id = $(this).data("id");
-        loadImages($car_id);
-        
+        car_id = $(this).data("id");
+        loadImages(car_id);
     });
 
 
     $("button[type=submit]").on("click", function(){
         var formData = new FormData();
-        formData.append("car_id", $car_id);
+        formData.append("car_id", car_id);
         insertImage.forEach(function(image, i){
             formData.append('insert_images[]', image);
-            console.log(image.name);
         });
         deleteImage.forEach(function(image, i){
             formData.append('delete_images[]', image);
-            console.log(image);
         });
         $.ajax({
             url: 'updateimagescar_data.php',
@@ -117,8 +114,7 @@ $(document).ready(function(){
                 });
         })
         .fail(function(response){
-        console.log(response);
-        swal('Oops...', 'Something went wrong with ajax !', 'error');
+            swal('Oops...', 'Something went wrong with ajax !', 'error');
         });
     }
 

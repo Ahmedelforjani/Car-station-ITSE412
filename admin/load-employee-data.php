@@ -6,8 +6,7 @@
     "employee_name" => "",
     "jobTitle" => "",
     "email" => "",
-    "phone" => "",
-    "image" => ""
+    "phone" => ""
   );
   
   if(isset($_POST['id'])) {
@@ -29,7 +28,6 @@
       $response['jobTitle'] = $result['job_title'];
       $response['email'] = $result['email'];
       $response['phone'] = $result['phone'];
-      $response['image'] = $result['img'];
     }
   }
 
