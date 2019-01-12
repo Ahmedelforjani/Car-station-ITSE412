@@ -1,18 +1,75 @@
 $(document).ready(function(){
 
+
+  function validEditForm() {
+    var name = $("input[name='name']").val();
+    var jobTitle = $("input[name='JobTitle']").val();
+    var email = $("input[name='email']").val();
+    var phone = $("input[name='phone']").val();
+    if(name == "" || jobTitle == "" || email == "" || phone == "") {
+      return false;
+    }
+    return true;
+  }
+
+  function validAddForm() {
+    var name = $("input[name='name']").val();
+    var jobTitle = $("input[name='JobTitle']").val();
+    var email = $("input[name='email']").val();
+    var phone = $("input[name='phone']").val();
+
+    var fileLength = $("#employee_image").get(0).files.length;
+    if(name == "" || jobTitle == "" || email == "" || phone == "" || fileLength == 0) {
+      return false;
+    }
+    return true;
+  }
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#employee_image").change(function() {
+        readURL(this);
+    });
+
+
+    function readEmployeeImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#employee_image").change(function() {
+        readEmployeeImage(this);
+    });
+
+    
+
     $("#add_new_employee").submit(function(e) {
         e.preventDefault();
+
+        if(!validAddForm()) {
+          swal('Oops...', 'Somthing went wrong please try again and check you values', 'error');
+          return;
+        }
   
-  
+        var form = $(this)[0];
+
+        // Create an FormData object
+        var data = new FormData(form);
+
         $.ajax({
             dataType: 'JSON',
             type:'POST',
             url: 'addemployee_data.php',
-            // enctype: 'multipart/form-data',
-            // processData: false,
-            // contentType: false,
-            // cache: false,
-            data: $(this).serialize()
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data
         })
         .done(function(response){
 
@@ -98,6 +155,7 @@ $(document).ready(function(){
                   'Deleted Successflly!',
                   'success'
                 );
+              
               } else {
                 
                 console.log(response);
