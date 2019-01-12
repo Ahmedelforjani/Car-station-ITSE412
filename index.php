@@ -1,3 +1,11 @@
+<?php
+
+  include 'DB_Connect.php';
+
+  include 'admin/Classes/Slider.php';
+
+?>
+
 <!doctype html>
 <!--[if IE 7 ]> <html lang="en" class="ie7"> <![endif]-->
 <!--[if IE 8 ]> <html lang="en" class="ie8"> <![endif]-->
@@ -40,7 +48,7 @@
 <script type="text/javascript" src="js/wow.min.js"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key&amp;sensor=false"></script>
 
-<!-- Twitter Feed Scripts 
+<!-- Twitter Feed Scripts
      Uncomment to activate
 
 <script type="text/javascript" src="js/twitter/jquery.tweet.js"></script>
@@ -51,7 +59,7 @@
 <body>
 <!--Header Start-->
 
-<?php 
+<?php
 include("nav.php");
 ?>
 <!--Header End-->
@@ -61,264 +69,28 @@ include("nav.php");
     <div class="banner">
         <div class="tp-banner-container">
             <div class="tp-banner" >
+
                 <ul>
-                    <!-- SLIDE  -->
-                    <li data-transition="fade" data-slotamount="5" data-masterspeed="700" > 
-                        <!-- MAIN IMAGE --> 
-                        <img src="http://demo.themesuite.com/automotive/images/slide-show1.jpg"   alt="slidebg1"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat"> 
-                        
-                        <!-- LAYERS -->
-                        <div class="tp-caption mediumlarge_light_white_center domainate customin customout start"
-						data-x="0"
-						data-hoffset="0"
-						data-y="214"
+                  <?php
+                  //get all Slide Images From DB
+                    $sliderManager = new SliderManager();
+                    $sliderManager->loadAllImages();
+                    $sliderImages = $sliderManager->getAllImages();
 
-						data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-						data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-						data-speed="1000"
-						data-start="500"
-						data-easing="Back.easeInOut"
-						data-endspeed="300">DOMINATE </div>
-                        
-                        <!-- LAYER NR. 1 -->
-                        <div class="tp-caption internet  fade"
-						data-x="0"
-						data-y="282"
-						data-speed="500"
-						data-start="800"
-						data-easing="Power4.easeOut"
-						data-endspeed="300"
-						data-endeasing="Power1.easeIn"
-						data-captionhidden="off"
-						style="z-index: 6; letter-spacing: -3px;">THE INTERNET </div>
-                        <!-- LAYER NR. 2 -->
-                        <div class="tp-caption attract sfl"
-						data-x="0"
-						data-y="369"
-						data-speed="500"
-						data-start="1200"
-						data-easing="Power4.easeOut"
-						data-endspeed="300"
-						data-endeasing="Power1.easeIn"
-						data-captionhidden="off"
-						style="z-index: 6; top: 371px; ">Attract, Engage, &amp; Convert </div>
-                        <!-- LAYER NR. 3 -->
-                        <div class="tp-caption more skewfromright "
-						data-x="100"
-						data-y="425"
-						data-speed="800"
-						data-start="1900"
-						data-easing="Elastic.easeOut"
-						data-endspeed="300"
-						data-endeasing="Power1.easeIn"
-						data-captionhidden="off"
-						style="z-index: 6; left:186px;">more </div>
-                        <!-- LAYER NR. 4 -->
-                        <div class="tp-caption qualified skewfromright"
-						data-x="0"
-						data-y="476"
-						data-speed="800"
-						data-start="2600"
-						data-easing="Power4.easeOut"
-						data-endspeed="300"
-						data-endeasing="Power1.easeIn"
-						data-captionhidden="off"
-						style="z-index: 6">qualified vehicle shoppers </div>
-                    </li>
-                    <li data-transition="fade" data-slotamount="5" data-masterspeed="700" > 
-                        <!-- MAIN IMAGE --> 
-                        <img src="http://demo.themesuite.com/automotive/images/slide-show2.jpg" alt="slidebg1" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat"> 
-                        
-                        <!-- LAYERS -->
-                        <div class="tp-caption mediumlarge_light_white_center invest start"
-						data-x="543"
-						data-hoffset="0"
-						data-y="160"
-                        
-						data-speed="1000"
-						data-start="500"
-						data-easing="Back.easeInQuart"
-						data-endspeed="300">Time to invest in a website built to </div>
-                        
-                        <!-- LAYER NR. 1 -->
-                        <div class="tp-caption move mediumlarge_light_white_center fade"
-						data-x="480"
-						data-y="230"
-						data-speed="500"
-						data-start="800"
-						data-easing="Power4.easeOut"
-						data-endspeed="300"
-						data-endeasing="Power1.easeIn"
-						data-captionhidden="off"
-						style="z-index: 6; letter-spacing: -3px;">MOVE </div>
-                        <!-- LAYER NR. 2 -->
-                        <div class="tp-caption light_brown mediumlarge_light_white_center sfl"
-						data-x="615"
-						data-y="230"
-						data-speed="500"
-						data-start="1200"
-						data-easing="Power4.easeOut"
-						data-endspeed="300"
-						data-endeasing="Power1.easeIn"
-						data-captionhidden="off"
-						style="z-index: 6; top: 371px; ">YOUR </div>
-                        <!-- LAYER NR. 3 -->
-                        <div class="tp-caption dark_brown mediumlarge_light_white_center skewfromright "
-						data-x="735"
-						data-y="230"
-						data-speed="800"
-						data-start="1900"
-						data-easing="Elastic.easeOut"
-						data-endspeed="300"
-						data-endeasing="Power1.easeIn"
-						data-captionhidden="off"
-						style="z-index: 6; left:186px;">INVENTORY </div>
-                        <!-- LAYER NR. 4 -->
-                        <div class="tp-caption faster mediumlarge_light_white_center skewfromright"
-						data-x="960"
-						data-y="230"
-						data-speed="800"
-						data-start="2600"
-						data-easing="Power4.easeOut"
-						data-endspeed="300"
-						data-endeasing="Power1.easeIn"
-						data-captionhidden="off"
-						style="z-index: 6">FASTER </div>
-                        <!-- LAYER NR. 5 -->
-                        <div class="tp-caption brown_line skewfromright"
-						data-x="482"
-						data-y="261"
-						data-speed="800"
-						data-start="2600"
-						data-easing="Power4.easeOut"
-						data-endspeed="300"
-						data-endeasing="Power1.easeIn"
-						data-captionhidden="off"
-						style="z-index: 6"><img src="http://demo.themesuite.com/automotive/images/brown_line.jpg" alt="underline"> </div>
-                    </li>
-                    <li data-transition="fade" data-slotamount="5" data-masterspeed="700" > 
-                        <!-- MAIN IMAGE --> 
-                        <img src="http://demo.themesuite.com/automotive/images/slide-show3.jpg"   alt="slidebg1"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat"> 
-                        
-                        <!-- LAYERS -->
-                        <div class="tp-caption customin customout start green"
-						data-x="40"
-						data-hoffset="0"
-						data-y="510"
-					
-						data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-						data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-						data-speed="1000"
-						data-start="500"
-						data-easing="Back.easeInOut"
-						data-endspeed="300">Wow Factor?</div>
-                        
-                        <!-- LAYER NR. 1 -->
-                        <div class="tp-caption big_white fade"
-						data-x="40"
-						data-y="560"
-						data-speed="500"
-						data-start="800"
-						data-easing="Power4.easeOut"
-						data-endspeed="300"
-						data-endeasing="Power1.easeIn"
-						data-captionhidden="off"
-						style="z-index: 6;">STANDARD. </div>
-                    </li>
-                    <li data-transition="fade" data-slotamount="5" data-masterspeed="700" > 
-                        <!-- MAIN IMAGE --> 
-                        <img src="http://demo.themesuite.com/automotive/images/slide-show4.jpg"   alt="slidebg1"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat"> 
-                        
-                        <!-- LAYERS -->
-                        <div class="tp-caption customin customout start big_white"
-						data-x="0"
-						data-hoffset="0"
-						data-y="235"
+                    foreach($sliderImages as $image) {
+                      ?>
 
-						data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-						data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-						data-speed="1000"
-						data-start="500"
-						data-easing="Back.easeInOut"
-						data-endspeed="300">UNLOCK</div>
-                        
-                        <!-- LAYER NR. 1 -->
-                        <div class="tp-caption thin_red fade"
-						data-x="300"
-						data-y="235"
-						data-speed="500"
-						data-start="800"
-						data-easing="Power4.easeOut"
-						data-endspeed="300"
-						data-endeasing="Power1.easeIn"
-						data-captionhidden="off"
-						style="z-index: 6;">THE POTENTIAL</div>
-                        
-                        <!-- LAYER NR. 2 -->
-                        <div class="tp-caption thin_white skewfromright"
-						data-x="0"
-						data-y="510"
-						data-speed="500"
-						data-start="800"
-						data-easing="Power4.easeOut"
-						data-endspeed="300"
-						data-endeasing="Power1.easeIn"
-						data-captionhidden="off"
-						style="z-index: 6;">business from your</div>
-                        
-                        <!-- LAYER NR. 3 -->
-                        <div class="tp-caption cursive skewfromright"
-						data-x="400"
-						data-y="570"
-						data-speed="500"
-						data-start="800"
-						data-easing="Power4.easeOut"
-						data-endspeed="300"
-						data-endeasing="Power1.easeIn"
-						data-captionhidden="off"
-						style="z-index: 6;">website</div>
-                    </li>
-                    <!-- SLIDE  -->
-                    <li data-transition="fade" data-slotamount="5" data-masterspeed="700" > 
-                        <!-- MAIN IMAGE --> 
-                        <img src="http://demo.themesuite.com/automotive/images/slide-show5.jpg"   alt="slidebg1"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat"> 
-                        
-                        <!-- LAYERS -->
-                        <div class="tp-caption mediumlarge_light_white_center domainate customin customout start"
-						data-x="0"
-						data-hoffset="0"
-						data-y="199"
+                      <!-- SLIDE  -->
+                      <li data-transition="fade" data-slotamount="5" data-masterspeed="700" >
+                          <!-- MAIN IMAGE -->
+                          <img src="images/<?php echo $image->getSliderImage(); ?>"   alt="slidebg1"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
 
-						data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-						data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-						data-speed="1000"
-						data-start="500"
-						data-easing="Back.easeInOut"
-						data-endspeed="300">REALITY </div>
-                        
-                        <!-- LAYER NR. 1 -->
-                        <div class="tp-caption thin_dark_blue fade"
-						data-x="270"
-						data-y="210"
-						data-speed="500"
-						data-start="800"
-						data-easing="Power4.easeOut"
-						data-endspeed="300"
-						data-endeasing="Power1.easeIn"
-						data-captionhidden="off"
-						style="z-index: 6; letter-spacing: 0;">IS JUST</div>
-                        <!-- LAYER NR. 2 -->
-                        <div class="tp-caption thinner_white sfl"
-						data-x="05"
-						data-y="270"
-						data-speed="500"
-						data-start="1200"
-						data-easing="Power4.easeOut"
-						data-endspeed="300"
-						data-endeasing="Power1.easeIn"
-						data-captionhidden="off"
-						style="z-index: 6; top: 371px; ">your perception</div>
-                    </li>
+                      </li>
+
+                      <?php
+                    }
+                  ?>
+
                 </ul>
             </div>
         </div>
@@ -345,12 +117,12 @@ include("nav.php");
 
 				});	//ready
 
-			</script> 
-        
-        <!-- END REVOLUTION SLIDER --> 
-        
-        <!-- Content End --> 
-        
+			</script>
+
+        <!-- END REVOLUTION SLIDER -->
+
+        <!-- Content End -->
+
     </div>
 </section>
 
@@ -372,8 +144,8 @@ include("nav.php");
                             </div>
                             <h4><a href="#">FACTORY READY FOR TRACK DAY</a></h4>
                             <p class="margin-bottom-none">Sea veniam lucilius neglegentur ad, an per sumo volum
-                                voluptatibus. Qui cu everti repudiare. Eam ut cibo nobis 
-                                aperiam, elit qualisque at cum. Possit antiopam id est. 
+                                voluptatibus. Qui cu everti repudiare. Eam ut cibo nobis
+                                aperiam, elit qualisque at cum. Possit antiopam id est.
                                 Illud delicata ea mel, sed novum mucius id. Nullam qua.</p>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 margin-bottom-none">
@@ -386,9 +158,9 @@ include("nav.php");
                                 </div>
                             </div>
                             <h4><a href="#">A SPORT UTILITY FOR THE FAMILY</a></h4>
-                            <p class="margin-bottom-none">Cum ut tractatos imperdiet, no tamquam facilisi qui. 
-                                Eum tibique consectetuer in, an legimus referrentur vis, 
-                                vocent deseruisse ex mel. Sed te idque graecis. Vel ne 
+                            <p class="margin-bottom-none">Cum ut tractatos imperdiet, no tamquam facilisi qui.
+                                Eum tibique consectetuer in, an legimus referrentur vis,
+                                vocent deseruisse ex mel. Sed te idque graecis. Vel ne
                                 libris dolores, in mel graece dolorum.</p>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 margin-bottom-none">
@@ -401,9 +173,9 @@ include("nav.php");
                                 </div>
                             </div>
                             <h4><a href="#">MAKE AN EXECUTIVE STATEMENT</a></h4>
-                            <p class="margin-bottom-none">Te inermis cotidieque cum, sed ea utroque atomorum 
-                                sadipscing. Qui id oratio everti scaevola, vim ea augue 
-                                ponderum vituperatoribus, quo adhuc abhorreant 
+                            <p class="margin-bottom-none">Te inermis cotidieque cum, sed ea utroque atomorum
+                                sadipscing. Qui id oratio everti scaevola, vim ea augue
+                                ponderum vituperatoribus, quo adhuc abhorreant
                                 omittantur ad. No his fierent perpetua consequat, et nis.</p>
                         </div>
                     </div>
@@ -414,68 +186,60 @@ include("nav.php");
                 <div class="parallax_scroll clearfix" data-velocity="-.5" data-offset="-300" data-no-repeat="true" data-image="http://demo.themesuite.com/automotive/images/parallax2.jpg">
                     <div class="overlay">
                         <div class="container">
-                            
+
                             <div class="row">
-                                
+
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 padding-left-none margin-vertical-60">
                                     <i class="fa fa-car"></i>
-                                    
+
                                     <span class="animate_number margin-vertical-15">
                                         <span class="number">2,000</span>
                                     </span>
-                                    
+
                                     Cars Sold
                                 </div>
-                                
+
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 margin-vertical-60">
                                     <i class="fa fa-money"></i>
-                                    
+
                                     <span class="animate_number margin-vertical-15">
                                         $<span class="number">750,000</span>
                                     </span>
-                                    
+
                                     Amount Sold
                                 </div>
-                                
+
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 margin-vertical-60">
                                     <i class="fa fa-users"></i>
-                                    
+
                                     <span class="animate_number margin-vertical-15">
                                         <span class="number">100</span>%
                                     </span>
-                                    
+
                                     Customer Satisfaction
                                 </div>
-                                
+
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 padding-right-none margin-vertical-60">
                                     <i class="fa fa-tint"></i>
-                                    
+
                                     <span class="animate_number margin-vertical-15">
                                         <span class="number">3,600</span>
                                     </span>
-                                    
+
                                     Oil Changes
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <section class="welcome-wrap padding-top-30 sm-horizontal-15">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 welcome padding-left-none padding-bottom-40 scroll_effect fadeInUp">
                         <h4 class="margin-bottom-25 margin-top-none"><strong>WELCOME</strong> TO YOUR NEW WEBSITE</h4>
-                        <p>Lorem ipsum dolor sit amet, falli tollit cetero te eos. Ea ullum liber aperiri mi, impetus
-                            ate philosophia ad duo, quem regione ne ius. Vis quis lobortis dissentias ex, in du aft 
-                            philosophia, malis necessitatibus no mei. Volumus sensibus qui ex, eum duis doming 
-                            ad. Modo liberavisse eu mel, no viris prompta sit. Pro labore sadipscing et. Ne peax
-                            egat usu te mel <span class="alternate-font">vivendo scriptorem</span>. Pro labore sadipscing et. Ne pertinax egat usu te 
-                            mel vivendo scriptorem.</p>
-                        <p>Cum ut tractatos imperdiet, no tamquam facilisi qui. Eum tibique consectetuer in, an 
-                            referrentur vis, vocent deseruisse ex mel. Sed te <span class="alternate-font">idque graecis</span>. Vel ne libris dolores, 
-                            mel graece mel vivendo scriptorem dolorum.</p>
+                        <p></p>
                     </div>
                     <!--welcome ends-->
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 padding-right-none sm-padding-left-none md-padding-left-15 xs-padding-left-none padding-bottom-40 scroll_effect fadeInUp" data-wow-delay='.2s' style="z-index:100">
@@ -688,9 +452,9 @@ include("nav.php");
                             </form>
                         </div>
                     </div>
-                    <!--invetory ends--> 
+                    <!--invetory ends-->
                 </div>
-                
+
                 <div class="recent-vehicles-wrap margin-top-30 sm-padding-left-none padding-bottom-40">
                     <div class="row">
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 recent-vehicles padding-left-none">
@@ -797,8 +561,8 @@ include("nav.php");
                         </div>
                     </div>
                 </div>
-                
-                
+
+
                 <div class="car-rate-block clearfix margin-top-30 padding-bottom-40">
                     <div class="col-md-4 col-sm-12 col-xs-12 xs-margin-bottom-40 sm-margin-bottom-none scroll_effect bounceInRight" data-wow-delay=".2s">
                         <div class="small-block clearfix">
@@ -851,7 +615,7 @@ include("nav.php");
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 xs-margin-bottom-40 sm-margin-bottom-none padding-right-none scroll_effect bounceInRight">
                         <div class="small-block clearfix">
                             <h4 class="margin-bottom-25 margin-top-none">Find Us.</h4>
@@ -860,28 +624,28 @@ include("nav.php");
                 </div>
             </section>
             <!--welcome-wrap ends-->
-            
+
         </div>
     </div>
 </section>
 
 <!--Footer Start-->
-<?php 
+<?php
 include("Footer.php");
 ?>
 
 
-<!-- Bootstrap core JavaScript --> 
-<script src="js/retina.js"></script> 
-<script type="text/javascript" src="js/jquery.parallax.js"></script> 
-<script type="text/javascript" src="js/jquery.inview.min.js"></script> 
-<script src="js/main.js"></script> 
-<script type="text/javascript" src="js/jquery.fancybox.js"></script> 
-<script src="js/modernizr.custom.js"></script> 
-<script defer src="js/jquery.flexslider.js"></script> 
-<script src="js/jquery.bxslider.js" type="text/javascript"></script> 
-<script src="js/jquery.selectbox-0.2.js" type="text/javascript"></script> 
-<script type="text/javascript" src="js/jquery.mousewheel.js"></script> 
+<!-- Bootstrap core JavaScript -->
+<script src="js/retina.js"></script>
+<script type="text/javascript" src="js/jquery.parallax.js"></script>
+<script type="text/javascript" src="js/jquery.inview.min.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+<script src="js/modernizr.custom.js"></script>
+<script defer src="js/jquery.flexslider.js"></script>
+<script src="js/jquery.bxslider.js" type="text/javascript"></script>
+<script src="js/jquery.selectbox-0.2.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="js/jquery.easing.js"></script>
 </body>
 </html>
