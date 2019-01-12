@@ -60,7 +60,9 @@
             <th data-field="f4">
             Job Title
             </th>
-            
+            <th data-field="f5">
+            Image
+            </th>
             <th data-field="f6">
             Actions
             </th>

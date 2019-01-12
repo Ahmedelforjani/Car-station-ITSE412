@@ -239,7 +239,7 @@ include("nav.php");
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 welcome padding-left-none padding-bottom-40 scroll_effect fadeInUp">
                         <h4 class="margin-bottom-25 margin-top-none"><strong>WELCOME</strong> TO YOUR NEW WEBSITE</h4>
-                        <p></p>
+                        <p>welcome message</p>
                     </div>
                     <!--welcome ends-->
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 padding-right-none sm-padding-left-none md-padding-left-15 xs-padding-left-none padding-bottom-40 scroll_effect fadeInUp" data-wow-delay='.2s' style="z-index:100">
