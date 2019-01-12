@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2018 at 01:01 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Generation Time: Jan 12, 2019 at 07:49 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -102,6 +100,18 @@ CREATE TABLE `employee` (
   `job_title` varchar(250) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`id`, `name`, `img`, `email`, `phone`, `job_title`) VALUES
+(3, 'bhnjmk,', '', 'bhnjmk,l.', 'jjj', 'bnm,'),
+(4, 'bhnjmk,', '', 'bhnjmk,l.', 'kjhgb', 'bnm,'),
+(6, 'hjkl', '', 'bnm,', 'hjkl', 'poiujh'),
+(7, 'hh', '', 'kkkk', 'kkk', 'jjjj'),
+(8, 'knklnm', '80454_knklnm.png', 'hnjnjj', 'kjhgb', 'hjkl'),
+(9, 'knklnm', '46097_knklnm.png', 'lokih', 'aa', 'bnm,');
+
 -- --------------------------------------------------------
 
 --
@@ -124,6 +134,17 @@ CREATE TABLE `statistics` (
   `name` varchar(250) NOT NULL,
   `num` int(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subscribed_users`
+--
+
+CREATE TABLE `subscribed_users` (
+  `id` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -212,6 +233,12 @@ ALTER TABLE `statistics`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `subscribed_users`
+--
+ALTER TABLE `subscribed_users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -238,55 +265,51 @@ ALTER TABLE `work_time`
 --
 ALTER TABLE `car`
   MODIFY `car_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `cars_image`
 --
 ALTER TABLE `cars_image`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
-
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `slide`
 --
 ALTER TABLE `slide`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `statistics`
 --
 ALTER TABLE `statistics`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
+--
+-- AUTO_INCREMENT for table `subscribed_users`
+--
+ALTER TABLE `subscribed_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `webside_info`
 --
 ALTER TABLE `webside_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `work_time`
 --
 ALTER TABLE `work_time`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- Constraints for dumped tables
 --
@@ -302,7 +325,6 @@ ALTER TABLE `car`
 --
 ALTER TABLE `cars_image`
   ADD CONSTRAINT `cars_image_ibfk_1` FOREIGN KEY (`car_id`) REFERENCES `car` (`car_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
