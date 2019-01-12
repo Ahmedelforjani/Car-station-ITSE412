@@ -8,7 +8,7 @@
 
   //check if i got the post request
   if(isset($_POST['id']) && isset($_POST['name']) && isset($_POST['jobTitle']) &&
-  isset($_POST['email']) && isset($_POST['phone']) && isset($_FILES['employee_image'])){
+  isset($_POST['email']) && isset($_POST['phone'])){
 
         $name = $_POST['name'];
         $jobTitle = $_POST['jobTitle'];
@@ -17,15 +17,6 @@
         $id = $_POST['id'];
     
 
-        if(!empty($_FILES['employee_image']['name'])) {
-
-
-          $employee_image       = $_FILES['employee_image'];
-          //generate image name
-          $imageName = rand(0, 100000) . "_" . str_replace(" ", "_", $employee_name) . ".png";
-          move_uploaded_file($employee_image['tmp_name'], "images/" . $imageName);
-        
-        }
 
 
     $employee_manager = new employeeManager();
@@ -39,9 +30,7 @@
         "id" => $id
       );
 
-      if(!empty($_FILES['employee_image']['name'])) {
-        $employee['image'] = $imageName;
-      }
+
       $status['message'] = $employee_manager->updateEmployee($employee);
 
   }

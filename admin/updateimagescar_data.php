@@ -11,13 +11,13 @@ $id = -1;
 
 if(isset($_POST['car_id'])){
     $id = $_POST['car_id'];
-
+    $response['id'] = $id;
     if(isset($_FILES['insert_images'])){
 
         try {
             $insertImages = reArrayFiles($_FILES['insert_images']);
             foreach($insertImages as $image){
-                $imageName = rand(0, 100000) . "_" . rand(0, 100000) . ".png";
+                $imageName = rand(0, 100000) . "_" . str_replace(" ", "_", $id) . ".png";
                 move_uploaded_file($image['tmp_name'], 'images/car-images/'.$imageName);
                 $cars_manager->addImage($id, $imageName);
             }

@@ -76,7 +76,6 @@ include("nav.php");
 <section class="content">
     <div class="container">
         <div class="inner-page">
-            <di
             <div class="find_team padding-bottom-40 sales_team margin-top-30 clearfix">
                 <div class="row">
                     <div class="col-lg-12 padding-left-none padding-right-none">
