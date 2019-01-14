@@ -12,18 +12,16 @@
                 <h4>Contact us</h4>
                 <div class="footer-contact">
                     <ul>
-                        <li><strong><i class="fa fa-phone"></i>Phone:</strong><span>1-800-123-4567</span></li>
-                        <li><strong><i class="fa fa-map-marker"></i>Address:</strong><span>Company Name<br>
-                            1234 Street Name<br>
-                            City Name, AB  12345<br>
-                            United States</span></li>
+                        <li><strong><i class="fa fa-phone"></i>Phone:</strong><span>021-1234567</span></li>
+                        <li><strong><i class="fa fa-map-marker"></i>Address:</strong><span>Libya, <br>
+                            Tripoli</span></li>
                         <li><strong><i class="fa fa-envelope-o"></i>Email:</strong><span><a href="#">sales@company.com</a></span></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-4 col-xs-12 padding-right-none md-padding-right-none sm-padding-right-15 xs-padding-right-15">
-                <h4>newsletter</h4>
-                <p>By subscribing to our company newsletter
+                <h4>Subscribing</h4>
+                <p>By subscribing to our company
                     you will always be up-to-date on our latest
                     promotions, deals and vehicle inventory!</p>
                 <form method="post" action="" class="form_contact">
@@ -41,8 +39,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <p>Copyright &copy; 2014 Theme Suite.  All rights reserved.<br>
-                <a href="http://gfxfree.net">GFXFree.Net</a></p>
+                <p>Copyright &copy; 2019.  All rights reserved.<br>
             </div>
         </div>
     </div>
