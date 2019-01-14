@@ -33,7 +33,7 @@
         );
         $status['message'] = $employee_manager->addNewEmployee($employee);
         
-        $status['id'] = $con->lastInsertId();
+        
         
     
 }

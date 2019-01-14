@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <?php
 
-	include "Classes/Employee.php";
-	
+	include "Classes/employee.php";
 
 ?>
 <html lang="en">

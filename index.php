@@ -18,7 +18,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="shortcut icon" href="images/favicon.ico">
-<title>My Car Station &amp; It's All About Cars</title>
+<title>Automotive Car Dealership &amp; Business HTML Template</title>
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
