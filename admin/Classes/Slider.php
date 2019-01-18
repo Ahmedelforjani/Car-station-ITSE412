@@ -1,6 +1,7 @@
 <?php
 
-
+  include "DB_Connect.php";
+  
   class Slider {
     private $_id, $_img;
 

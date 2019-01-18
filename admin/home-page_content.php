@@ -108,25 +108,9 @@
     <hr />
 
     <div class="form-group m-form__group">
-      <form action="" method="post" id="recent_vehicles_message_form" >
-        <label for="exampleTextarea">Edit Recent Vehicles Message</label>
-        <textarea class="form-control m-input" name="recent_vehicles_message" id="exampleTextarea" rows="7">
-          Browse through the vast selection of vehicles that have recently been added to our inventory.
-        </textarea>
-
-        <input type="hidden" name="field_type" value="update_recent_vehicles_message" />
-        <button class="btn btn-primary submit-btn">Update</button>
-
-      </form>
-
-    </div>
-
-    <hr />
-
-    <div class="form-group m-form__group">
 
       <form action="home-page_data.php" id="about_us_message_form" method="post">
-        <label for="exampleTextarea">Edit Welcome Message</label>
+        <label for="exampleTextarea">Edit About Us Message</label>
         <textarea class="form-control m-input" name="about_us_message" id="exampleTextarea" rows="7">
           This is About us Message
         </textarea>

@@ -1,5 +1,7 @@
 <?php
+    include 'DB_Connect.php';
     include 'admin/Classes/Category.php';
+    include 'admin/Classes/Slider.php';
     $categoriesManager = new CategoriesManager();
     $categoriesManager->loadAllCategories();
     $categories = $categoriesManager->getAllCategories();
@@ -191,41 +193,73 @@ include("nav.php");
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 padding-left-none margin-vertical-60">
                                     <i class="fa fa-car"></i>
 
+                                    <?php
+                                      $query = "SELECT * FROM statistics WHERE id = 1;";
+                                      $stmt = $con->prepare($query);
+                                      $stmt->execute();
+                                      $result = $stmt->fetch();
+
+                                    ?>
+
                                     <span class="animate_number margin-vertical-15">
-                                        <span class="number">2,000</span>
+                                        <span class="number"><?php echo $result['num']; ?></span>
                                     </span>
 
-                                    Cars Sold
+                                    <?php echo $result['name']; ?>
                                 </div>
 
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 margin-vertical-60">
                                     <i class="fa fa-money"></i>
 
+                                    <?php
+                                      $query = "SELECT * FROM statistics WHERE id = 2;";
+                                      $stmt = $con->prepare($query);
+                                      $stmt->execute();
+                                      $result = $stmt->fetch();
+
+                                    ?>
+
                                     <span class="animate_number margin-vertical-15">
-                                        $<span class="number">750,000</span>
+                                        $<span class="number"><?php echo $result['num']; ?></span>
                                     </span>
 
-                                    Amount Sold
+                                    <?php echo $result['name']; ?>
                                 </div>
 
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 margin-vertical-60">
                                     <i class="fa fa-users"></i>
 
+                                    <?php
+                                      $query = "SELECT * FROM statistics WHERE id = 3;";
+                                      $stmt = $con->prepare($query);
+                                      $stmt->execute();
+                                      $result = $stmt->fetch();
+
+                                    ?>
+
                                     <span class="animate_number margin-vertical-15">
-                                        <span class="number">100</span>%
+                                        <span class="number"><?php echo $result['num']; ?></span>%
                                     </span>
 
-                                    Customer Satisfaction
+                                    <?php echo $result['name']; ?>
                                 </div>
 
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 padding-right-none margin-vertical-60">
                                     <i class="fa fa-tint"></i>
 
+                                    <?php
+                                      $query = "SELECT * FROM statistics WHERE id = 4;";
+                                      $stmt = $con->prepare($query);
+                                      $stmt->execute();
+                                      $result = $stmt->fetch();
+
+                                    ?>
+
                                     <span class="animate_number margin-vertical-15">
-                                        <span class="number">3,600</span>
+                                        <span class="number"><?php echo $result['num']; ?></span>
                                     </span>
 
-                                    Oil Changes
+                                    <?php echo $result['name']; ?>
                                 </div>
 
                             </div>
@@ -234,11 +268,19 @@ include("nav.php");
                 </div>
             </div>
 
+            <?php
+
+              $query = "SELECT * FROM webside_info WHERE id = 1;";
+              $stmt = $con->prepare($query);
+              $stmt->execute();
+              $website_info = $stmt->fetch();
+
+            ?>
             <section class="welcome-wrap padding-top-30 sm-horizontal-15">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 welcome padding-left-none padding-bottom-40 scroll_effect fadeInUp">
                         <h4 class="margin-bottom-25 margin-top-none"><strong>WELCOME</strong> TO YOUR NEW WEBSITE</h4>
-                        <p>welcome message</p>
+                        <p><?php echo $website_info['welcome_dec']; ?></p>
                     </div>
                     <!--welcome ends-->
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 padding-right-none sm-padding-left-none md-padding-left-15 xs-padding-left-none padding-bottom-40 scroll_effect fadeInUp" data-wow-delay='.2s' style="z-index:100">
@@ -368,96 +410,30 @@ include("nav.php");
                         </div>
                         <div class="col-md-10 col-sm-8 padding-right-none xs-padding-left-none">
                             <div class="carasouel-slider3">
-                                <div class="slide">
-                                    <div class="car-block">
-                                        <div class="img-flex"> <a href="inventory.php"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car1.jpg" alt="" class="img-responsive"> </div>
-                                        <div class="car-block-bottom">
-                                            <h6><strong>2012 Porsche Cayenne GTS</strong></h6>
-                                            <h6>1 Owner, 26,273 miles</h6>
-                                            <h5>$ 102,995</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="car-block">
-                                        <div class="img-flex"> <a href="inventory.php"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car2.jpg" alt="" class="img-responsive"> </div>
-                                        <div class="car-block-bottom">
-                                            <h6><strong>2009 Porsche Boxster</strong></h6>
-                                            <h6>New Tires, 26,273 miles</h6>
-                                            <h5>$ 34,995</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="car-block">
-                                        <div class="img-flex"> <a href="inventory.php"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car3.jpg" alt="" class="img-responsive"> </div>
-                                        <div class="car-block-bottom">
-                                            <h6><strong>2013 Porsche Panamera S</strong></h6>
-                                            <h6>Demonstrator, 7,088 miles</h6>
-                                            <h5>$ 63,995</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="car-block">
-                                        <div class="img-flex"> <a href="inventory.php"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car4.jpg" alt="" class="img-responsive"> </div>
-                                        <div class="car-block-bottom">
-                                            <h6><strong>2010 Porsche Carrera 4S</strong></h6>
-                                            <h6>AWD, 21,900 miles</h6>
-                                            <h5>$ 73,995</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="car-block">
-                                        <div class="img-flex"> <a href="inventory.php"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car5.jpg" alt="" class="img-responsive"> </div>
-                                        <div class="car-block-bottom">
-                                            <h6><strong>2012 Porsche Carrera S</strong></h6>
-                                            <h6>Convertible, 22,158 miles</h6>
-                                            <h5>$ 56,995</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="car-block">
-                                        <div class="img-flex"> <a href="inventory.php"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car6.jpg" alt="" class="img-responsive"> </div>
-                                        <div class="car-block-bottom">
-                                            <h6><strong>2013 Porsche Panamera GTS</strong></h6>
-                                            <h6>1 Owner, 3,914 miles</h6>
-                                            <h5>$ 94,995</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="car-block">
-                                        <div class="img-flex"> <a href="inventory.php"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car7.jpg" alt="" class="img-responsive"> </div>
-                                        <div class="car-block-bottom">
-                                            <h6><strong>2014 Porsche Cayenne GTS</strong></h6>
-                                            <h6>1 Owner, 7 miles</h6>
-                                            <h5>$ 114,995</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="car-block">
-                                        <div class="img-flex"> <a href="inventory.php"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car8.jpg" alt="" class="img-responsive"> </div>
-                                        <div class="car-block-bottom">
-                                            <h6><strong>2014 Porsche GTS</strong></h6>
-                                            <h6>1 Owner, 5 miles</h6>
-                                            <h5>$ 99,995</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="car-block">
-                                        <div class="img-flex"> <a href="inventory.php"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car9.jpg" alt="" class="img-responsive"> </div>
-                                        <div class="car-block-bottom">
-                                            <h6><strong>2009 Porsche Carrera 4S</strong></h6>
-                                            <h6>1 Owner, 114,239 miles</h6>
-                                            <h5>$ 39,995</h5>
-                                        </div>
-                                    </div>
-                                </div>
+                              <?php
+                                $query = "SELECT * FROM car ORDER BY car_id DESC LIMIT 5";
+                                $stmt = $con->prepare($query);
+                                $stmt->execute();
+                                $latest_cars = $stmt->fetchAll();
+
+                                foreach($latest_cars as $car) { ?>
+
+                                  <div class="slide">
+                                      <div class="car-block">
+                                          <div class="img-flex"> <a href="car.php?id=<?php echo $car['car_id']; ?>"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car1.jpg" alt="" class="img-responsive"> </div>
+                                          <div class="car-block-bottom">
+                                              <h6><strong><?php echo $car['car_name']; ?></strong></h6>
+                                              <h6><?php echo $car['condition']; ?>, <?php echo $car['milage']; ?> miles</h6>
+                                              <h5>$ <?php echo $car['price']; ?></h5>
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                <?php
+                                }
+                              ?>
+
+
                             </div>
                         </div>
                     </div>
@@ -482,34 +458,25 @@ include("nav.php");
                                             </tr>
                                         </thead>
                                         <tbody>
+
+                                          <?php
+
+                                          $query = "SELECT * FROM `work_time` ";
+                                          $stmt = $con->prepare($query);
+                                          $stmt->execute();
+                                          $work_times = $stmt->fetchAll();
+
+                                          foreach($work_times as $time) { ?>
+
                                             <tr>
-                                                <td>Mon:</td>
-                                                <td>8:00am - 5:00pm</td>
+                                              <td><?php echo $time['day'] ?>:</td>
+                                              <td><?php echo $time['start_h'] . " - " .	$time['close_h']; ?></td>
                                             </tr>
-                                            <tr>
-                                                <td>Tue:</td>
-                                                <td>8:00am - 9:00pm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Wed:</td>
-                                                <td>8:00am - 5:00pm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Thu:</td>
-                                                <td>8:00am - 9:00pm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Fri:</td>
-                                                <td>8:00am - 6:00pm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sat:</td>
-                                                <td>9:00am - 5:00pm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sun:</td>
-                                                <td>Closed</td>
-                                            </tr>
+
+                                          <?php
+                                          }
+                                          ?>
+                                            
                                         </tbody>
                                     </table>
                                 </div>
@@ -548,6 +515,7 @@ include("Footer.php");
 <script src="js/jquery.selectbox-0.2.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="js/jquery.easing.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript">
     $(document).ready(function (){
         $('#minYear').change(function (){

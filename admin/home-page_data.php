@@ -15,15 +15,7 @@
 
           */
           break;
-        case 'update_recent_vehicles_message' :
-          echo 'update_recent_vehicles_message';
-          $recent_vehicles_message = $_POST['recent_vehicles_message'];
-
-          //execute code to update the values
-          /*
-
-          */
-          break;
+        
         case 'update_statistics' :
           echo 'update_statistics';
           $cars_sold =  $_POST['cars_sold'];

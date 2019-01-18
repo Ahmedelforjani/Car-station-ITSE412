@@ -12,12 +12,9 @@
                 <h4>Contact us</h4>
                 <div class="footer-contact">
                     <ul>
-                        <li><strong><i class="fa fa-phone"></i>Phone:</strong><span>1-800-123-4567</span></li>
-                        <li><strong><i class="fa fa-map-marker"></i>Address:</strong><span>Company Name<br>
-                            1234 Street Name<br>
-                            City Name, AB  12345<br>
-                            United States</span></li>
-                        <li><strong><i class="fa fa-envelope-o"></i>Email:</strong><span><a href="#">sales@company.com</a></span></li>
+                        <li><strong><i class="fa fa-phone"></i>Phone:</strong><span><?php echo $website_info['phone']; ?></span></li>
+                        <li><strong><i class="fa fa-map-marker"></i>Address:</strong><?php echo $website_info['address']; ?></li>
+                        <li><strong><i class="fa fa-envelope-o"></i>Email:</strong><span><a href="#"><?php echo $website_info['email']; ?></a></span></li>
                     </ul>
                 </div>
             </div>
