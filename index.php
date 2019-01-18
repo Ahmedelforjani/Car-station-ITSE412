@@ -290,7 +290,7 @@ include("nav.php");
                                 <div class="select-wrapper clearfix">
                                     <div class="col-md-6">
                                         <div class="select-dropdown">
-                                            <div class="my-dropdown min-price-dropdown min-dropdown">
+                                            <div class="my-dropdown min-year-dropdown min-dropdown">
                                                 <select id="minYear" name="min-year" class="css-dropdowns" tabindex="1" >
                                                     <option value="1980">Min Year</option>
                                                     <?php
@@ -301,7 +301,7 @@ include("nav.php");
                                                 </select>
                                             </div>
                                             <span class="my-dropdown">to</span>
-                                            <div class="my-dropdown max-price-dropdown min-dropdown">
+                                            <div class="my-dropdown max-year-dropdown min-dropdown">
                                                 <select id="maxYear" name="max-year" class="css-dropdowns" tabindex="1" >
                                                     <option value="2019">Max Year</option>
                                                     <?php
@@ -476,7 +476,7 @@ include("nav.php");
                                           <?php
                                           }
                                           ?>
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -520,7 +520,11 @@ include("Footer.php");
     $(document).ready(function (){
         $('#minYear').change(function (){
             var year = $(this).children("option:selected").val();
-            $('#maxYear').select(year);
+            $('.max-year-dropdown').html('<select name="max-year" class="maxYear css-dropdowns" tabindex="1"></select>');
+            for(var i = 2019; i >= year; i--){
+                $('.maxYear').append('<option value="'+i+'">'+i+'</option>');
+            }
+            $('.maxYear').selectbox();
         });
     });
 </script>

@@ -19,8 +19,8 @@
                 </div>
             </div>
             <div class="col-md-4 col-xs-12 padding-right-none md-padding-right-none sm-padding-right-15 xs-padding-right-15">
-                <h4>newsletter</h4>
-                <p>By subscribing to our company newsletter
+                <h4>Subscribing</h4>
+                <p>By subscribing to our company
                     you will always be up-to-date on our latest
                     promotions, deals and vehicle inventory!</p>
                 <form method="post" action="" class="form_contact">
@@ -38,8 +38,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <p>Copyright &copy; 2014 Theme Suite.  All rights reserved.<br>
-                <a href="http://gfxfree.net">GFXFree.Net</a></p>
+                <p>Copyright &copy; 2019.  All rights reserved.<br>
             </div>
         </div>
     </div>

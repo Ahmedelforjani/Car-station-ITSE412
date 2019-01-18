@@ -9,7 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="add_new_employee"  action="" method="post">
+         <form id="add_new_employee"  action="" method="post" enctype="multipart/form-data">
             <div class="form-group row">
                 <div class="col-lg-6">
                     <label class="form-control-label">Name</label>
@@ -32,14 +32,20 @@
             </div>
             <div class="form-group">
             <label class="form-control-label">Upload image</label>
-                <div class="col-sm-12">
-                    <div class="m-dropzone dropzone m-dropzone--primary dz-clickable" action="upload.php" id="m-dropzone-one">
-                        <div class="m-dropzone__msg dz-message needsclick">
-                            <h3 class="m-dropzone__msg-title">Drop files here or click to upload.</h3>
-                            <span class="m-dropzone__msg-desc">Only image are allowed for upload</span>
+            <div class="form-group m-form__group">
+                <label class="form-control-label">Category Image</label>
+                  <div class="image">
+                    <div class="avatar-upload">
+
+                        <div class="avatar-preview">
+                            <input name="employee_image" class="form-control" type='file' id="employee_image" accept=".png, .jpg, .jpeg" />
+                            <label for="employee_image"><i class="flaticon-edit"></i></label>
+                          <div id="employee_image_preview" style="background-image: url(images/default.png);">
+                          </div>
                         </div>
                     </div>
                 </div>
+            </div>
           </div>
           <div class="modal-footer" >
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -51,14 +57,4 @@
     </div>
   </div>
 </div>
-<script src="js\employee.js" type="text/javascript"></script>
-<script src="assets/app/js/html-table.js" type="text/javascript"></script>
-<script language="JavaScript" type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
-<script language="JavaScript" type="text/javascript" src="/js/jquery-ui-personalized-1.5.2.packed.js"></script>
-<script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script>   
-<?php 
-
-
-
-?>
 
