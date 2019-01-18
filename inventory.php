@@ -1,4 +1,4 @@
-<?php 
+<?php
     include 'admin/Classes/Car.php';
 
     if($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -17,9 +17,9 @@
         $carName = isset($_GET['name']) && !empty($_GET['name']) ? $_GET['name'] : '%%';
 
         global $con;
-        //`car_id`, `car_name`, `model`, `color`, `milage`, `engine`, `doors`, `category_id`, `condition`, 
+        //`car_id`, `car_name`, `model`, `color`, `milage`, `engine`, `doors`, `category_id`, `condition`,
         // `passengers`, `price`, `transmission`, `overview`, `options`, `is_visible`
-        $query = "SELECT car_id FROM car 
+        $query = "SELECT car_id FROM car
                     WHERE color LIKE '".$color.
                     "' AND category_id LIKE '".$category.
                     "' AND transmission LIKE '".$transmission.
@@ -28,13 +28,13 @@
                     " AND milage BETWEEN ".$minMilage." AND ".$maxMilage.
                     " AND car_name LIKE '".$carName."'";
         $stmt = $con->prepare($query);
-  
+
         $stmt->execute();
-  
+
         if( $stmt->rowCount() > 0 ) {
           $result = $stmt->fetchAll();
           $cars = array();
-  
+
           foreach ($result as $row) {
             $cars[] = new Car($row['car_id']);
           }
@@ -89,7 +89,7 @@
 <script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script>
 <script type="text/javascript" src="js/wow.min.js"></script>
 
-<!-- Twitter Feed Scripts 
+<!-- Twitter Feed Scripts
      Uncomment to activate
 
 <script type="text/javascript" src="js/twitter/jquery.tweet.js"></script>
@@ -99,7 +99,7 @@
 
 <body>
 <!--Header Start-->
-<?php 
+<?php
 include("nav.php");
 ?>
 <!--Header End-->
@@ -136,7 +136,7 @@ include("nav.php");
             <form method="post" action="#" class="listing_sort">
                 <div class="select-wrapper pagination clearfix margin-top-none margin-bottom-15">
                     <div class="row">
-                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sort-by-menu"> 
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sort-by-menu">
 
                         </div>
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 col-lg-offset-1">
@@ -154,7 +154,7 @@ include("nav.php");
                         <div class="inventory margin-bottom-20 clearfix scroll_effect fadeIn">
                             <a class="inventory" href="<?php echo 'car.php?id='.$car->getId() ?>">
                             <div class="title"><?php echo $car->getModel() . ' ' . $car->getName() ?></div>
-                            <img src="http://demo.themesuite.com/automotive/images/car-1-200x150.jpg" class="preview" alt="preview">
+                            <img src="<?php echo 'admin/images/car-images/'.$car->getImages()[0]; ?>" class="preview" alt="preview">
                             <table class="options-primary">
                                 <tr>
                                     <td class="option primary">COLOR:</td>
@@ -189,7 +189,7 @@ include("nav.php");
                         </div>
                     </div>
                 <?php } ?>
-            
+
                 <!-- <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <div class="inventory margin-bottom-20 clearfix scroll_effect fadeIn">
                         <input type="checkbox" name="a" class="checkbox compare_vehicle" id="vehicle_9" />
@@ -267,7 +267,7 @@ include("nav.php");
             </div>
         </div>
     </div>
-    <!--container ends--> 
+    <!--container ends-->
 </section>
 <div id="youtube_video">
     <iframe width="560" height="315" src="#" allowfullscreen style="width: 560px; height: 315px; border: 0;"></iframe>
@@ -277,18 +277,18 @@ include("nav.php");
 <div class="clearfix"></div>
 
 <!--Footer Start-->
-<?php 
+<?php
 include("footer.php");
 ?>
 
 
-<!-- Bootstrap core JavaScript --> <script src="js/retina.js"></script> 
-<script src="js/main.js"></script> 
-<script type="text/javascript" src="js/jquery.fancybox.js"></script> 
-<script src="js/modernizr.custom.js"></script> <script defer src="js/jquery.flexslider.js"></script> 
-<script src="js/jquery.bxslider.js" type="text/javascript"></script> 
-<script src="js/jquery.selectbox-0.2.js" type="text/javascript"></script> 
-<script type="text/javascript" src="js/jquery.mousewheel.js"></script> 
+<!-- Bootstrap core JavaScript --> <script src="js/retina.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+<script src="js/modernizr.custom.js"></script> <script defer src="js/jquery.flexslider.js"></script>
+<script src="js/jquery.bxslider.js" type="text/javascript"></script>
+<script src="js/jquery.selectbox-0.2.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="js/jquery.easing.js"></script>
 </body>
 </html>
