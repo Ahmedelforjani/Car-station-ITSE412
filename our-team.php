@@ -93,16 +93,16 @@ include("nav.php");
                         {
                         foreach($employees as $employee) { ?>
                         <div class="col-md-3 col-sm-3 scroll_effect fadeInUp">
-                                <div class="team margin-top-15 xs-margin-bottom-30"> <a href="images/team4-lrg.jpg" class="fancybox"> <img src=<?php echo $employee->getEmployeeImg() ?> class="aligncenter" alt="team" /> </a>
+                                <div class="team margin-top-15 xs-margin-bottom-30"> <a href="images/team4-lrg.jpg" class="fancybox"> 
+                                    <img src=<?php echo "admin/images/".$employee->getEmployeeImg() ?> class="aligncenter" alt="No Image Found" /> </a>
                                     <div class="name_post padding-bottom-15">
                                         <h4><?php echo $employee->getEmployeeName() ?></h4>
                                         <p><?php echo $employee->getEmployeeJobTitle() ?></p>
                                     </div>
                                     <div class="about_team padding-bottom-10">
-                                        <p class="margin-vertical-15">Lorem ipsum dolor sit amet, paleotousia 
-                                            consectetuer adipiscing elit. Aenean com.</p>
+                                        <p class="margin-vertical-15">This is suppose to be a descreption about the employee</p>
                                         <ul>
-                                            <li><i class="fa fa-phone"></i>1-800-123-4567 - Extension 105</li>
+                                            <li><i class="fa fa-phone"></i><?php echo $employee->getEmployeePhone() ?></li>
                                             <li><i class="fa fa-mobile"></i><?php echo $employee->getEmployeePhone() ?></li>
                                             <li><i class="fa fa-envelope-o"></i><a href="#"><?php echo $employee->getEmployeeEmail() ?></a></li>
                                         </ul>
