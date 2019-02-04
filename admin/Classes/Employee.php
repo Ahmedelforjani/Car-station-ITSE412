@@ -8,7 +8,7 @@ class employee {
 
   public function __construct($id) {
     //get the employee data from the db
-    $this->_id = $id;;
+    $this->_id = $id;
     global $con;
 
     $query = "SELECT * FROM employee WHERE id = :id";
