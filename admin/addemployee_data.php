@@ -13,8 +13,8 @@
         
         
 
-        isset($_POST['email']) && isset($_POST['phone'])
-        && isset($_FILES['employee_image']) && !empty($_FILES['employee_image']['name'])) {
+        if(isset($_POST['email']) && isset($_POST['phone'])
+        && isset($_FILES['employee_image']) && !empty($_FILES['employee_image']['name'])){
 
         $status['massage'] = 'bla2';
         $name = $_POST['name'];

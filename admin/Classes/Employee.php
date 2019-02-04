@@ -8,7 +8,7 @@ class employee {
 
   public function __construct($id) {
     //get the employee data from the db
-    $this->_id = $id;
+    $this->_id = $id;;
     global $con;
 
     $query = "SELECT * FROM employee WHERE id = :id";
@@ -144,7 +144,7 @@ class employeeManager {
       $stmt->bindParam(':email', $employee['email']);
       $stmt->bindParam(':phone', $employee['phone']);
       $stmt->bindParam(':id', $employee['id']);
-      $stmt->bindParam(':emp_img', $employee['img']);
+      $stmt->bindParam(':img', $employee['img']);
 
 
       try{
@@ -154,7 +154,7 @@ class employeeManager {
           return "failed";
         }
       } catch(Exception $ex) {
-        return "failed";
+        return $ex;
       }
 
     }

@@ -33,14 +33,20 @@
             </div>
             <div class="form-group">
             <label class="form-control-label">Upload image</label>
-                <div class="col-sm-12">
-                    <div class="m-dropzone dropzone m-dropzone--primary dz-clickable" action="upload.php" id="m-dropzone-one">
-                        <div class="m-dropzone__msg dz-message needsclick">
-                            <h3 class="m-dropzone__msg-title">Drop files here or click to upload.</h3>
-                            <span class="m-dropzone__msg-desc">Only image are allowed for upload</span>
+            <div class="form-group m-form__group">
+                <label class="form-control-label">Category Image</label>
+                  <div class="image">
+                    <div class="avatar-upload">
+
+                        <div class="avatar-preview">
+                            <input name="employee_image" class="form-control" type='file' id="employee_image" accept=".png, .jpg, .jpeg" />
+                            <label for="employee_image"><i class="flaticon-edit"></i></label>
+                          <div id="employee_image_preview" style="background-image: url(images/default.png);">
+                          </div>
                         </div>
                     </div>
                 </div>
+            </div>
           </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
