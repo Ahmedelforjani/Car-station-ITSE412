@@ -1,4 +1,6 @@
 <?php
+include "../DB_Connect.php";
+ 
 
   class WorkingTime {
 
@@ -8,24 +10,39 @@
       //get time data from database based on id of the day
       //
       //
-
+      global $con;
       $this->id = $id;
-      $this->start_hour = "09:00:00 AM"; // time from database
-      $this->close_hour = "10:00:00 PM"; // time from database
+      $query = "SELECT * FROM work_time where id= :id ";
+      $stmt = $con->prepare($query);
+      $stmt->bindParam(":id", $id);
+      $stmt->execute();
+  
+      $result = $stmt->fetch();
 
-      //for testing changing values
-      if($id == '7') {
-        $this->start_hour = "Closed";
-        $this->close_hour = "8:00:00 PM";
-      }
+      
+      $this->start_hour = $result['start_h']; // time from database
+      $this->close_hour = $result['close_h']; // time from database
+     
+
     }
 
 
     public function updateWorkingTime($fromTime, $toTime) {
       // update workingtime Table in the database
+      global $con;
+
+      
+      $query = "UPDATE work_time set start_h= :start_hour ,close_h= :close_hour where id =:id";
+
+      $stmt = $con->prepare($query);
+      $stmt->bindParam(':start_hour', $fromTime);
+      $stmt->bindParam(':close_hour', $toTime);
+      $stmt->bindParam(':id', $this->id);
 
       $this->start_hour = $fromTime;
       $this->close_hour = $toTime;
+      $stmt->execute();
+      
     }
 
     public function getId(){

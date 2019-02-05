@@ -1,7 +1,7 @@
 
 
 <header  data-spy="affix" data-offset-top="1" class="clearfix">
-    <!-- <section class="toolbar">
+    <section class="toolbar">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 left_bar">
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="toolbar_shadow"></div>
-    </section> -->
+    </section>
     <div class="bottom-header" >
         <div class="container">
             <nav class="navbar navbar-default" role="navigation">

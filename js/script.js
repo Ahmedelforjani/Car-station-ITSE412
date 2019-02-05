@@ -55,4 +55,21 @@ $(document).ready(function(){
 		}
 
 	});
+
+
+	$('#subscribeForm').submit(function(e){
+		e.preventDefault();
+
+		$.ajax({
+			url: 'subscribedata.php',
+			type: 'POST',
+			dataType: 'json',
+			data: $('#subscribeForm').serialize()
+		}).done(function(response) {
+			console.log(response.message);
+			$('#email').val('');
+		}).fail(function(jqXHR, textStatus, errorThrown) {
+			console.log('fail');
+		});
+	});
 });
