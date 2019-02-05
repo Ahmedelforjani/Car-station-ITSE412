@@ -133,20 +133,35 @@ class employeeManager {
     public function updateEmployee($employee) {
       global $con;
 
+      if(empty($_FILES['employee_image'])){
+        $query = "UPDATE employee SET name = :employee_name, job_title = :jobtitle, email = :email, phone = :phone WHERE id = :id";
+        
+
+        $stmt = $con->prepare($query);
+        $stmt->bindParam(':employee_name', $employee['name']);
+        $stmt->bindParam(':jobtitle', $employee['jobTitle']);
+        $stmt->bindParam(':email', $employee['email']);
+        $stmt->bindParam(':phone', $employee['phone']);
+        $stmt->bindParam(':id', $employee['id']);
+
+      }
+
+
+
+
+      else {
+
+        $query = "UPDATE employee SET name = :employee_name, job_title = :jobtitle, email = :email, phone = :phone, img = :img WHERE id = :id";
+
+        $stmt = $con->prepare($query);
+        $stmt->bindParam(':employee_name', $employee['name']);
+        $stmt->bindParam(':jobtitle', $employee['jobTitle']);
+        $stmt->bindParam(':email', $employee['email']);
+        $stmt->bindParam(':phone', $employee['phone']);
+        $stmt->bindParam(':id', $employee['id']);
+        $stmt->bindParam(':img', $employee['img']);
       
-      $query = "UPDATE employee SET name = :employee_name, job_title = :jobtitle, email = :email, phone = :phone, img = :img WHERE id = :id";
-    
-
-
-      $stmt = $con->prepare($query);
-      $stmt->bindParam(':employee_name', $employee['name']);
-      $stmt->bindParam(':jobtitle', $employee['jobTitle']);
-      $stmt->bindParam(':email', $employee['email']);
-      $stmt->bindParam(':phone', $employee['phone']);
-      $stmt->bindParam(':id', $employee['id']);
-      $stmt->bindParam(':img', $employee['img']);
-
-
+      } 
       try{
         if($stmt->execute()) {
           return "success";

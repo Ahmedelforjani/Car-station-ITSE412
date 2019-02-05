@@ -24,7 +24,6 @@
 
     if( $stmt->rowCount() > 0 ) {
       $result = $stmt->fetch();
-      $response["error"] = "error";
       $response['employee_name'] = $result['name'];
       $response['jobTitle'] = $result['job_title'];
       $response['email'] = $result['email'];
