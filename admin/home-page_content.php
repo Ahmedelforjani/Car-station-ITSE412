@@ -1,4 +1,10 @@
+<?php
+
+  include "../DB_Connect.php";
+
+?>
 <div class="m-portlet m-portlet--full-height  m-portlet--unair">
+
   <div class="m-portlet__head">
 		<div class="m-portlet__head-caption">
 			<div class="m-portlet__head-title">
@@ -15,7 +21,6 @@
         <ul id="images">
 
           <?php
-            include "../DB_Connect.php";
             $queryy = "SELECT * FROM slide";
             $sqll = $con->prepare($queryy);
             $sqll->execute();
@@ -60,15 +65,15 @@
       <form action="home-page_data.php" id="welcome_message_form" method="post">
 
         <?php
-            $queryy = "SELECT text FROM paragraphs  WHERE `paragraphs`.`id` = 1";
-            $sqll = $con->prepare($queryy);
-            $sqll->execute();
-            $result = $sqll->fetch();
+            // $queryy = "SELECT text FROM paragraphs  WHERE `paragraphs`.`id` = 1";
+            // $sqll = $con->prepare($queryy);
+            // $sqll->execute();
+            // $result = $sqll->fetch();
           ?>
 
         <label for="exampleTextarea">Edit Welcome Message</label>
         <textarea class="form-control m-input" name="welcome_message" id="exampleTextarea" rows="7">
-              <?php echo $result['text']; ?>
+
         </textarea>
 
         <input type="hidden" name="field_type" value="update_welcome_message" />
@@ -78,48 +83,6 @@
 
     <hr />
 
-    <div class="form-group m-form__group">
-      <form action="" method="post" id="recent_vehicles_message_form" >
-         <?php
-            $queryy = "SELECT text FROM paragraphs  WHERE `paragraphs`.`id` = 2";
-            $sqll = $con->prepare($queryy);
-            $sqll->execute();
-            $result = $sqll->fetch();
-          ?>
-        <label for="exampleTextarea">Edit Recent Vehicles Message</label>
-        <textarea class="form-control m-input" name="recent_vehicles_message" id="exampleTextarea" rows="7">
-             <?php echo $result['text']; ?>
-        </textarea>
-
-        <input type="hidden" name="field_type" value="update_recent_vehicles_message" />
-        <button class="btn btn-primary submit-btn">Update</button>
-
-      </form>
-
-    </div>
-
-    <hr />
-
-    <div class="form-group m-form__group">
-
-      <form action="home-page_data.php" id="about_us_message_form" method="post">
-          <?php
-            $queryy = "SELECT text FROM paragraphs  WHERE `paragraphs`.`id` = 3";
-            $sqll = $con->prepare($queryy);
-            $sqll->execute();
-            $result = $sqll->fetch();
-          ?>
-        <label for="exampleTextarea">Edit About Us Message</label>
-        <textarea class="form-control m-input" name="about_us_message" id="exampleTextarea" rows="7">
-           <?php echo $result['text']; ?>
-        </textarea>
-
-        <input type="hidden" name="field_type" value="update_about_us_message" />
-        <button class="btn btn-primary submit-btn">Update</button>
-      </form>
-		</div>
-
-    <hr />
 
     <h3>Edit Statistics</h3>
     <form action="" method="post" id="statistics_form" >
@@ -128,38 +91,56 @@
             <div class="form-group m-form__group">
 
               <?php
-                $queryy = "SELECT * FROM hp_statistics  WHERE `hp_statistics`.`id` = 0";
+                $queryy = "SELECT * FROM statistics  WHERE `statistics`.`id` = 1";
                 $sqll = $con->prepare($queryy);
                 $sqll->execute();
                 $result = $sqll->fetch();
-                $cars_sold = $result['cars'];
-                $amount = $result['amount'];
-                $satisfaction = $result['satisfaction'];
-                $oil = $result['changes'];
+                $cars_sold = $result['num'];
               ?>
               <label for="Cars_Sold">Cars Sold</label>
-  						<input type="number" class="form-control m-input m-input--air" name="cars_sold" id="Cars_Sold" value=<?php echo $cars_sold?> >
+  						<input type="number" class="form-control m-input m-input--air" name="cars_sold" id="Cars_Sold" value="<?php echo $cars_sold; ?>" >
             </div>
           </div>
 
           <div class="col-sm-6 col-md-3">
             <div class="form-group m-form__group">
+              <?php
+                $queryy = "SELECT * FROM statistics  WHERE `statistics`.`id` = 2";
+                $sqll = $con->prepare($queryy);
+                $sqll->execute();
+                $result = $sqll->fetch();
+                $amount_sold = $result['num'];
+              ?>
               <label for="Amount_Sold">Amount Sold</label>
-  						<input type="number" class="form-control m-input m-input--air" name="amount_sold" id="Amount_Sold" value=<?php echo $amount?>>
+  						<input type="number" class="form-control m-input m-input--air" name="amount_sold" id="Amount_Sold" value="<?php echo $amount_sold; ?>">
             </div>
           </div>
 
           <div class="col-sm-6 col-md-3">
             <div class="form-group m-form__group">
+              <?php
+                $queryy = "SELECT * FROM statistics  WHERE `statistics`.`id` = 3";
+                $sqll = $con->prepare($queryy);
+                $sqll->execute();
+                $result = $sqll->fetch();
+                $customer_satisfaction = $result['num'];
+              ?>
               <label for="Customer_Satisfaction">Customer Satisfaction</label>
-  						<input type="number" max="100" class="form-control m-input m-input--air" name="customer_satisfaction" id="Customer_Satisfaction" value=<?php echo $satisfaction?>>
+  						<input type="number" max="100" class="form-control m-input m-input--air" name="customer_satisfaction" id="Customer_Satisfaction" value="<?php echo $customer_satisfaction; ?>">
             </div>
           </div>
 
           <div class="col-sm-6 col-md-3">
             <div class="form-group m-form__group">
+              <?php
+                $queryy = "SELECT * FROM statistics  WHERE `statistics`.`id` = 4";
+                $sqll = $con->prepare($queryy);
+                $sqll->execute();
+                $result = $sqll->fetch();
+                $oil_changes = $result['num'];
+              ?>
               <label for="Oil_Changes">Oil Changes</label>
-  						<input type="number" class="form-control m-input m-input--air" name="oil_changes" id="Oil_Changes" value= <?php echo $oil?>>
+  						<input type="number" class="form-control m-input m-input--air" name="oil_changes" id="Oil_Changes" value="<?php echo $oil_changes; ?>">
             </div>
           </div>
 
@@ -206,7 +187,7 @@
           <div class="col-sm-6 col-md-3">
             <div class="form-group m-form__group">
               <label for="address">Adrress</label>
-              <input type="text" max="100" class="form-control m-input m-input--air" name="address" id="address" value=<?php echo $address?>>
+              <textarea type="text" max="100" class="form-control m-input m-input--air" rows="7" name="address" id="address"><?php echo $address?></textarea>
             </div>
           </div>
 

@@ -85,7 +85,7 @@ include("nav.php");
                       <!-- SLIDE  -->
                       <li data-transition="fade" data-slotamount="5" data-masterspeed="700" >
                           <!-- MAIN IMAGE -->
-                          <img src="images/<?php echo $image->getSliderImage(); ?>"   alt="slidebg1"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                          <img src="admin/images/Slider/<?php echo $image->getSliderImage(); ?>"   alt="slidebg1"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
                       </li>
 
                       <?php

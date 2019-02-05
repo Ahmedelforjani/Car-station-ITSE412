@@ -18,21 +18,21 @@ $(document).ready(function() {
     autoSubmit: false,
     onSuccess:function(files,data,xhr,pd)
     {
+      var jsonResult = JSON.parse(data);
         //files: list of files
         //data: response from server
         //xhr : jquer xhr object
 
         //here i want to append inserted images to my list
         var newLi =
-          $("<li data-id='5'><a href='images/3552_48363674_780546318950713_7557789865564176384_n.png' class='thumbnail'><img src='images/3552_48363674_780546318950713_7557789865564176384_n.png' alt='' class='img-fluid'></a><span class='delete-image'>x</span></li>");
+          $("<li data-id='" + jsonResult.id + "'><a href='images/Slider/" + jsonResult.image + "' class='thumbnail'><img src='images/Slider/" + jsonResult.image + "' alt='' class='img-fluid'></a><span class='delete-image'><i class='flaticon-delete'></i></span></li>");
         var ul = $("#images").html();
         $("#images li").remove();
         $("#images").html(ul);
-        console.log(ul);
         $("#images").append(newLi);
         $('.thumbnail').viewbox();
 
-        console.log(data);
+        console.log(jsonResult.image);
     }
   });
 
