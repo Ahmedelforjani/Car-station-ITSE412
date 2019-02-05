@@ -3,7 +3,7 @@
   include "Classes/Employee.php";
 
   $status = array(
-    "message" => "failed"
+    "message" => "error"
   );
 
   //check if i got the post request
@@ -15,8 +15,14 @@
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $id = $_POST['id'];
+        $employee_image=null;
     
-
+      if(!empty($_FILES['employee_image']['name'])) {
+        $employee_image = $_FILES['employee_image'];
+        //generate image name
+        $imageName = rand(0, 100000) . "_" . str_replace(" ", "_", $employee_name) . ".png";
+        move_uploaded_file($employee_image['tmp_name'], "images/" . $imageName);
+      }
 
 
     $employee_manager = new employeeManager();
@@ -27,10 +33,14 @@
         "jobTitle" => $jobTitle,
         "email" => $email,
         "phone" => $phone,
-        "id" => $id
+        "id" => $id,
+        'img' => $employee_image
       );
 
-
+      if(!empty($_FILES['employee_image']['name'])) {
+        $employee['image'] = $imageName;
+      }
+      
       $status['message'] = $employee_manager->updateEmployee($employee);
 
   }

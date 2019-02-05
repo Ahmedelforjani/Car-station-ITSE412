@@ -1,8 +1,17 @@
+
+<?php
+include 'admin/Classes/Employee.php';
+
+$employeemanager = new employeeManager();
+$employeemanager->loadEmployees();
+$employees = $employeemanager->getAllEmployees();
+
+?>
+
+
+
 <!doctype html>
-<!--[if IE 7 ]> <html lang="en" class="ie7"> <![endif]-->
-<!--[if IE 8 ]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9 ]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
+
 <html lang="en">
 <!--<![endif]-->
 <head>
@@ -15,11 +24,7 @@
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
-<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->
+
 
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Yellowtail%7COpen%20Sans%3A400%2C300%2C600%2C700%2C800" media="screen" />
 <!-- Custom styles for this template -->
@@ -76,7 +81,6 @@ include("nav.php");
 <section class="content">
     <div class="container">
         <div class="inner-page">
-            <di
             <div class="find_team padding-bottom-40 sales_team margin-top-30 clearfix">
                 <div class="row">
                     <div class="col-lg-12 padding-left-none padding-right-none">
@@ -84,19 +88,23 @@ include("nav.php");
                     </div>
                     <div class="people clearfix">
                         <div class="row">
-                            <div class="col-md-3 col-sm-3 scroll_effect fadeInUp">
-                                <div class="team margin-top-15 xs-margin-bottom-30"> <a href="images/team4-lrg.jpg" class="fancybox"> <img src="http://demo.themesuite.com/automotive/images/team4.jpg" class="aligncenter" alt="team" /> </a>
+                        <?php 
+                        if (true)
+                        {
+                        foreach($employees as $employee) { ?>
+                        <div class="col-md-3 col-sm-3 scroll_effect fadeInUp">
+                                <div class="team margin-top-15 xs-margin-bottom-30"> <a href="images/team4-lrg.jpg" class="fancybox"> 
+                                    <img src=<?php echo "admin/images/".$employee->getEmployeeImg() ?> class="aligncenter" alt="No Image Found" /> </a>
                                     <div class="name_post padding-bottom-15">
-                                        <h4>Luca Sanderson</h4>
-                                        <p>Sales Representative</p>
+                                        <h4><?php echo $employee->getEmployeeName() ?></h4>
+                                        <p><?php echo $employee->getEmployeeJobTitle() ?></p>
                                     </div>
                                     <div class="about_team padding-bottom-10">
-                                        <p class="margin-vertical-15">Lorem ipsum dolor sit amet, paleotousia 
-                                            consectetuer adipiscing elit. Aenean com.</p>
+                                        <p class="margin-vertical-15">This is suppose to be a descreption about the employee</p>
                                         <ul>
-                                            <li><i class="fa fa-phone"></i>1-800-123-4567 - Extension 105</li>
-                                            <li><i class="fa fa-mobile"></i>1-902-544-4415</li>
-                                            <li><i class="fa fa-envelope-o"></i><a href="#">luca@automotivetemplate.com</a></li>
+                                            <li><i class="fa fa-phone"></i><?php echo $employee->getEmployeePhone() ?></li>
+                                            <li><i class="fa fa-mobile"></i><?php echo $employee->getEmployeePhone() ?></li>
+                                            <li><i class="fa fa-envelope-o"></i><a href="#"><?php echo $employee->getEmployeeEmail() ?></a></li>
                                         </ul>
                                     </div>
                                     <div class="social_team pull-left">
@@ -110,84 +118,7 @@ include("nav.php");
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <div class="col-md-3 col-sm-3 scroll_effect fadeInUp" data-wow-delay=".1s">
-                                <div class="team margin-top-15 xs-margin-bottom-30"> <a href="images/team5-lrg.jpg" class="fancybox"> <img src="http://demo.themesuite.com/automotive/images/team5.jpg" class="aligncenter" alt="team" /> </a>
-                                    <div class="name_post padding-bottom-15">
-                                        <h4>Abby Myers</h4>
-                                        <p>Sales Representative</p>
-                                    </div>
-                                    <div class="about_team padding-bottom-10">
-                                        <p class="margin-vertical-15">Lorem ipsum dolor sit amet, paleotousia 
-                                            consectetuer adipiscing elit. Aenean com.</p>
-                                        <ul>
-                                            <li><i class="fa fa-phone"></i>1-800-123-4567 - Extension 123</li>
-                                            <li><i class="fa fa-mobile"></i>1-902-361-7267</li>
-                                            <li><i class="fa fa-envelope-o"></i><a href="#">abby@automotivetemplate.com</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="social_team pull-left">
-                                        <ul class="social margin-bottom-none">
-                                            <li class="margin-bottom-none"><a class="sc-1" href="#"></a></li>
-                                            <li class="margin-bottom-none"><a class="sc-2" href="#"></a></li>
-                                            <li class="margin-bottom-none"><a class="sc-5" href="#"></a></li>
-                                            <li class="margin-bottom-none"><a class="sc-7" href="#"></a></li>
-                                            <li class="margin-bottom-none"><a class="sc-9" href="#"></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3 scroll_effect fadeInUp" data-wow-delay=".2s">
-                                <div class="team margin-top-15 xs-margin-bottom-30"> <a href="images/team6-lrg.jpg" class="fancybox"> <img src="http://demo.themesuite.com/automotive/images/team6.jpg" class="aligncenter" alt="team" /> </a>
-                                    <div class="name_post padding-bottom-15">
-                                        <h4>Connor Wyatt</h4>
-                                        <p>Sales Representative</p>
-                                    </div>
-                                    <div class="about_team padding-bottom-10">
-                                        <p class="margin-vertical-15">Lorem ipsum dolor sit amet, paleotousia 
-                                            consectetuer adipiscing elit. Aenean com.</p>
-                                        <ul>
-                                            <li><i class="fa fa-phone"></i>1-800-123-4567 - Extension 111</li>
-                                            <li><i class="fa fa-mobile"></i>1-902-544-4415</li>
-                                            <li><i class="fa fa-envelope-o"></i><a href="#">connor@automotivetemplate.com</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="social_team pull-left">
-                                        <ul class="social margin-bottom-none">
-                                            <li class="margin-bottom-none"><a class="sc-1" href="#"></a></li>
-                                            <li class="margin-bottom-none"><a class="sc-2" href="#"></a></li>
-                                            <li class="margin-bottom-none"><a class="sc-5" href="#"></a></li>
-                                            <li class="margin-bottom-none"><a class="sc-7" href="#"></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3 scroll_effect fadeInUp" data-wow-delay=".3s">
-                                <div class="team margin-top-15"> <a href="images/team7-lrg.jpg" class="fancybox"> <img src="http://demo.themesuite.com/automotive/images/team7.jpg" class="aligncenter" alt="team" /> </a>
-                                    <div class="name_post padding-bottom-15">
-                                        <h4>Sarah Thomas</h4>
-                                        <p>Sales Representative</p>
-                                    </div>
-                                    <div class="about_team padding-bottom-10">
-                                        <p class="margin-vertical-15">Lorem ipsum dolor sit amet, paleotousia 
-                                            consectetuer adipiscing elit. Aenean com.</p>
-                                        <ul>
-                                            <li><i class="fa fa-phone"></i>1-800-123-4567 - Extension 108</li>
-                                            <li><i class="fa fa-mobile"></i>1-902-544-4415</li>
-                                            <li><i class="fa fa-envelope-o"></i><a href="#">sarah@automotivetemplate.com</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="social_team pull-left">
-                                        <ul class="social margin-bottom-none">
-                                            <li class="margin-bottom-none"><a class="sc-1" href="#"></a></li>
-                                            <li class="margin-bottom-none"><a class="sc-2" href="#"></a></li>
-                                            <li class="margin-bottom-none"><a class="sc-5" href="#"></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
+                            <?php }} ?>
                         </div>
                     </div>
                 </div>

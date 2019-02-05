@@ -94,23 +94,6 @@ $(document).ready(function() {
     });
   });
 
-  $("#recent_vehicles_message_form").submit(function(e) {
-    e.preventDefault();
-    $.ajax({
-        type:'POST',
-        url: 'home-page_data.php',
-        data: $("#recent_vehicles_message_form").serialize()
-    })
-    .done(function(response){
-      console.log(response);
-      swal('Updated Successfully');
-    })
-    .fail(function(response){
-      console.log(response);
-     swal('Oops...', 'Something went wrong with ajax !', 'error');
-    });
-  });
-
   $("#about_us_message_form").submit(function(e) {
     e.preventDefault();
     $.ajax({

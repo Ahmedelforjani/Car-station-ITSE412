@@ -57,7 +57,7 @@
             <form id="update_cat_form" action="" method="post" enctype="multipart/form-data" class="m-form m-form--fit">
                 <div class="m-portlet__body">
                     <div class="form-group m-form__group row">
-                        <label class="col-md-3 col-form-label">Name</label>
+                        <label class="col-md-3 col-form-labmel">Name</label>
                         <div class="col-md-9">
                             <input required disabled="true" name="category_name" class="form-control m-input">
                         </div>
