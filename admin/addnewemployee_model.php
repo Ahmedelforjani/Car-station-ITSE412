@@ -33,7 +33,7 @@
             <div class="form-group">
             <label class="form-control-label">Upload image</label>
             <div class="form-group m-form__group">
-                <label class="form-control-label">Category Image</label>
+                <label class="form-control-label">Employee Image</label>
                   <div class="image">
                     <div class="avatar-upload">
 

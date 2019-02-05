@@ -189,14 +189,17 @@ $(document).ready(function(){
             data: $(this).serialize()
         })
         .done(function(response){
+
+          console.log(response);
           
           if(response.message == "success") {
             //show done message
             Swal(
               'Done!',
               'Updated Successflly!',
-              'success'
+              'success',
             );
+            console.log(response);
             
           } else {
             console.log(response);

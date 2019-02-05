@@ -34,7 +34,7 @@
         "email" => $email,
         "phone" => $phone,
         "id" => $id,
-        'img' => $employee_image
+        "img" => $employee_image
       );
 
       if(!empty($_FILES['employee_image']['name'])) {
