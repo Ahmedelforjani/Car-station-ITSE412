@@ -81,7 +81,7 @@ include("nav.php");
                 <div class="find_map row clearfix">
                     <h2 class="margin-bottom-25 margin-top-none">FIND US ON THE MAP</h2>
                     <div class="map margin-vertical-30">
-                        <div id='google-map-listing' class="contact" data-longitude='-79.38' data-latitude='43.65' data-zoom='7' style='height: 390px;'></div>
+                        <div id='google-map-listing' class="contact" data-longitude='13.180161' data-latitude='32.885353' data-zoom='7' style='height: 390px;'></div>
                     </div>
                 </div>
                 <!--MAP--> 
@@ -96,15 +96,14 @@ include("nav.php");
                                     <p><i class="fa fa-map-marker"></i><strong>Address:</strong></p>
                                 </div>
                                 <div class="contact_address">
-                                    <p class="margin-bottom-none">Company Name<br>
-                                        1234 Street Name <br>
-                                        City Name, AB  12345 <br>
-                                        United States</p>
+                                    <p class="margin-bottom-none">My Car-Station<br>
+                                        Tripoli, <br>
+                                        Libya </p>
                                 </div>
                             </div>
                             <div class="address clearfix address_details margin-right-25 padding-bottom-40">
                                 <ul class="margin-bottom-none">
-                                    <li><i class="fa fa-phone"></i><strong>Phone:</strong> <span>1-800-123-4567</span></li>
+                                    <li><i class="fa fa-phone"></i><strong>Phone:</strong> <span>021-1234567</span></li>
                                     <li><i class="fa fa-envelope-o"></i><strong>Email:</strong> <a href="mailto:sales@company.com">sales@company.com</a></li>
                                     <li class="padding-bottom-none"><i class="fa fa-laptop"></i><strong>Web:</strong> <a href="http://company.com">www.company.com</a></li>
                                 </ul>
