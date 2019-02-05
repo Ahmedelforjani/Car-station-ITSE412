@@ -17,8 +17,6 @@
         $carName = isset($_GET['name']) && !empty($_GET['name']) ? $_GET['name'] : '%%';
 
         global $con;
-        //`car_id`, `car_name`, `model`, `color`, `milage`, `engine`, `doors`, `category_id`, `condition`,
-        // `passengers`, `price`, `transmission`, `overview`, `options`, `is_visible`
         $query = "SELECT car_id FROM car
                     WHERE color LIKE '".$color.
                     "' AND category_id LIKE '".$category.

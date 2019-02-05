@@ -23,11 +23,9 @@
                 <p>By subscribing to our company
                     you will always be up-to-date on our latest
                     promotions, deals and vehicle inventory!</p>
-                <form method="post" action="" class="form_contact">
-                    <input type="text" value="" name="MERGE0" placeholder="Email Address">
+                <form method="post" action="" class="form_contact" id="subscribeForm">
+                    <input type="email" value="" id="email" name="email" placeholder="Email Address">
                     <input type="submit" value="Subscribe" class="md-button">
-                    <input type="hidden" name="u" value="">
-                    <input type="hidden" name="id" value="">
                 </form>
             </div>
         </div>
