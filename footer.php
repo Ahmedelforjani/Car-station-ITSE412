@@ -1,4 +1,9 @@
-
+<?php
+  $query = "SELECT * FROM webside_info";
+  $stmt = $con->prepare($query);
+  $stmt->execute();
+  $website_info = $stmt->fetch();
+?>
 
 <footer>
     <div class="container">
