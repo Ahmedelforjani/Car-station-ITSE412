@@ -380,6 +380,16 @@ include("nav.php");
                                         </div>
                                     </div>
                                     <div class="col-md-6">
+                                        <div class="my-dropdown">
+                                            <select name="sort" class="css-dropdowns" tabindex="1" >
+                                                <option value='car_id DESC'>Descending</option>
+                                                <option value='car_id ASC'>Ascending</option>
+                                                <option value='price DESC'>Price Descending</option>
+                                                <option value='price ASC'>Price Ascending</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <div class="form-element" style="margin:0;">
 
                                         </div>
