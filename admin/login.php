@@ -1,9 +1,9 @@
 <?php 
 	session_start();
 	
-    if(isset($_SESSION['user'])){
-        header('Location: index.php');
-    }
+    // if(isset($_SESSION['user'])){
+    //     header('Location: index.php');
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -64,22 +64,6 @@
 						</div>
 						<div class="m-login__signin">
 							<div class="m-login__head">
-				<?php 
-				include 'init.php';
-				include $tp1 . 'header.php';
-				include 'includes/languages/english.php';
-				
-				  if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-					$Email = $_POST['email'];
-					$Password = $_POST['password'];
-					$hashedPass = sha1($Password);
-
-					each Email;
-				  }
-				  ?>
-
-
 								<h3 class="m-login__title">Login In To Admin</h3>
 							</div>
 							<form class="m-login__form m-form" method="POST" action="" id="loginForm">
