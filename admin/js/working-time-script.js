@@ -9,7 +9,6 @@ $(document).ready(function() {
     })
     .done(function(response){
       console.log($("#working_time_form").serialize());
-      console.log(response);
       swal('Updated Successfully');
     })
     .fail(function(response){
