@@ -1,22 +1,22 @@
 $(document).ready(function(){
 
-  function validEditForm() {
-    var name = $("input[name='name']").val();
-    var jobTitle = $("input[name='JobTitle']").val();
-    var email = $("input[name='email']").val();
-    var phone = $("input[name='phone']").val();
-    if(name == "" || jobTitle == "" || email == "" || phone == "") {
-      return false;
-    }
-    return true;
-  }
+  // function validEditForm() {
+  //   var name = $("input[name='name']").val();
+  //   var jobTitle = $("input[name='JobTitle']").val();
+  //   var email = $("input[name='email']").val();
+  //   var phone = $("input[name='phone']").val();
+  //   var fileLength = $("#employee_image").get(0).files.length;
+  //   if(name == "" || jobTitle == "" || email == "" || phone == "" || fileLength == 0) {
+  //     return false;
+  //   }
+  //   return true;
+  // }
 
   function validAddForm() {
     var name = $("input[name='name']").val();
     var jobTitle = $("input[name='JobTitle']").val();
     var email = $("input[name='email']").val();
     var phone = $("input[name='phone']").val();
-
     var fileLength = $("#employee_image").get(0).files.length;
     if(name == "" || jobTitle == "" || email == "" || phone == "" || fileLength == 0) {
       return false;
@@ -115,8 +115,6 @@ $(document).ready(function(){
           $("#editemployee input[name = 'phone']").val(response.phone);
           $("#editemployee input[name = 'id']").val(id);
 
-          
-          
         })
         .fail(function(response){
           console.log(response);
@@ -154,7 +152,9 @@ $(document).ready(function(){
                   'Done!',
                   'Deleted Successflly!',
                   'success'
+                  
                 );
+                
               } else {
                 
                 console.log(response);
@@ -173,7 +173,7 @@ $(document).ready(function(){
 
       $("#edit_employee").submit(function(e) {
         e.preventDefault();
-
+        
         
         // Get form
         var form = $(this)[0];
@@ -199,6 +199,7 @@ $(document).ready(function(){
               'Updated Successflly!',
               'success',
             );
+            $("#editemployee").modal('toggle');
             console.log(response);
             
           } else {

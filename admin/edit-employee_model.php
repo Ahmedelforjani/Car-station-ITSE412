@@ -39,7 +39,7 @@
                     <div class="avatar-upload">
 
                         <div class="avatar-preview">
-                            <input name="employee_image" class="form-control" type='file' id="employee_image" accept=".png, .jpg, .jpeg" />
+                        <input name="employee_image" class="form-control" type='file' id="employee_image" accept=".png, .jpg, .jpeg" />
                             <label for="employee_image"><i class="flaticon-edit"></i></label>
                           <div id="employee_image_preview" style="background-image: url(images/default.png);">
                           </div>
