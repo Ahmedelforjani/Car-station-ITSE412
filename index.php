@@ -2,6 +2,7 @@
     include 'DB_Connect.php';
     include 'admin/Classes/Category.php';
     include 'admin/Classes/Slider.php';
+    include 'admin/Classes/Car.php';
     $categoriesManager = new CategoriesManager();
     $categoriesManager->loadAllCategories();
     $categories = $categoriesManager->getAllCategories();
@@ -379,6 +380,16 @@ include("nav.php");
                                         </div>
                                     </div>
                                     <div class="col-md-6">
+                                        <div class="my-dropdown">
+                                            <select name="sort" class="css-dropdowns" tabindex="1" >
+                                                <option value='car_id DESC'>Descending</option>
+                                                <option value='car_id ASC'>Ascending</option>
+                                                <option value='price DESC'>Price Descending</option>
+                                                <option value='price ASC'>Price Ascending</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <div class="form-element" style="margin:0;">
 
                                         </div>
@@ -415,11 +426,16 @@ include("nav.php");
                                 $stmt->execute();
                                 $latest_cars = $stmt->fetchAll();
 
-                                foreach($latest_cars as $car) { ?>
+                                foreach($latest_cars as $car) {
+
+                                  $theCar = new car($car['car_id']);
+                                  $images = $theCar->getImages();
+
+                                  ?>
 
                                   <div class="slide">
                                       <div class="car-block">
-                                          <div class="img-flex"> <a href="car.php?id=<?php echo $car['car_id']; ?>"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car1.jpg" alt="" class="img-responsive"> </div>
+                                          <div class="img-flex"> <a href="car.php?id=<?php echo $car['car_id']; ?>"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="admin/images/car-images/<?php echo $images[0]; ?>" alt="" class="img-responsive"> </div>
                                           <div class="car-block-bottom">
                                               <h6><strong><?php echo $car['car_name']; ?></strong></h6>
                                               <h6><?php echo $car['condition']; ?>, <?php echo $car['milage']; ?> miles</h6>

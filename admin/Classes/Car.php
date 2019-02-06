@@ -315,6 +315,16 @@
     public function getAllCars() {
       return $this->_Cars;
     }
+
+    public function getCount() {
+      global $con;
+      $query = "SELECT car_id FROM car";
+      $stmt = $con->prepare($query);
+      $stmt->execute();
+      return $stmt->rowCount();
+   }
   }
+
+  
 
 ?>

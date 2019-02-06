@@ -1,3 +1,7 @@
+<?php
+  include 'DB_Connect.php';
+?>
+
 <!doctype html>
 <!--[if IE 7 ]> <html lang="en" class="ie7"> <![endif]-->
 <!--[if IE 8 ]> <html lang="en" class="ie8"> <![endif]-->
@@ -40,7 +44,7 @@
 <script type="text/javascript" src="js/wow.min.js"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key&amp;sensor=false"></script>
 
-<!-- Twitter Feed Scripts 
+<!-- Twitter Feed Scripts
      Uncomment to activate
 
 <script type="text/javascript" src="js/twitter/jquery.tweet.js"></script>
@@ -50,7 +54,7 @@
 
 <body>
 <!--Header Start-->
-<?php 
+<?php
 include("nav.php");
 ?>
 <!--Header End-->
@@ -76,7 +80,7 @@ include("nav.php");
 <section class="content">
     <div class="container">
         <div class="inner-page">
-            <div class="col-md-12 padding-none"> 
+            <div class="col-md-12 padding-none">
                 <!--MAP-->
                 <div class="find_map row clearfix">
                     <h2 class="margin-bottom-25 margin-top-none">FIND US ON THE MAP</h2>
@@ -84,9 +88,9 @@ include("nav.php");
                         <div id='google-map-listing' class="contact" data-longitude='13.180161' data-latitude='32.885353' data-zoom='7' style='height: 390px;'></div>
                     </div>
                 </div>
-                <!--MAP--> 
+                <!--MAP-->
                 <!--CONTACT INFORMATION-->
-                <div class="row contacts margin-top-25"> 
+                <div class="row contacts margin-top-25">
                     <!--LEFT INFORMATION-->
                     <div class="col-md-6 left-information">
                         <div class="contact_information information_head clearfix">
@@ -113,7 +117,7 @@ include("nav.php");
                         <div class="information_hour information_head margin-top-30 xs-padding-bottom-40">
                             <h3 class="margin-bottom-25 margin-top-none">BUSINESS HOURS</h3>
                             <div class="row">
-                                <div class="col-sm-4 padding-left-none">
+                                <div class="col-sm-5 padding-left-none">
                                     <div class="deparment">
                                         <table class="table table-bordered no-border font-12px">
                                             <thead>
@@ -122,44 +126,33 @@ include("nav.php");
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                              <?php
+
+                                              $query = "SELECT * FROM `work_time` ";
+                                              $stmt = $con->prepare($query);
+                                              $stmt->execute();
+                                              $work_times = $stmt->fetchAll();
+
+                                              foreach($work_times as $time) { ?>
+
                                                 <tr>
-                                                    <td>Mon:</td>
-                                                    <td>8:00am - 5:00pm</td>
+                                                  <td><?php echo $time['day'] ?>:</td>
+                                                  <td><?php echo $time['start_h'] . " - " .	$time['close_h']; ?></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Tue:</td>
-                                                    <td>8:00am - 9:00pm</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Wed:</td>
-                                                    <td>8:00am - 5:00pm</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Thu:</td>
-                                                    <td>8:00am - 9:00pm</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Fri:</td>
-                                                    <td>8:00am - 6:00pm</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sat:</td>
-                                                    <td>9:00am - 5:00pm</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sun:</td>
-                                                    <td>Closed</td>
-                                                </tr>
+
+                                              <?php
+                                              }
+                                              ?>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!--INFORMATION HOUR--> 
+                        <!--INFORMATION HOUR-->
                     </div>
-                    <!--LEFT INFORMATION--> 
-                    
+                    <!--LEFT INFORMATION-->
+
                     <!--RIGHT INFORMATION-->
                     <div class="col-md-5 col-lg-offset-1 col-md-offset-1 padding-right-none xs-padding-left-none sm-padding-left-none xs-margin-top-30">
                         <div class="contact_wrapper information_head">
@@ -175,97 +168,97 @@ include("nav.php");
                             </div>
                         </div>
                     </div>
-                    <!--RIGHT INFORMATION--> 
-                    
+                    <!--RIGHT INFORMATION-->
+
                 </div>
-                <!---CONTACT INFORMATION--> 
-                
+                <!---CONTACT INFORMATION-->
+
             </div>
             <div class="clearfix"></div>
         </div>
     </div>
-    <!--container ends--> 
+    <!--container ends-->
 </section>
 <!--content ends-->
 <div class="clearfix"></div>
 <div class="back_to_top"> <img src="http://demo.themesuite.com/automotive/images/arrow-up.png" alt="scroll up" /> </div>
 
 <!--Footer Start-->
-<?php 
+<?php
 include("Footer.php");
 ?>
 
-<script src="js/retina.js"></script> 
-<script src="js/main.js"></script> 
-<script type="text/javascript" src="js/jquery.fancybox.js"></script> 
-<script src="js/modernizr.custom.js"></script> 
-<!-- jQuery --> 
+<script src="js/retina.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+<script src="js/modernizr.custom.js"></script>
+<!-- jQuery -->
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $("#submit_btn").click(function() { 
+    $("#submit_btn").click(function() {
         //collect input field values
-        var user_name       = $("input[name='name']").val(); 
+        var user_name       = $("input[name='name']").val();
         var user_email      = $("input[name='email']").val();
         var user_message    = $("textarea[name='msg']").val();
-        
+
         //simple validation at client's end
         //we simply change border color to red if empty field using .css()
         var proceed = true;
-        if(user_name==""){ 
-            $("input[name='name']").css("border", "1px solid red"); 
+        if(user_name==""){
+            $("input[name='name']").css("border", "1px solid red");
             proceed = false;
         } else {
 			$("input[name='name']").css("border", "none");
 		}
-        if(user_email==""){ 
-            $("input[name='email']").css("border", "1px solid red"); 
+        if(user_email==""){
+            $("input[name='email']").css("border", "1px solid red");
             proceed = false;
         } else {
 			$("input[name='email']").css("border", "none");
 		}
-        if(user_message=="") {  
-            $("textarea[name='msg']").css("border", "1px solid red"); 
+        if(user_message=="") {
+            $("textarea[name='msg']").css("border", "1px solid red");
             proceed = false;
         } else {
 			$("textarea[name='msg']").css("border", "none");
 		}
-        
+
         //everything looks good! proceed...
         if(proceed) {
             //data to be sent to server
             post_data = {'userName':user_name, 'userEmail':user_email, 'userMessage':user_message};
-            
+
             //Ajax post data to server
-            $.post('contact_process.php', post_data, function(data){  
-                
-                //load success massage in #result div element, with slide effect.       
+            $.post('contact_process.php', post_data, function(data){
+
+                //load success massage in #result div element, with slide effect.
                 $("#result").hide().html('<div class="success">'+data+'</div>').slideDown();
-                
+
                 //reset values in all input fields
                 $('#contact_form input[type="text"]').val('');
-				$('#contact_form input[type="email"]').val(''); 
-                $('#contact_form textarea').val(''); 
-                
+				$('#contact_form input[type="email"]').val('');
+                $('#contact_form textarea').val('');
+
             }).fail(function(err) {  //load any error data
                 $("#result").hide().html('<div class="error">'+err.statusText+'</div>').slideDown();
             });
         }
     });
-    
+
     //reset previously set border colors and hide all message on .keyup()
-    $("#contact_form input, #contact_form textarea").keyup(function() { 
-        $("#contact_form input, #contact_form textarea").css('border-color',''); 
+    $("#contact_form input, #contact_form textarea").keyup(function() {
+        $("#contact_form input, #contact_form textarea").css('border-color','');
         $("#result").slideUp();
     });
-    
+
 });
-</script> 
-<!-- FlexSlider --> 
-<script defer src="js/jquery.flexslider.js"></script> 
-<script src="js/jquery.bxslider.js" type="text/javascript"></script> 
-<script src="js/jquery.selectbox-0.2.js" type="text/javascript"></script> 
-<script type="text/javascript" src="js/jquery.mousewheel.js"></script> 
+</script>
+<!-- FlexSlider -->
+<script defer src="js/jquery.flexslider.js"></script>
+<script src="js/jquery.bxslider.js" type="text/javascript"></script>
+<script src="js/jquery.selectbox-0.2.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="js/jquery.easing.js"></script>
 </body>
 </html>
