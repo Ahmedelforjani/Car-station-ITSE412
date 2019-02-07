@@ -1,7 +1,17 @@
 <?php
     include 'admin/Classes/Car.php';
-
+    $carsManager = new CarsManager();
+    $count = $carsManager->getCount();
+    $much = 10;
+	$pageCount = (int)ceil($count / $much);
+	$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    $start = ($page - 1) * $much;
+    $next = ($page == $pageCount) ? $pageCount : $page + 1;
+    $prev = ($page == 1) ? 1 : $page - 1;
+    $link = str_replace('&page='.$page,'',$_SERVER['REQUEST_URI']);
+    $sml = isset($_GET['name']) ? $link.'&page=' : '?page=';
     if($_SERVER['REQUEST_METHOD'] == 'GET') {
+        global $con;
 
         $cars = array();
 
@@ -15,8 +25,7 @@
         $minMilage = isset($_GET['min-milage']) && !empty($_GET['min-milage']) ? $_GET['min-milage'] : 0;
         $maxMilage = isset($_GET['max-milage']) && !empty($_GET['max-milage']) ? $_GET['max-milage'] : 999000;
         $carName = isset($_GET['name']) && !empty($_GET['name']) ? $_GET['name'] : '%%';
-
-        global $con;
+        $sort = isset($_GET['sort']) && !empty($_GET['sort']) ? $_GET['sort'] : 'car_id DESC';
         $query = "SELECT car_id FROM car
                     WHERE color LIKE '".$color.
                     "' AND category_id LIKE '".$category.
@@ -24,7 +33,7 @@
                     "' AND model BETWEEN ".$minYear." AND ".$maxYear.
                     " AND price BETWEEN ".$minPrice." AND ".$maxPrice.
                     " AND milage BETWEEN ".$minMilage." AND ".$maxMilage.
-                    " AND car_name LIKE '".$carName."'";
+                    " AND car_name LIKE '".$carName."' ORDER BY ".$sort. " LIMIT ".$much." OFFSET ".$start;
         $stmt = $con->prepare($query);
 
         $stmt->execute();
@@ -39,7 +48,6 @@
         }
 
     } else {
-        $carsManager = new CarsManager();
         $carsManager->loadAllCars();
         $cars = $carsManager->getAllCars();
     }
@@ -87,12 +95,6 @@
 <script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script>
 <script type="text/javascript" src="js/wow.min.js"></script>
 
-<!-- Twitter Feed Scripts
-     Uncomment to activate
-
-<script type="text/javascript" src="js/twitter/jquery.tweet.js"></script>
-<script type="text/javascript" src="js/twitter/twitter_feed.js"></script> -->
-
 </head>
 
 <body>
@@ -127,21 +129,26 @@ include("nav.php");
         <div class="inner-page row">
             <div class="listing-view margin-bottom-20">
                 <div class="row">
-                    <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12 padding-none"> <span class="ribbon"><strong><?php echo sizeof($cars); ?> Vehicles Matching:</strong></span> <span class="ribbon-item">All Listings</span> </div>
+                    <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12 padding-none"> <span class="ribbon"><strong><?php echo $count ?> Vehicles Matching:</strong></span> <span class="ribbon-item">All Listings</span> </div>
                 </div>
             </div>
             <div class="clearfix"></div>
             <form method="post" action="#" class="listing_sort">
                 <div class="select-wrapper pagination clearfix margin-top-none margin-bottom-15">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sort-by-menu">
-
+                <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sort-by-menu"> 
+                            
                         </div>
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 col-lg-offset-1">
-                            <div class="controls full"> <a href="#" class="left-arrow"><i class="fa fa-angle-left"></i></a> <span>Page 1 of 4</span> <a href="#" class="right-arrow"><i class="fa fa-angle-right"></i></a> </div>
+                            <div class="controls full"> <a href="<?php echo $sml.$prev ?>" class="left-arrow"><i class="fa fa-angle-left"></i></a> <span>Page <?php echo $page ?> of <?php echo $pageCount; ?></span> <a href="<?php echo $sml.$next ?>" class="right-arrow"><i class="fa fa-angle-right"></i></a> </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pull-right">
-                        </div>
+                        <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pull-right">
+                            <ul class="form-links top_buttons">
+                                <li><a href="#" class="gradient_button">Reset Filters</a></li>
+                                <li><a href="#" class="gradient_button">Deselect All</a></li>
+                                <li><a href="#" class="gradient_button">Compare 0 Vehicles</a></li>
+                            </ul>
+                        </div> -->
                     </div>
                 </div>
             </form>
@@ -179,7 +186,6 @@ include("nav.php");
                             <div class="price"><b>Price:</b><br>
                                 <div class="figure">$<?php echo $car->getPrice(); ?><br>
                                 </div>
-                                <div class="tax">Plus Sales Tax</div>
                             </div>
                             <div class="view-details gradient_button"><i class='fa fa-plus-circle'></i> View Details </div>
                             <div class="clearfix"></div>
@@ -254,14 +260,26 @@ include("nav.php");
             </div>
             <div class="inventory_pagination">
                 <ul class="pagination margin-bottom-none margin-top-25 bottom_pagination">
-                    <li class="disabled"><a href="#" class="disabled"><i class="fa fa-angle-left"></i></a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                <?php
+                    if (isset($_GET['page']) && $_GET['page'] > 1){
+                        echo '<li><a href="'.$sml.$prev.'"><i class="fa fa-angle-left"></i></a></li>';
+                    }
+                ?>
+                <?php 
+                    for ($i = 1; $i <= $pageCount; $i++){
+                        echo '<li><a href="'.$sml.$i.'">'.$i.'</a></li>';
+                    }
+                ?>
+                <?php
+                    if (isset($_GET['page']) && $_GET['page'] < $pageCount || !isset($_GET['page']) ){
+                        if (isset($_GET['page']))
+                            echo '<li><a href="'.$sml.$next.'"><i class="fa fa-angle-right"></i></a></li>'; 
+                    }
+                ?>
                 </ul>
+                
+                
+               
             </div>
         </div>
     </div>
@@ -280,7 +298,8 @@ include("footer.php");
 ?>
 
 
-<!-- Bootstrap core JavaScript --> <script src="js/retina.js"></script>
+<!-- Bootstrap core JavaScript --> 
+<script src="js/retina.js"></script>
 <script src="js/main.js"></script>
 <script type="text/javascript" src="js/jquery.fancybox.js"></script>
 <script src="js/modernizr.custom.js"></script> <script defer src="js/jquery.flexslider.js"></script>

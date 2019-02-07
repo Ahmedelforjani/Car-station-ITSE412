@@ -1,7 +1,6 @@
 <?php 
 
     include '../DB_Connect.php';
-    session_start();
     
     $response = array(
         "message" => "failed"
@@ -19,6 +18,7 @@
   
         $stmt->execute();
         if($stmt->rowCount() > 0) {
+            session_start();
             $row = $stmt->fetch();
             $_SESSION['user'] = $row['name'];
             $response['message'] = "success";

@@ -1,9 +1,10 @@
 <?php 
-	session_start();
-	
+	@session_start();
+	ob_start();
+
     if(isset($_SESSION['user'])){
         header('Location: index.php');
-    }
+    } 
 ?>
 
 <!DOCTYPE html>
