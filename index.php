@@ -85,7 +85,7 @@ include("nav.php");
                       <!-- SLIDE  -->
                       <li data-transition="fade" data-slotamount="5" data-masterspeed="700" >
                           <!-- MAIN IMAGE -->
-                          <img src="images/<?php echo $image->getSliderImage(); ?>"   alt="slidebg1"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                          <img src="admin/images/Slider/<?php echo $image->getSliderImage(); ?>"   alt="slidebg1"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
                       </li>
 
                       <?php
@@ -194,7 +194,7 @@ include("nav.php");
                                     <i class="fa fa-car"></i>
 
                                     <?php
-                                      $query = "SELECT * FROM statistics WHERE id = 1;";
+                                      $query = "SELECT cars FROM hp_statistics WHERE id = 0;";
                                       $stmt = $con->prepare($query);
                                       $stmt->execute();
                                       $result = $stmt->fetch();
@@ -202,17 +202,17 @@ include("nav.php");
                                     ?>
 
                                     <span class="animate_number margin-vertical-15">
-                                        <span class="number"><?php echo $result['num']; ?></span>
+                                        <span class="number"><?php echo $result['cars']; ?></span>
                                     </span>
 
-                                    <?php echo $result['name']; ?>
+                                    <?php echo "Cars Sold"; ?>
                                 </div>
 
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 margin-vertical-60">
                                     <i class="fa fa-money"></i>
 
                                     <?php
-                                      $query = "SELECT * FROM statistics WHERE id = 2;";
+                                      $query = "SELECT amount FROM hp_statistics WHERE id = 0";
                                       $stmt = $con->prepare($query);
                                       $stmt->execute();
                                       $result = $stmt->fetch();
@@ -220,17 +220,17 @@ include("nav.php");
                                     ?>
 
                                     <span class="animate_number margin-vertical-15">
-                                        $<span class="number"><?php echo $result['num']; ?></span>
+                                        $<span class="number"><?php echo $result['amount']; ?></span>
                                     </span>
 
-                                    <?php echo $result['name']; ?>
+                                    <?php echo "Amount Sold" ?>
                                 </div>
 
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 margin-vertical-60">
                                     <i class="fa fa-users"></i>
 
                                     <?php
-                                      $query = "SELECT * FROM statistics WHERE id = 3;";
+                                      $query = "SELECT satisfaction FROM hp_statistics WHERE id = 0;";
                                       $stmt = $con->prepare($query);
                                       $stmt->execute();
                                       $result = $stmt->fetch();
@@ -238,17 +238,17 @@ include("nav.php");
                                     ?>
 
                                     <span class="animate_number margin-vertical-15">
-                                        <span class="number"><?php echo $result['num']; ?></span>%
+                                        <span class="number"><?php echo $result['satisfaction']; ?></span>%
                                     </span>
 
-                                    <?php echo $result['name']; ?>
+                                    <?php echo "Customer Satisfaction"; ?>
                                 </div>
 
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 padding-right-none margin-vertical-60">
                                     <i class="fa fa-tint"></i>
 
                                     <?php
-                                      $query = "SELECT * FROM statistics WHERE id = 4;";
+                                      $query = "SELECT changes FROM hp_statistics WHERE id = 0;";
                                       $stmt = $con->prepare($query);
                                       $stmt->execute();
                                       $result = $stmt->fetch();
@@ -256,10 +256,10 @@ include("nav.php");
                                     ?>
 
                                     <span class="animate_number margin-vertical-15">
-                                        <span class="number"><?php echo $result['num']; ?></span>
+                                        <span class="number"><?php echo $result['changes']; ?></span>
                                     </span>
 
-                                    <?php echo $result['name']; ?>
+                                    <?php echo "Oil Changes"; ?>
                                 </div>
 
                             </div>
@@ -270,7 +270,7 @@ include("nav.php");
 
             <?php
 
-              $query = "SELECT * FROM webside_info WHERE id = 1;";
+              $query = "SELECT * FROM paragraphs WHERE id = 1;";
               $stmt = $con->prepare($query);
               $stmt->execute();
               $website_info = $stmt->fetch();
@@ -280,7 +280,7 @@ include("nav.php");
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 welcome padding-left-none padding-bottom-40 scroll_effect fadeInUp">
                         <h4 class="margin-bottom-25 margin-top-none"><strong>WELCOME</strong> TO YOUR NEW WEBSITE</h4>
-                        <p><?php echo $website_info['welcome_dec']; ?></p>
+                        <p><?php echo $website_info['text']; ?></p>
                     </div>
                     <!--welcome ends-->
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 padding-right-none sm-padding-left-none md-padding-left-15 xs-padding-left-none padding-bottom-40 scroll_effect fadeInUp" data-wow-delay='.2s' style="z-index:100">
@@ -402,10 +402,15 @@ include("nav.php");
                     <div class="row">
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 recent-vehicles padding-left-none">
                             <h5 class="margin-top-none">Recent Vehicles</h5>
-                            <p>Browse through the vast
-                                selection of vehicles that
-                                have recently been added
-                                to our inventory.</p>
+                            <p>
+                                <?php 
+                                    $query = "SELECT * FROM paragraphs WHERE id = 2;";
+                                    $stmt = $con->prepare($query);
+                                    $stmt->execute();
+                                    $recent  = $stmt->fetch();                                
+                                    echo $recent['text'];
+                                ?>
+                            </p>
                             <div class="arrow3 clearfix margin-top-15 xs-margin-bottom-25" id="slideControls3"><span class="prev-btn"></span><span class="next-btn"></span></div>
                         </div>
                         <div class="col-md-10 col-sm-8 padding-right-none xs-padding-left-none">
@@ -425,7 +430,7 @@ include("nav.php");
 
                                   <div class="slide">
                                       <div class="car-block">
-                                          <div class="img-flex"> <a href="car.php?id=<?php echo $car['car_id']; ?>"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="admin/images/car-images/<?php echo $images[0]; ?>" alt="" class="img-responsive"> </div>
+                                          <div class="img-flex"> <a href="car.php?id=<?php echo $car['car_id']; ?>"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="admin/images/car-images/<?php echo $images[0]; ?>" alt="alt" class="img-responsive"> </div>
                                           <div class="car-block-bottom">
                                               <h6><strong><?php echo $car['car_name']; ?></strong></h6>
                                               <h6><?php echo $car['condition']; ?>, <?php echo $car['milage']; ?> miles</h6>
@@ -449,7 +454,19 @@ include("nav.php");
                     <div class="col-md-4 col-sm-12 col-xs-12 xs-margin-bottom-40 sm-margin-bottom-none scroll_effect bounceInRight" data-wow-delay=".2s">
                         <div class="small-block clearfix">
                             <h4 class="margin-bottom-25 margin-top-none">About Us.</h4>
-                            <a href="#"><span class="align-center"><i class="fa fa-users fa-7x"></i></span></a> </div>
+                            <a href="#"><span class="align-center"><i class="fa fa-users fa-7x"></i></span></a>
+                            <p style="text-align:center">
+                                <?php
+                                    $query = "SELECT * FROM paragraphs WHERE id = 3;";
+                                    $stmt = $con->prepare($query);
+                                    $stmt->execute();
+                                    $about_us = $stmt->fetch();     
+                                    echo $about_us['text'];
+                                ?>
+                            </p>
+                            
+                        </div>
+
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 padding-left-none padding-right-none hours_operation">
                         <div class="small-block clearfix">
@@ -492,7 +509,7 @@ include("nav.php");
                     <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 xs-margin-bottom-40 sm-margin-bottom-none padding-right-none scroll_effect bounceInRight">
                         <div class="small-block clearfix">
                             <h4 class="margin-bottom-25 margin-top-none">Find Us.</h4>
-                            <a href="#"><span class="align-center"><i class="fa fa-map-marker fa-7x"></i></span></a> </div>
+                            <a href="contact.php"><span class="align-center"><i class="fa fa-map-marker fa-7x"></i></span></a> </div>
                     </div>
                 </div>
             </section>
