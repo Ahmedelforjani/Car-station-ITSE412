@@ -11,22 +11,10 @@
           $welcome_message = $_POST['welcome_message'];
           //execute code to update the values
 
-          $queryy = "UPDATE `paragraphs` SET `text` = :welcome WHERE `paragraphs`.`id` = 1";
+          $queryy = "UPDATE `webside_info` SET `welcome_dec` = :welcome WHERE `webside_info`.`id` = 1";
 
           $sqll = $con->prepare($queryy);
           $sqll->bindParam(':welcome', $welcome_message);
-          $sqll->execute();
-          
-          break;
-        case 'update_recent_vehicles_message' :
-          echo 'update_recent_vehicles_message';
-          $recent_vehicles_message = $_POST['recent_vehicles_message'];
-
-          //execute code to update the values
-
-          $queryy = "UPDATE `paragraphs` SET `text` = :recent WHERE `paragraphs`.`id` = 2";
-          $sqll = $con->prepare($queryy);
-          $sqll->bindParam(':recent',  $recent_vehicles_message);
           $sqll->execute();
 
           break;
@@ -39,7 +27,7 @@
 
           //execute code to update the values
 
-          $queryy = "UPDATE `hp_statistics` SET `cars` = :cars, `amount` = :amount, `satisfaction` = :satisfaction, `changes` = :oil WHERE `hp_statistics`.`id` = 0";
+          $queryy = "UPDATE `statistics` SET `cars` = :cars, `amount` = :amount, `satisfaction` = :satisfaction, `changes` = :oil WHERE `hp_statistics`.`id` = 0";
           $sqll = $con->prepare($queryy);
           $sqll->bindParam(':cars',  $cars_sold);
           $sqll->bindParam(':amount',  $amount_sold);

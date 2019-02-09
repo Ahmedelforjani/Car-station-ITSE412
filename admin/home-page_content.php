@@ -65,15 +65,15 @@
       <form action="home-page_data.php" id="welcome_message_form" method="post">
 
         <?php
-            // $queryy = "SELECT text FROM paragraphs  WHERE `paragraphs`.`id` = 1";
-            // $sqll = $con->prepare($queryy);
-            // $sqll->execute();
-            // $result = $sqll->fetch();
+            $queryy = "SELECT welcome_dec FROM webside_info  WHERE `webside_info`.`id` = 1";
+            $sqll = $con->prepare($queryy);
+            $sqll->execute();
+            $result = $sqll->fetch();
           ?>
 
         <label for="exampleTextarea">Edit Welcome Message</label>
         <textarea class="form-control m-input" name="welcome_message" id="exampleTextarea" rows="7">
-
+          <?php echo $result['welcome_dec']; ?>
         </textarea>
 
         <input type="hidden" name="field_type" value="update_welcome_message" />
