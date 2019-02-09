@@ -94,8 +94,8 @@ $(document).ready(function(){
       });
 
       $('.editBtn').on('click', function(){
+        $('#edit_employee')[0].reset();
         var id = $(this).data('id');
-        console.log(id);
         loadEmployeeData(id);
       });
   
@@ -173,7 +173,7 @@ $(document).ready(function(){
 
       $("#edit_employee").submit(function(e) {
         e.preventDefault();
-        
+
         
         // Get form
         var form = $(this)[0];
@@ -185,8 +185,11 @@ $(document).ready(function(){
             dataType: 'JSON',
             type:'POST',
             url: 'update_employee_data.php',
-            
-            data: $(this).serialize()
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data
         })
         .done(function(response){
 
@@ -203,15 +206,12 @@ $(document).ready(function(){
             console.log(response);
             
           } else {
-            console.log(response);
             swal('Oops...', 'Somthing went wrong please try again and check you values', 'error');
           }
   
         })
         .fail(function(response){
-  
-          console.log(response);
-          swal('Oops...', 'Something went wrong with ajax !\n' + response.responseText, 'error');
+            swal('Oops...', 'Something went wrong with ajax !\n' + response.responseText, 'error');
         });
       });
   
