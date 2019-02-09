@@ -148,7 +148,7 @@ strong {
 
 img, iframe {
 	max-width: 200px;
-	height: auto;
+	height: 200px;
 }
 
 .success {
