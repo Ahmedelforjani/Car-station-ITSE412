@@ -6,7 +6,7 @@ The website is an easy to use comfortable environment that helps the user reach 
 
 # Admin side login info
 
-User name : Admin
+User name : Admin | 
 Password : admin
 
 
@@ -31,33 +31,33 @@ Password : admin
 # Admin Side
 - [Home Page - Admin-side](https://github.com/Ahmedelforjani/Car-station-ITSE412/blob/master/admin/index.php)
   
-  Home-Page Managament \n
-  Inventory Managament
-  Catagories Managament
-  Employees Managament
+  Home-Page Managament,
+  Inventory Managament,
+  Catagories Managament,
+  Employees Managament,
   Working Time Managament
   
 - [Cars Managaments - User-side](https://github.com/Ahmedelforjani/Car-station-ITSE412/blob/master/admin/car_inventory.php)
  
-  Add new car
-  Edit existing car
+  Add new car |
+  Edit existing car |
   Delete Car
   
 - [Catagories Managaments - User-side](https://github.com/Ahmedelforjani/Car-station-ITSE412/blob/master/admin/categories.php)
 
-  Add new Catagories
-  Edit existing Catagories
+  Add new Catagories |
+  Edit existing Catagories |
   Delete Catagories
   
 - [Employees Managaments - User-side](https://github.com/Ahmedelforjani/Car-station-ITSE412/blob/master/admin/employees.php)
 
-  Add new Employees
-  Edit existing Employees
+  Add new Employees |
+  Edit existing Employees |
   Delete Employees
   
 - [Home Page Managaments - User-side](https://github.com/Ahmedelforjani/Car-station-ITSE412/blob/master/admin/home-page.php)
 
-  Update Slider Images
+  Update Slider Images |
   Edit Home Page contanct
   
 - [Working Time Managaments - User-side](https://github.com/Ahmedelforjani/Car-station-ITSE412/blob/master/admin/working-time-page.php)
