@@ -1,22 +1,22 @@
 $(document).ready(function(){
 
-  function validEditForm() {
-    var name = $("input[name='name']").val();
-    var jobTitle = $("input[name='JobTitle']").val();
-    var email = $("input[name='email']").val();
-    var phone = $("input[name='phone']").val();
-    if(name == "" || jobTitle == "" || email == "" || phone == "") {
-      return false;
-    }
-    return true;
-  }
+  // function validEditForm() {
+  //   var name = $("input[name='name']").val();
+  //   var jobTitle = $("input[name='JobTitle']").val();
+  //   var email = $("input[name='email']").val();
+  //   var phone = $("input[name='phone']").val();
+  //   var fileLength = $("#employee_image").get(0).files.length;
+  //   if(name == "" || jobTitle == "" || email == "" || phone == "" || fileLength == 0) {
+  //     return false;
+  //   }
+  //   return true;
+  // }
 
   function validAddForm() {
     var name = $("input[name='name']").val();
     var jobTitle = $("input[name='JobTitle']").val();
     var email = $("input[name='email']").val();
     var phone = $("input[name='phone']").val();
-
     var fileLength = $("#employee_image").get(0).files.length;
     if(name == "" || jobTitle == "" || email == "" || phone == "" || fileLength == 0) {
       return false;
@@ -94,8 +94,8 @@ $(document).ready(function(){
       });
 
       $('.editBtn').on('click', function(){
+        $('#edit_employee')[0].reset();
         var id = $(this).data('id');
-        console.log(id);
         loadEmployeeData(id);
       });
   
@@ -115,8 +115,6 @@ $(document).ready(function(){
           $("#editemployee input[name = 'phone']").val(response.phone);
           $("#editemployee input[name = 'id']").val(id);
 
-          
-          
         })
         .fail(function(response){
           console.log(response);
@@ -154,7 +152,9 @@ $(document).ready(function(){
                   'Done!',
                   'Deleted Successflly!',
                   'success'
+                  
                 );
+                
               } else {
                 
                 console.log(response);
@@ -185,8 +185,11 @@ $(document).ready(function(){
             dataType: 'JSON',
             type:'POST',
             url: 'update_employee_data.php',
-            
-            data: $(this).serialize()
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data
         })
         .done(function(response){
 
@@ -199,18 +202,16 @@ $(document).ready(function(){
               'Updated Successflly!',
               'success',
             );
+            $("#editemployee").modal('toggle');
             console.log(response);
             
           } else {
-            console.log(response);
             swal('Oops...', 'Somthing went wrong please try again and check you values', 'error');
           }
   
         })
         .fail(function(response){
-  
-          console.log(response);
-          swal('Oops...', 'Something went wrong with ajax !\n' + response.responseText, 'error');
+            swal('Oops...', 'Something went wrong with ajax !\n' + response.responseText, 'error');
         });
       });
   

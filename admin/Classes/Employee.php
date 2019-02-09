@@ -133,10 +133,9 @@ class employeeManager {
     public function updateEmployee($employee) {
       global $con;
 
-      if(empty($_FILES['employee_image'])){
+      if($employee['img'] == ''){
         $query = "UPDATE employee SET name = :employee_name, job_title = :jobtitle, email = :email, phone = :phone WHERE id = :id";
         
-
         $stmt = $con->prepare($query);
         $stmt->bindParam(':employee_name', $employee['name']);
         $stmt->bindParam(':jobtitle', $employee['jobTitle']);
@@ -146,10 +145,8 @@ class employeeManager {
 
       }
 
-
-
-
       else {
+
 
         $query = "UPDATE employee SET name = :employee_name, job_title = :jobtitle, email = :email, phone = :phone, img = :img WHERE id = :id";
 

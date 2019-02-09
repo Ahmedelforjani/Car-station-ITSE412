@@ -1,3 +1,11 @@
+   <?php 
+   @session_start();
+   ob_start();
+	if(!isset($_SESSION['user'])){
+		header('Location: login.php');
+	}
+   ?>
+   
     <head>
 		<meta charset="utf-8" />
 		<title>Car Station | Dashboard</title>

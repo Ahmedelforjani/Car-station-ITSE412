@@ -15,12 +15,11 @@
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $id = $_POST['id'];
-        $employee_image=null;
+        $imageName='';
     
       if(!empty($_FILES['employee_image']['name'])) {
         $employee_image = $_FILES['employee_image'];
-        //generate image name
-        $imageName = rand(0, 100000) . "_" . str_replace(" ", "_", $employee_name) . ".png";
+        $imageName = rand(0, 100000) . "_" . str_replace(" ", "_", $name) . ".png";
         move_uploaded_file($employee_image['tmp_name'], "images/" . $imageName);
       }
 
@@ -34,17 +33,12 @@
         "email" => $email,
         "phone" => $phone,
         "id" => $id,
-        "img" => $employee_image
+        "img" => $imageName
       );
-
-      if(!empty($_FILES['employee_image']['name'])) {
-        $employee['image'] = $imageName;
-      }
       
       $status['message'] = $employee_manager->updateEmployee($employee);
-
-  }
-
+    }
+  
   echo json_encode($status);
 
 
