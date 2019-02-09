@@ -27,27 +27,29 @@
 
           //execute code to update the values
 
-          $queryy = "UPDATE `statistics` SET `cars` = :cars, `amount` = :amount, `satisfaction` = :satisfaction, `changes` = :oil WHERE `hp_statistics`.`id` = 0";
+          $queryy = "UPDATE `statistics` SET `num` = :cars WHERE id = 1";
           $sqll = $con->prepare($queryy);
           $sqll->bindParam(':cars',  $cars_sold);
+          $sqll->execute();
+
+          $queryy = "UPDATE `statistics` SET `num` = :amount WHERE id = 2";
+          $sqll = $con->prepare($queryy);
           $sqll->bindParam(':amount',  $amount_sold);
+          $sqll->execute();
+
+          $queryy = "UPDATE `statistics` SET `num` = :satisfaction WHERE id = 3";
+          $sqll = $con->prepare($queryy);
           $sqll->bindParam(':satisfaction',  $customer_satisfaction);
+          $sqll->execute();
+
+
+          $queryy = "UPDATE `statistics` SET `num` = :oil WHERE id = 4";
+          $sqll = $con->prepare($queryy);
           $sqll->bindParam(':oil',  $oil_changes);
           $sqll->execute();
 
           break;
 
-          case 'update_about_us_message' :
-            echo 'update_about_us_message';
-            $about_us_message = $_POST['about_us_message'];
-
-            //execute code to update the values
-            $queryy = "UPDATE `paragraphs` SET `text` = :about WHERE `paragraphs`.`id` = 3";
-            $sqll = $con->prepare($queryy);
-            $sqll->bindParam(':about',  $about_us_message);
-            $sqll->execute();
-
-            break;
 
           case 'update_info' :
             echo 'update_info';
