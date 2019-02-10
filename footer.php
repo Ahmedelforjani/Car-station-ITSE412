@@ -42,3 +42,6 @@
     </div>
 </section>
 <div class="back_to_top"> <img style="height: initial;" src="images/arrow-up.png" alt="scroll up" /> </div>
+<script type="text/javascript" src="js/sweetalert.min.js"></script>
+<script type="text/javascript" src="js/ui-sweetalert.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>

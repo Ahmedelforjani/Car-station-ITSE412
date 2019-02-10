@@ -38,6 +38,7 @@ $employees = $employeemanager->getAllEmployees();
 <link rel="stylesheet" type="text/css" href="css/settings.css" media="screen" />
 <link href="css/animate.min.css" rel="stylesheet">
 <link href="css/ts.css" type="text/css" rel="stylesheet">
+<link href="css/sweetalert.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.themepunch.tools.min.js"></script>

@@ -52,12 +52,12 @@
         <link href="css/animate.min.css" rel="stylesheet">
         <link href="css/print.css" rel="stylesheet" type="text/css" media="print">
         <link href="css/ts.css" type="text/css" rel="stylesheet">
+        <link href="css/sweetalert.css" type="text/css" rel="stylesheet">
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/jquery.themepunch.tools.min.js"></script>
         <script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script>
         <script type="text/javascript" src="js/wow.min.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key&amp;sensor=false"></script>
 
         <!-- Twitter Feed Scripts 
             Uncomment to activate

@@ -369,6 +369,8 @@ include("footer.php");
 <script type="text/javascript" src="js/sweetalert.min.js"></script>
 <script type="text/javascript" src="js/ui-sweetalert.min.js"></script>
 <script type="text/javascript" src="js/search.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function (){
         $('#minYear').change(function (){
