@@ -11,7 +11,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 left_bar">
-                    
+                <ul class="left-none">
+                        <li><a href="admin/index.php"><i class="fa fa-user"></i> Login</a></li>
+                        
+                    </ul>
                 </div>
                 <div class="col-lg-6 ">
                     <ul class="right-none pull-right company_info">

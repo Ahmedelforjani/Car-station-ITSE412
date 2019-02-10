@@ -102,7 +102,6 @@ include("nav.php");
                                     <div class="about_team padding-bottom-10">
                                         <p class="margin-vertical-15">This is suppose to be a descreption about the employee</p>
                                         <ul>
-                                            <li><i class="fa fa-phone"></i><?php echo $employee->getEmployeePhone() ?></li>
                                             <li><i class="fa fa-mobile"></i><?php echo $employee->getEmployeePhone() ?></li>
                                             <li><i class="fa fa-envelope-o"></i><a href="#"><?php echo $employee->getEmployeeEmail() ?></a></li>
                                         </ul>
