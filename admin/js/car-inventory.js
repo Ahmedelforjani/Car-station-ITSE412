@@ -51,7 +51,7 @@ $(document).ready(function(){
     // ----------- END IMAGES SCRIPT ----------- 
 
     var car_id = -1;
-    $('.viewer').on('click', function(){
+    $(document).on('click',".viewer",function(){
         insertImage = [];
         deleteImage = [];
         $(".images .img").parent().remove();
@@ -61,6 +61,7 @@ $(document).ready(function(){
 
 
     $("button[type=submit]").on("click", function(){
+        console.log(car_id);
         var formData = new FormData();
         formData.append("car_id", car_id);
         insertImage.forEach(function(image, i){

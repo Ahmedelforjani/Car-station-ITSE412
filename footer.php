@@ -1,11 +1,6 @@
-<?php
-  $query = "SELECT * FROM webside_info";
-  $stmt = $con->prepare($query);
-  $stmt->execute();
-  $website_info = $stmt->fetch();
-?>
 
-<footer>
+
+<footer class="design_2">
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-xs-12 logo-footer margin-bottom-20 md-margin-bottom-20 sm-margin-bottom-10 xs-margin-bottom-20">
@@ -29,7 +24,7 @@
                     you will always be up-to-date on our latest
                     promotions, deals and vehicle inventory!</p>
                 <form method="post" action="" class="form_contact" id="subscribeForm">
-                    <input type="email" value="" id="email" name="email" placeholder="Email Address">
+                    <input type="text" value="" id="email" name="email" placeholder="Email Address" >
                     <input type="submit" value="Subscribe" class="md-button">
                 </form>
             </div>
@@ -46,4 +41,4 @@
         </div>
     </div>
 </section>
-<div class="back_to_top"> <img src="http://demo.themesuite.com/automotive/images/arrow-up.png" alt="scroll up" /> </div>
+<div class="back_to_top"> <img style="height: initial;" src="images/arrow-up.png" alt="scroll up" /> </div>

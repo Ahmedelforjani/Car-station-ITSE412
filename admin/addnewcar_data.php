@@ -54,6 +54,7 @@ if($_POST){
                $response['status'] = "".$e;
           }
      }
+
      $response['status'] = "success";
 }
 
@@ -71,6 +72,28 @@ function reArrayFiles($file) {
     }
     return $file_ary;
 }
+
+// function sendEmails($id){
+//      global $con; 
+//      $query = "SELECT * FROM subscribed_users";
+//      try {
+//      $stmt = $con->prepare($query);
+//      $stmt->execute();
+//      $Message =  "Hello Dear customer we have been added a new car please check it out www.carstation.com/car.php?id=".$id;
+//      if( $stmt->rowCount() > 0 ) {
+//           $result = $stmt->fetchAll();
+//           foreach ($result as $row) {
+//                $user_Email = "car@station.com";
+//                $headers = 'From: '.$user_Email.'' . "rn" .
+//                'Reply-To: '.$user_Email.'' . "rn" .
+//                'X-Mailer: PHP/' . phpversion();
+//                @mail($row['email'], "We have added new car", $Message, $headers);
+//           }
+//      }
+//      } catch(Exception $ex){
+//           echo $response['error'] = $ex;
+//      }
+// }
 
 echo json_encode($response);
 

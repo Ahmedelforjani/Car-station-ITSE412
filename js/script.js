@@ -56,20 +56,25 @@ $(document).ready(function(){
 
 	});
 
+	
+
 
 	$('#subscribeForm').submit(function(e){
 		e.preventDefault();
-
+		if($('#email').val() == ''){
+			swal("Error", "Subscribe Field is empty !!", "error");
+			return;
+		}
 		$.ajax({
 			url: 'subscribedata.php',
 			type: 'POST',
 			dataType: 'json',
 			data: $('#subscribeForm').serialize()
 		}).done(function(response) {
-			console.log(response.message);
 			$('#email').val('');
+			swal("Great !", "You have been subscribe successfully.", "success");
 		}).fail(function(jqXHR, textStatus, errorThrown) {
-			console.log('fail');
+			swal("Error", "There's something wrong, please try again.", "error");
 		});
 	});
 });

@@ -1,3 +1,8 @@
+<?php 
+
+include 'DB_Connect.php';
+
+?> 
 <!doctype html>
 <!--[if IE 7 ]> <html lang="en" class="ie7"> <![endif]-->
 <!--[if IE 8 ]> <html lang="en" class="ie8"> <![endif]-->

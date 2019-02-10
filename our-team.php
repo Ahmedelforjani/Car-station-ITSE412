@@ -92,9 +92,9 @@ include("nav.php");
                         if (true)
                         {
                         foreach($employees as $employee) { ?>
-                        <div class="col-md-3 col-sm-3 scroll_effect fadeInUp">
+                        <div class="col-md-3 col-sm-3 scroll_effect fadeInUp margin-bottom-50">
                                 <div class="team margin-top-15 xs-margin-bottom-30"> <a href="images/team4-lrg.jpg" class="fancybox"> 
-                                    <img src=<?php echo "admin/images/".$employee->getEmployeeImg() ?> class="aligncenter" alt="No Image Found" /> </a>
+                                    <img src=<?php if($employee->getEmployeeImg() != '') echo "admin/images/".$employee->getEmployeeImg(); else echo "admin/images/employee_default.png" ?> style="height: 200px; max-width: inherit" class="aligncenter" alt="No Image Found" /> </a>
                                     <div class="name_post padding-bottom-15">
                                         <h4><?php echo $employee->getEmployeeName() ?></h4>
                                         <p><?php echo $employee->getEmployeeJobTitle() ?></p>
