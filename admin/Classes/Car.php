@@ -4,10 +4,10 @@
 
   class Car {
 
-    private 
+    private
     $_id,
-    $_name, 
-    $_model, 
+    $_name,
+    $_model,
     $_color,
     $_milage,
     $_engine,
@@ -50,7 +50,7 @@
         $this->_transmission = $result['transmission'];
         $this->_overview = $result['overview'];
         $this->_options = $result['options'];
-        
+
       } else {
         $this->_name = 'not found';
       }
@@ -159,7 +159,7 @@
 
       $query = "SELECT * FROM cars_image WHERE car_id = :car_id";
       $stmt = $con->prepare($query);
-  
+
       $stmt->bindParam(":car_id", $this->_id);
 
       $stmt->execute();
@@ -168,7 +168,7 @@
           foreach ($result as $row) {
             $images[] = $row['img'];
           }
-      } else { 
+      } else {
         $images[] = 'car-defualt.jpg';
       }
 
@@ -180,27 +180,27 @@
 
   class CarsManager {
 
-    private $_Cars = array();
+    private $_cars = array();
 
     public function getCarsHTMLTable() {
 
       $table = "";
-      foreach($this->_Cars as $Car){
-        $table .= '<tr data-id="'.$Car->getId().'">
-                <td>'.$Car->getName().'</td>
-                <td>'.$Car->getModel().'</td>
-                <td>'.$Car->getColor().'</td>
-                <td>'.$Car->getEngine().'</td>
-                <td>'.$Car->getCategoryName().'</td>
-                <td>'.$Car->getCondition().'</td>
-                <td>'.$Car->getPrice().'</td>
+      foreach($this->_cars as $car){
+        $table .= '<tr data-id="'.$car->getId().'">
+                <td>'.$car->getName().'</td>
+                <td>'.$car->getModel().'</td>
+                <td>'.$car->getColor().'</td>
+                <td>'.$car->getEngine().'</td>
+                <td>'.$car->getCategoryName().'</td>
+                <td>'.$car->getCondition().'</td>
+                <td>'.$car->getPrice().'</td>
                 <td>
-                  <a href="editcar.php?carid='.$Car->getId().'" class="btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" title="Edit">
+                  <a href="editcar.php?carid='.$car->getId().'" class="btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" title="Edit">
                         <i class="la la-edit"></i>
                   </a>
-                  <Button id=imagerViewer data-toggle="modal" data-target="#viewImages" data-id='.$Car->getId().' class="btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill viewer" title="View Car\'s Images">
+                  <Button id=imagerViewer data-toggle="modal" data-target="#viewImages" data-id='.$car->getId().' class="btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill viewer" title="View Car\'s Images">
                         <i class="la la-photo"></i>
-                  </Button> 
+                  </Button>
                 </td>
                 </tr>';
       }
@@ -217,10 +217,10 @@
 
       if( $stmt->rowCount() > 0 ) {
         $result = $stmt->fetchAll();
-        $this->_Cars = array();
+        $this->_cars = array();
 
         foreach ($result as $row) {
-          $this->_Cars[] = new Car($row['car_id']);
+          $this->_cars[] = new Car($row['car_id']);
         }
       }
     }
@@ -228,8 +228,8 @@
     public function addNewCar($car) {
       global $con;
 
-      $query = "INSERT INTO car (car_name, model, color, milage, `engine`, doors, category_id, `condition`, passengers, 
-      price, transmission, overview, options) VALUES (:car_name, :model, :color, :milage, :engine, :doors, 
+      $query = "INSERT INTO car (car_name, model, color, milage, `engine`, doors, category_id, `condition`, passengers,
+      price, transmission, overview, options) VALUES (:car_name, :model, :color, :milage, :engine, :doors,
       :category_id, :condition, :passengers, :price, :transmission, :overview, :options)";
 
       $stmt = $con->prepare($query);
@@ -261,9 +261,9 @@
     public function updateCar($car) {
       global $con;
 
-      $query = "UPDATE car SET car_name = :car_name, model = :model, color = :color, milage = :milage, 
+      $query = "UPDATE car SET car_name = :car_name, model = :model, color = :color, milage = :milage,
                 `engine` = :engine, doors = :doors, category_id = :category_id, `condition` = :condition,
-                passengers = :passengers, price = :price, transmission = :transmission, overview = :overview, 
+                passengers = :passengers, price = :price, transmission = :transmission, overview = :overview,
                 options = :options WHERE car_id = :id";
 
       $stmt = $con->prepare($query);
@@ -354,7 +354,7 @@
     }
 
     public function getAllCars() {
-      return $this->_Cars;
+      return $this->_cars;
     }
 
     public function getCount($query) {
@@ -363,8 +363,20 @@
       $stmt->execute();
       return $stmt->rowCount();
    }
+
+   public function loadCarsByCondition($condition) {
+     $cars = array();
+     foreach($this->_cars as $car) {
+       if($car->getCondition() == $condition) {
+         $cars[] = $car;
+       }
+     }
+
+     return $cars;
+   }
+
   }
 
-  
+
 
 ?>
