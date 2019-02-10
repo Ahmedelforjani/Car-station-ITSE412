@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2019 at 06:30 PM
+-- Generation Time: Feb 10, 2019 at 07:22 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -327,12 +327,11 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`id`, `name`, `img`, `email`, `phone`, `job_title`) VALUES
-(3, 'Mohamed alzrgany', '', 'AHolaHope@HAkonaMAtata.com', '0915472155', 'Manager'),
-(2, 'Ahmed Alforjani', '', 'ahmedbla@gmail.com', '0915555asd', 'head'),
-(4, 'Hamed', '', 'hamedbla@bla.com', '0912121110', 'Assistanse'),
-(5, 'Hanin', '', 'Hanosweet@Hotmail.com', '0912142457', 'Elmarzogi'),
-(6, 'Ali MAhjoob', '', 'alihona@gmail.com', '09222214888', 'Body guard'),
-(7, 'Wadee', '', 'wadee12@gmail.com', '09121454716', 'part manager');
+(14, 'Mahmoud BenJaber', '57477_Mahmoud_BenJaber.png', 'BenjaBahrAlnesyan@gmail.com', '0923115247', 'Head Manager'),
+(13, 'Wadee Alwefati', '55183_Wadee_Alwefati.png', 'W.FortnightMAster704@gmail.com', '0615452189', 'PR'),
+(10, 'Ahmed Alforjani', '53632_Ahmed_Alforjani.png', 'HaKonaMAtata@Temon.com', '0916912501', 'CEO'),
+(11, 'Mohamed alzrgany', '60604_Mohamed_alzrgany.png', 'zrgany12@gmail.com', '914524517', 'HR Manager'),
+(12, 'Basher Benzahia', '64278_Basher_Benzahia.png', 'BenjaKillsBasher@gmail.com', '9221547851', 'PR');
 
 -- --------------------------------------------------------
 
@@ -374,7 +373,7 @@ CREATE TABLE `statistics` (
 
 INSERT INTO `statistics` (`id`, `name`, `num`) VALUES
 (1, 'Cars Sold', 1000),
-(2, 'Amount Sold', 200),
+(2, 'Amount Sold', 20000),
 (3, 'Customer Satisfaction', 90),
 (4, 'Oil Changes', 9000);
 
@@ -568,13 +567,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `slide`
 --
 ALTER TABLE `slide`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `statistics`
