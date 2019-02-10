@@ -52,13 +52,13 @@
             Name
             </th>
             <th data-field="f2">
-            Email
+            JobTitle
             </th >
             <th data-field="f3">
-            Phone
+            Email
             </th>
             <th data-field="f4">
-            Job Title
+            Phone
             </th>
             <th data-field="f5">
             Image
