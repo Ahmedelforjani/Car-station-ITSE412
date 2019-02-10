@@ -3,10 +3,15 @@
     $car;
     $images;
 
-    if(isset($_GET['id'])){
+    if(isset($_GET['id']) && intval($_GET['id'])){
         $car_id = $_GET['id'];
         $car = new car($car_id);
+        if( $car->getName() == "not found" ) {
+            header("Location: inventory.php");
+        } 
         $images = $car->getImages();
+    } else {
+        header("Location: inventory.php");
     }
 ?>
 
@@ -104,10 +109,9 @@
                     <div class="content-nav margin-bottom-30">
                         <div class="row">
                             <ul>
-                                <li class="prev1 gradient_button"><a href="#">Prev Vehicle</a></li>
+                                <li class="prev1 gradient_button"><a href="<?php $nid = $car->getNext(); if($nid != 0) echo "car.php?id=".$nid; else echo '#' ?>">Prev Vehicle</a></li>
                                 <li class="print gradient_button"><a class="print_page">Print This Vehicle</a></li>
-                                <li class="email gradient_button"><a href="forms/friend.php?recaptcha" class="fancybox_div">Email to a Friend</a></li>
-                                <li class="next1 gradient_button"><a href="#">Next Vehicle</a></li>
+                                <li class="next1 gradient_button"><a href="<?php $nid = $car->getPrev(); if($nid != 0) echo "car.php?id=".$nid; else echo '#' ?>">Next Vehicle</a></li>
                             </ul>
                         </div>
                     </div>
@@ -224,13 +228,6 @@
                                         </table>
                                     </div>
                                 </div>
-
-                                <ul class="social-likes pull-right" data-url="http://themesuite.com" data-title="Blog Post">
-                                    <li class="facebook" title="Share link on Facebook"></li>
-                                    <li class="plusone" title="Share link on Google+" data-counter="includes/googleplusonecount.php?url=http://google.com&amp;callback=?"></li>
-                                    <li class="pinterest" title="Share image on Pinterest" data-media=""></li>
-                                    <li class="twitter" title="Share link on Twitter"></li>
-                                </ul>
                                 <div class="clearfix"></div>
                                 <div class="financing_calculator margin-top-40">
                                     <h3>FINANCING CALCULATOR</h3>
@@ -269,11 +266,11 @@
                                             <table>
                                                 <tr>
                                                     <td><strong>NUMBER OF PAYMENTS:</strong></td>
-                                                    <td><strong class="payments">60</strong></td>
+                                                    <td><strong class="payments">0</strong></td>
                                                 </tr>
                                                 <tr>
                                                     <td><strong>PAYMENT AMOUNT:</strong></td>
-                                                    <td><strong class="payment_amount">$ 89.11</strong></td>
+                                                    <td><strong class="payment_amount">$0</strong></td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -283,111 +280,51 @@
                         </div>
                     </div>
                     <div class="clearfix"></div>
+                    
                     <div class="recent-vehicles-wrap">
-                        <div class="row">
-                            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 recent-vehicles padding-left-none xs-padding-bottom-20">
-                                <h5 class="margin-top-none">Similar Vehicles</h5>
-                                <p>Browse through the vast
-                                    selection of vehicles that
-                                    have recently been added
-                                    to our inventory.</p>
-                                <div class="arrow3 clearfix" id="slideControls3"><span class="prev-btn"></span><span class="next-btn"></span></div>
-                            </div>
-                            <div class="col-md-10 col-sm-8 padding-right-none sm-padding-left-none xs-padding-left-none">
-                                <div class="carasouel-slider3">
-                                    <div class="slide">
-                                        <div class="car-block">
-                                            <div class="img-flex"> <a href="inventory-listing.html"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car1.jpg" alt="" class="img-responsive"> </div>
-                                            <div class="car-block-bottom">
-                                                <h6><strong>2012 Porsche Cayenne GTS</strong></h6>
-                                                <h6>1 Owner, 26,273 miles</h6>
-                                                <h5>$ 79,995</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="car-block">
-                                            <div class="img-flex"> <a href="inventory-listing.html"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car2.jpg" alt="" class="img-responsive"> </div>
-                                            <div class="car-block-bottom">
-                                                <h6><strong>2009 Porsche Boxster</strong></h6>
-                                                <h6>New Tires, 26,273 miles</h6>
-                                                <h5>$ 34,995</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="car-block">
-                                            <div class="img-flex"> <a href="inventory-listing.html"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car3.jpg" alt="" class="img-responsive"> </div>
-                                            <div class="car-block-bottom">
-                                                <h6><strong>2013 Porsche Panamera S</strong></h6>
-                                                <h6>Demonstrator, 7,088 miles</h6>
-                                                <h5>$ 63,995</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="car-block">
-                                            <div class="img-flex"> <a href="inventory-listing.html"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car4.jpg" alt="" class="img-responsive"> </div>
-                                            <div class="car-block-bottom">
-                                                <h6><strong>2010 Porsche Carrera 4S</strong></h6>
-                                                <h6>AWD, 21,900 miles</h6>
-                                                <h5>$ 73,995</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="car-block">
-                                            <div class="img-flex"> <a href="inventory-listing.html"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car5.jpg" alt="" class="img-responsive"> </div>
-                                            <div class="car-block-bottom">
-                                                <h6><strong>2012 Porsche Carrera S</strong></h6>
-                                                <h6>Convertible, 22,158 miles</h6>
-                                                <h5>$ 56,995</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="car-block">
-                                            <div class="img-flex"> <a href="inventory-listing.html"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car6.jpg" alt="" class="img-responsive"> </div>
-                                            <div class="car-block-bottom">
-                                                <h6><strong>2013 Porsche GTS</strong></h6>
-                                                <h6>1 Owner, 3,914 miles</h6>
-                                                <h5>$ 94,995</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="car-block">
-                                            <div class="img-flex"> <a href="inventory-listing.html"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car7.jpg" alt="" class="img-responsive"> </div>
-                                            <div class="car-block-bottom">
-                                                <h6><strong>2014 Porsche Cayenne GTS</strong></h6>
-                                                <h6>1 Owner, 7 miles</h6>
-                                                <h5>$ 114,995</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="car-block">
-                                            <div class="img-flex"> <a href="inventory-listing.html"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car8.jpg" alt="" class="img-responsive"> </div>
-                                            <div class="car-block-bottom">
-                                                <h6><strong>2014 Porsche GTS</strong></h6>
-                                                <h6>1 Owner, 5 miles</h6>
-                                                <h5>$ 99,995</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="car-block">
-                                            <div class="img-flex"> <a href="inventory-listing.html"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="http://demo.themesuite.com/automotive/images/c-car9.jpg" alt="" class="img-responsive"> </div>
-                                            <div class="car-block-bottom">
-                                                <h6><strong>2009 Porsche Carrera 4S</strong></h6>
-                                                <h6>1 Owner, 114,239 miles</h6>
-                                                <h5>$ 39,995</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 recent-vehicles padding-left-none">
+                            <h5 class="margin-top-none">Recent Vehicles</h5>
+                            <p>Browse through the vast
+                                selection of vehicles that
+                                have recently been added
+                                to our inventory.</p>
+                        </div>
+                        <div class="col-md-10 col-sm-8 padding-right-none xs-padding-left-none">
+                            <div class="carasouel-slider3">
+                              <?php
+                                $query = "SELECT * FROM car ORDER BY car_id DESC LIMIT 5";
+                                $stmt = $con->prepare($query);
+                                $stmt->execute();
+                                $latest_cars = $stmt->fetchAll();
+
+                                foreach($latest_cars as $car) {
+
+                                  $theCar = new car($car['car_id']);
+                                  $images = $theCar->getImages();
+
+                                  ?>
+
+                                  <div class="slide">
+                                      <div class="car-block">
+                                          <div class="img-flex"> <a href="car.php?id=<?php echo $car['car_id']; ?>"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="admin/images/car-images/<?php echo $images[0]; ?>" alt="" class="img-responsive"> </div>
+                                          <div class="car-block-bottom">
+                                              <h6><strong><?php echo $car['car_name']; ?></strong></h6>
+                                              <h6><?php echo $car['condition']; ?>, <?php echo $car['milage']; ?> miles</h6>
+                                              <h5>$ <?php echo $car['price']; ?></h5>
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                <?php
+                                }
+                              ?>
+
+
                             </div>
                         </div>
+                    </div>
                     </div>
                     <div class="clearfix"></div>
                 </div>

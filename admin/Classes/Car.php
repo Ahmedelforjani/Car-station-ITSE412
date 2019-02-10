@@ -51,6 +51,8 @@
         $this->_overview = $result['overview'];
         $this->_options = $result['options'];
         
+      } else {
+        $this->_name = 'not found';
       }
     }
 
@@ -114,6 +116,43 @@
       return $this->_options;
     }
 
+    public function getNext(){
+      global $con;
+
+      $query = "SELECT car_id FROM car WHERE car_id < :id ORDER BY car_id DESC LIMIT 1";
+      $stmt = $con->prepare($query);
+
+      $stmt->bindParam(":id", $this->_id);
+
+      $stmt->execute();
+
+      if( $stmt->rowCount() > 0 ) {
+        $result = $stmt->fetch();
+        return $result['car_id'];
+      } else {
+        return 0;
+      }
+
+    }
+
+    public function getPrev(){
+      global $con;
+
+      $query = "SELECT car_id FROM car WHERE car_id > :id ORDER BY car_id ASC LIMIT 1";
+      $stmt = $con->prepare($query);
+
+      $stmt->bindParam(":id", $this->_id);
+
+      $stmt->execute();
+
+      if( $stmt->rowCount() > 0 ) {
+        $result = $stmt->fetch();
+        return $result['car_id'];
+      } else {
+        return 0;
+      }
+    }
+
     public function getImages() {
       global $con;
       $images = array();
@@ -129,6 +168,8 @@
           foreach ($result as $row) {
             $images[] = $row['img'];
           }
+      } else { 
+        $images[] = 'car-defualt.jpg';
       }
 
       return $images;
@@ -316,9 +357,8 @@
       return $this->_Cars;
     }
 
-    public function getCount() {
+    public function getCount($query) {
       global $con;
-      $query = "SELECT car_id FROM car";
       $stmt = $con->prepare($query);
       $stmt->execute();
       return $stmt->rowCount();

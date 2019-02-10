@@ -194,7 +194,7 @@
           <div class="col-sm-6 col-md-3">
             <div class="form-group m-form__group">
               <label for="map_loc">Map Location</label>
-              <input type="text" class="form-control m-input m-input--air" name="map_loc" id="map_loc" value=<?php echo $map_loc?> value=>
+              <input type="text" class="form-control m-input m-input--air" name="map_loc" id="map_loc" value=<?php echo $map_loc?>>
             </div>
           </div>
 

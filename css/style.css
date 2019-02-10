@@ -148,7 +148,7 @@ strong {
 
 img, iframe {
 	max-width: 200px;
-	height: 200px;
+	height: auto;
 }
 
 .success {
@@ -1954,7 +1954,8 @@ footer .small-block:hover h4, footer .small-block:hover i, footer .small-block:h
 	font-size: 13px;
 }
 
-.search-form input[type=search] {
+.search-form input[type=search],
+.search-form input[type=number] {
 	padding-left: 10px;
 }
 
@@ -2181,7 +2182,7 @@ footer form input[type=text] {
 	transition: all 300ms ease-out;
 }
 
-textarea, select, div.custom-select, input[type="search"] {
+textarea, select, div.custom-select, input[type="search"], input[type="number"] {
 	background-color: #FFFFFF;
 	float: left;
 	border: 1px solid #E4E4E4;
@@ -2190,6 +2191,8 @@ textarea, select, div.custom-select, input[type="search"] {
 	border-radius: 4px;
 	font-size: 13px;
 }
+
+
 
 .sc-1 {
 	background: url(../images/social.png) 0px 0px no-repeat;

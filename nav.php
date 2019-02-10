@@ -1,20 +1,22 @@
 
+<?php
+  $query = "SELECT * FROM webside_info";
+  $stmt = $con->prepare($query);
+  $stmt->execute();
+  $website_info = $stmt->fetch();
+?>
 
 <header  data-spy="affix" data-offset-top="1" class="clearfix">
     <section class="toolbar">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 left_bar">
-                    <ul class="left-none">
-                        <li><i class="fa fa-search"></i>
-                            <input type="search" placeholder="Search" class="search_box">
-                        </li>
-                    </ul>
+                    
                 </div>
                 <div class="col-lg-6 ">
                     <ul class="right-none pull-right company_info">
-                        <li><a href="tel:18005670123"><i class="fa fa-phone"></i> 1-800-567-0123</a></li>
-                        <li class="address"><a href="contact.html"><i class="fa fa-map-marker"></i> 107 Sunset Blvd., Beverly Hills, CA  90210</a></li>
+                        <li><a href="<?php echo "tel:".$website_info['phone']; ?>"><i class="fa fa-phone"></i><?php echo $website_info['phone']; ?><</a></li>
+                        <li class="address"><a href="contact.php"><i class="fa fa-map-marker"></i><?php echo $website_info['address']; ?></a></li>
                     </ul>
                 </div>
             </div>

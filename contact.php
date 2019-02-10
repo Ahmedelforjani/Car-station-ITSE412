@@ -85,7 +85,8 @@ include("nav.php");
                 <div class="find_map row clearfix">
                     <h2 class="margin-bottom-25 margin-top-none">FIND US ON THE MAP</h2>
                     <div class="map margin-vertical-30">
-                        <div id='google-map-listing' class="contact" data-longitude='13.180161' data-latitude='32.885353' data-zoom='7' style='height: 390px;'></div>
+                        <?php $map_loc = explode(",",$website_info['map_loc']) ?>
+                        <div id='google-map-listing' class="contact" data-longitude='<?php echo $map_loc[0] ?>' data-latitude='<?php echo $map_loc[1] ?>' data-zoom='7' style='height: 390px;'></div>
                     </div>
                 </div>
                 <!--MAP-->
@@ -100,16 +101,14 @@ include("nav.php");
                                     <p><i class="fa fa-map-marker"></i><strong>Address:</strong></p>
                                 </div>
                                 <div class="contact_address">
-                                    <p class="margin-bottom-none">My Car-Station<br>
-                                        Tripoli, <br>
-                                        Libya </p>
+                                    <p class="margin-bottom-none"><?php echo $website_info['address']; ?></p>
                                 </div>
                             </div>
                             <div class="address clearfix address_details margin-right-25 padding-bottom-40">
                                 <ul class="margin-bottom-none">
-                                    <li><i class="fa fa-phone"></i><strong>Phone:</strong> <span>021-1234567</span></li>
-                                    <li><i class="fa fa-envelope-o"></i><strong>Email:</strong> <a href="mailto:sales@company.com">sales@company.com</a></li>
-                                    <li class="padding-bottom-none"><i class="fa fa-laptop"></i><strong>Web:</strong> <a href="http://company.com">www.company.com</a></li>
+                                    <li><i class="fa fa-phone"></i><strong>Phone:</strong> <span><?php echo $website_info['phone']; ?></span></li>
+                                    <li><i class="fa fa-envelope-o"></i><strong>Email:</strong> <a href="mailto:<?php echo $website_info['email']; ?>"><?php echo $website_info['email']; ?></a></li>
+                                    <li class="padding-bottom-none"><i class="fa fa-laptop"></i><strong>Web:</strong> <a href="index.php">www.cat-stations.com</a></li>
                                 </ul>
                             </div>
                         </div>

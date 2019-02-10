@@ -43,12 +43,11 @@
 <link rel="stylesheet" type="text/css" href="css/settings.css" media="screen" />
 <link href="css/animate.min.css" rel="stylesheet">
 <link href="css/ts.css" type="text/css" rel="stylesheet">
+<link href="css/sweetalert.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.themepunch.tools.min.js"></script>
 <script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script>
-<script type="text/javascript" src="js/wow.min.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key&amp;sensor=false"></script>
 
 <!-- Twitter Feed Scripts
      Uncomment to activate
@@ -184,7 +183,7 @@ include("nav.php");
             </section>
 
             <div class="row parallax_parent margin-top-30">
-                <div class="parallax_scroll clearfix" data-velocity="-.5" data-offset="-300" data-no-repeat="true" data-image="http://demo.themesuite.com/automotive/images/parallax2.jpg">
+                <div class="parallax_scroll clearfix" data-velocity="-.5" data-offset="-300" data-no-repeat="true" data-image="images/parallax2.jpg">
                     <div class="overlay">
                         <div class="container">
 
@@ -316,11 +315,11 @@ include("nav.php");
                                     <div class="col-md-6">
                                         <div class="select-dropdown">
                                             <div class="my-dropdown min-price-dropdown min-dropdown">
-                                                <input name="min-price" class="full-width" type="search" value="" placeholder="Min Price">
+                                                <input id="minPrice" name="min-price" class="full-width" type="number" value="" placeholder="Min Price">
                                             </div>
                                             <span class="my-dropdown">to</span>
                                             <div class="my-dropdown max-price-dropdown min-dropdown">
-                                                <input name="max-price" class="full-width" type="search" value="" placeholder="Max Price">
+                                                <input id="maxPrice" name="max-price" class="full-width" type="number" value="" placeholder="Max Price">
                                             </div>
                                         </div>
                                     </div>
@@ -341,11 +340,11 @@ include("nav.php");
                                     <div class="col-md-6">
                                         <div class="min-mileage select-dropdown">
                                             <div class="my-dropdown min-price-dropdown min-dropdown">
-                                                <input name="min-milage" class="full-width" type="search" value="" placeholder="Min Mileage">
+                                                <input id="minMilage" name="min-milage" class="full-width" type="number" value="" placeholder="Min Mileage">
                                             </div>
                                             <span class="my-dropdown">to</span>
                                             <div class="my-dropdown max-price-dropdown min-dropdown">
-                                              <input name="max-milage" class="full-width" type="search" value="" placeholder="Max Mileage">
+                                              <input id="maxMilage" name="max-milage" class="full-width" type="number" value="" placeholder="Max Mileage">
                                             </div>
                                         </div>
                                     </div>
@@ -406,7 +405,6 @@ include("nav.php");
                                 selection of vehicles that
                                 have recently been added
                                 to our inventory.</p>
-                            <div class="arrow3 clearfix margin-top-15 xs-margin-bottom-25" id="slideControls3"><span class="prev-btn"></span><span class="next-btn"></span></div>
                         </div>
                         <div class="col-md-10 col-sm-8 padding-right-none xs-padding-left-none">
                             <div class="carasouel-slider3">
@@ -455,7 +453,7 @@ include("nav.php");
                         <div class="small-block clearfix">
                             <h4 class="margin-bottom-25 margin-top-none">What are our Hours of Operation?</h4>
                             <div class="row">
-                                <div class="col-xs-offset-2 col-xs-8 xs-margin-bottom-40 sm-margin-bottom-none scroll_effect bounceInUp" data-wow-delay=".4s">
+                                <div class="col-xs-12 xs-margin-bottom-40 sm-margin-bottom-none scroll_effect bounceInUp" data-wow-delay=".4s">
                                     <table class="table table-bordered text-centered no-border font-13px margin-bottom-none" style="text-align: center;">
                                         <thead>
                                             <tr>
@@ -519,8 +517,11 @@ include("Footer.php");
 <script src="js/jquery.bxslider.js" type="text/javascript"></script>
 <script src="js/jquery.selectbox-0.2.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="js/sweetalert.min.js"></script>
+<script type="text/javascript" src="js/ui-sweetalert.min.js"></script>
 <script type="text/javascript" src="js/jquery.easing.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/search.js"></script>
 <script type="text/javascript">
     $(document).ready(function (){
         $('#minYear').change(function (){
