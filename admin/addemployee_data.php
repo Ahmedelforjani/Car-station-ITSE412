@@ -5,18 +5,17 @@
         
         include "Classes/Employee.php";
 
-        //check if i got the post request
+     
         $status = array(
           "message" => "Failed"
         );
         
         
-        
-
+        //check if i got the post request
         if(isset($_POST['email']) && isset($_POST['phone'])
         && isset($_FILES['employee_image']) && !empty($_FILES['employee_image']['name'])){
 
-        $status['massage'] = 'bla2';
+        
         $name = $_POST['name'];
         $jobTitle = $_POST['jobTitle'];
         $email = $_POST['email'];
