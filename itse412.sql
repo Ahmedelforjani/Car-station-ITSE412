@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2019 at 07:22 PM
+-- Generation Time: Feb 20, 2019 at 01:29 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -151,7 +151,7 @@ INSERT INTO `car` (`car_id`, `car_name`, `model`, `color`, `milage`, `engine`, `
 (98, 'qui', 2004, 'Green', 17025, 41, 4, 35, 'Used', 2, 10306, 'Automatic', 'Alice! Come here directly, and get ready for your interesting story,\' but she thought of herself, \'I don\'t much care where--\' said Alice. \'I don\'t know of any one; so, when the Rabbit was still in.', 'Five! Don\'t go splashing paint over me like a telescope.\' And so it was talking in his sleep, \'that \"I breathe when I breathe\"!\' \'It IS the fun?\' said Alice. \'I mean what I get\" is the same size: to.', 1),
 (99, 'sunt', 1985, 'Yallow', 39728, 29, 2, 100, 'New', 4, 35125, 'Automatic', 'So Bill\'s got the other--Bill! fetch it back!\' \'And who are THESE?\' said the Hatter. This piece of it at last, they must be removed,\' said the last time she found that it signifies much,\' she said.', 'The Duchess took no notice of her head through the door, and tried to curtsey as she was terribly frightened all the jelly-fish out of the Mock Turtle sang this, very slowly and sadly:-- \'\"Will you.', 0),
 (100, 'aut', 1991, 'Blue', 11971, 24, 2, 8, 'Used', 5, 87768, 'Automatic', 'Alice asked. The Hatter opened his eyes were nearly out of this sort of way to change them--\' when she had never heard of uglifying!\' it exclaimed. \'You know what to beautify is, I suppose?\' said.', 'This seemed to be a grin, and she heard was a little nervous about it in with the words a little, and then they both sat silent for a minute or two to think that there ought! And when I learn.', 0),
-(101, 'Sonata', 2007, 'Black', 88000, 20, 4, 1, 'Used', 5, 8000, 'Automatic', 'asdasdasd', '<ul><li>asdasdsad&nbsp;&nbsp;</li><li>asdasdasdasdasd</li><li>asdasdsdaifjsd&nbsp;</li><li>fdslajgareig</li><li>dslkagjr d</li><li>adsflkasjd fa</li></ul>', 0);
+(101, 'kia', 2007, 'Black', 88000, 20, 4, 1, 'Used', 5, 8000, 'Automatic', 'asdasdasd', '\n                                            <ul><li>asdasdsad', 0);
 
 -- --------------------------------------------------------
 
@@ -183,7 +183,6 @@ INSERT INTO `cars_image` (`id`, `car_id`, `img`) VALUES
 (96, 101, '37057_101.png'),
 (97, 101, '94781_101.png'),
 (98, 101, '1084_101.png'),
-(99, 101, '25399_101.png'),
 (102, 83, '49949_83.png'),
 (103, 83, '9356_83.png'),
 (104, 100, '33435_100.png');
@@ -206,7 +205,7 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `img`, `description`) VALUES
-(1, 'distinctio', '', 'Occaecati officiis inventore pariatur qui accusantium. Mollitia consequuntur qui et repellat praesentium veniam laborum aut. Et totam tempore sapiente occaecati voluptatibus aut.'),
+(1, 'asdasd', '', 'Occaecati officiis inventore pariatur qui accusantium. Mollitia consequuntur qui et repellat praesentium veniam laborum aut. Et totam tempore sapiente occaecati voluptatibus aut.'),
 (2, 'laborum', '', 'Recusandae qui hic et modi. Explicabo doloribus exercitationem praesentium tempora et eaque. Molestiae commodi aperiam in eum inventore dolorem.'),
 (3, 'sit', '', 'Harum quis sed perspiciatis incidunt aut adipisci voluptates. Ipsam voluptates dignissimos ut cum rerum exercitationem. Consequatur hic numquam aliquam adipisci consequuntur voluptatem enim et.'),
 (4, 'nobis', '', 'Ratione unde iure laborum excepturi repellendus dolores distinctio ut. Earum est ipsum voluptas consequatur omnis.'),
@@ -305,7 +304,8 @@ INSERT INTO `categories` (`id`, `name`, `img`, `description`) VALUES
 (97, 'eveniet', '', 'Ea non numquam et ducimus consequatur repudiandae aliquam. Quibusdam sint aliquid et incidunt dolor esse sint. Sint enim tempore eum sed assumenda dolor doloribus ipsam. Ut ad ex velit esse perferendis.'),
 (98, 'qui', '', 'Cum dolore dolorem voluptatibus velit consequatur aut. Ut blanditiis eveniet in earum delectus ex.'),
 (99, 'doloremque', '', 'Odit temporibus aliquam vel exercitationem iure. Maiores tempora doloribus neque voluptatum. Labore dicta quidem est voluptatem corrupti aut.'),
-(100, 'voluptatem', '', 'Aut dolor consequatur omnis sint et. Et voluptatibus maxime tenetur inventore assumenda molestias dolor. Laudantium corporis placeat nemo doloribus rerum ut.');
+(100, 'voluptatem', '', 'Aut dolor consequatur omnis sint et. Et voluptatibus maxime tenetur inventore assumenda molestias dolor. Laudantium corporis placeat nemo doloribus rerum ut.'),
+(101, 'ahmed', '28836_ahmed.png', 'sdfdsfds');
 
 -- --------------------------------------------------------
 
@@ -330,7 +330,7 @@ INSERT INTO `employee` (`id`, `name`, `img`, `email`, `phone`, `job_title`) VALU
 (14, 'Mahmoud BenJaber', '57477_Mahmoud_BenJaber.png', 'BenjaBahrAlnesyan@gmail.com', '0923115247', 'Head Manager'),
 (13, 'Wadee Alwefati', '55183_Wadee_Alwefati.png', 'W.FortnightMAster704@gmail.com', '0615452189', 'PR'),
 (10, 'Ahmed Alforjani', '53632_Ahmed_Alforjani.png', 'HaKonaMAtata@Temon.com', '0916912501', 'CEO'),
-(11, 'Mohamed alzrgany', '60604_Mohamed_alzrgany.png', 'zrgany12@gmail.com', '914524517', 'HR Manager'),
+(11, 'Osama Rashed', '', 'Osama@gmail.com', '915555555', 'HR Manager'),
 (12, 'Basher Benzahia', '64278_Basher_Benzahia.png', 'BenjaKillsBasher@gmail.com', '9221547851', 'PR');
 
 -- --------------------------------------------------------
@@ -401,7 +401,23 @@ INSERT INTO `subscribed_users` (`id`, `email`, `time_stamp`) VALUES
 (5, 'ahmedbla@gmail.com', '2019-02-10 12:21:26'),
 (6, '', '2019-02-10 12:21:34'),
 (7, 'wadee12@gmail.com', '2019-02-10 12:37:29'),
-(8, 'asd@gmial.com', '2019-02-10 12:52:03');
+(8, 'asd@gmial.com', '2019-02-10 12:52:03'),
+(9, 'alihona@gmail.com', '2019-02-10 18:28:16'),
+(10, 'wadee12@gmail.com', '2019-02-10 18:33:22'),
+(11, 'yousefbreaka@gmail.com', '2019-02-10 18:36:08'),
+(12, 'yousefbreaka@gmail.com', '2019-02-10 18:36:08'),
+(13, 'alihona@gmail.com', '2019-02-10 18:36:13'),
+(14, 'alihona@gmail.com', '2019-02-10 18:36:13'),
+(15, 'wadee12@gmail.com', '2019-02-10 18:36:18'),
+(16, 'asd@gmial.com', '2019-02-10 18:36:24'),
+(17, 'asd@gmial.com', '2019-02-10 18:36:25'),
+(18, 'yousefbreaka@gmail.com', '2019-02-10 18:36:30'),
+(19, 'yousefbreaka@gmail.com', '2019-02-10 18:36:31'),
+(20, 'ahmedelforjani50@gmail.com', '2019-02-11 07:05:45'),
+(21, 'ahmedelforjani50@gmail.com', '2019-02-11 07:05:45'),
+(22, 'ajshdsad', '2019-02-11 07:09:10'),
+(23, 'asd@gmial.com', '2019-02-11 08:03:40'),
+(24, 'asd@gmial.com', '2019-02-11 08:03:40');
 
 -- --------------------------------------------------------
 
@@ -446,7 +462,7 @@ CREATE TABLE `webside_info` (
 --
 
 INSERT INTO `webside_info` (`id`, `welcome_dec`, `about_us`, `email`, `phone`, `address`, `map_loc`) VALUES
-(1, 'welcome', 'about', 'car@station.com', '218-92999999', 'Tripli, Libya', '13.180161,32.885353');
+(1, 'welcome to our site', 'about', 'car@station.com', '218-92999999', 'Tripoli, Libya', '13.180161,32.885353');
 
 -- --------------------------------------------------------
 
@@ -467,8 +483,8 @@ CREATE TABLE `work_time` (
 
 INSERT INTO `work_time` (`id`, `day`, `start_h`, `close_h`) VALUES
 (1, 'Saturday', 'Closed', 'Closed'),
-(2, 'Sunday', '7:00:00 AM', '2:00:00 PM'),
-(3, 'Monday', '7:00:00 AM', '2:00:00 PM'),
+(2, 'Sunday', 'Closed', 'Closed'),
+(3, 'Monday', '10:00:00 AM', '2:00:00 PM'),
 (4, 'Tuesday', '7:00:00 AM', '2:00:00 PM'),
 (5, 'Wednesday', '7:00:00 AM', '2:00:00 PM'),
 (6, 'Thursday', '7:00:00 AM', '2:00:00 PM'),
@@ -561,7 +577,7 @@ ALTER TABLE `cars_image`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `employee`
@@ -585,7 +601,7 @@ ALTER TABLE `statistics`
 -- AUTO_INCREMENT for table `subscribed_users`
 --
 ALTER TABLE `subscribed_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `user`

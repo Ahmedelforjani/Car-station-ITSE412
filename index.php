@@ -447,7 +447,7 @@ include("nav.php");
                     <div class="col-md-4 col-sm-12 col-xs-12 xs-margin-bottom-40 sm-margin-bottom-none scroll_effect bounceInRight" data-wow-delay=".2s">
                         <div class="small-block clearfix">
                             <h4 class="margin-bottom-25 margin-top-none">About Us.</h4>
-                            <a href="#"><span class="align-center"><i class="fa fa-users fa-7x"></i></span></a> </div>
+                            <a href="our-team.php"><span class="align-center"><i class="fa fa-users fa-7x"></i></span></a> </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 padding-left-none padding-right-none hours_operation">
                         <div class="small-block clearfix">
@@ -490,7 +490,7 @@ include("nav.php");
                     <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 xs-margin-bottom-40 sm-margin-bottom-none padding-right-none scroll_effect bounceInRight">
                         <div class="small-block clearfix">
                             <h4 class="margin-bottom-25 margin-top-none">Find Us.</h4>
-                            <a href="#"><span class="align-center"><i class="fa fa-map-marker fa-7x"></i></span></a> </div>
+                            <a href="contact.php"><span class="align-center"><i class="fa fa-map-marker fa-7x"></i></span></a> </div>
                     </div>
                 </div>
             </section>
